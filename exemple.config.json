@@ -1,0 +1,123 @@
+[
+    {
+        "application": "instagram",
+        "accounts": [
+            {
+                "username": "tt.lykke",
+                "password": "",
+                "active": true,
+                "iteratioms": 40,
+                "tags": [
+                    "travelgram",
+                    "interiordesign",
+                    "goodtimes"
+                ]
+            },
+            {
+                "username": "clementvanstaen",
+                "password": "",
+                "active": true,
+                "iteratioms": 50,
+                "tags": [
+                    "amateurphotography",
+                    "bouldern",
+                    "musicproducer",
+                    "kitkatclub",
+                    "bdsmberlin"
+                ]
+            },
+            {
+                "username": "vanstaenmusic",
+                "password": "",
+                "active": true,
+                "iteratioms": 50,
+                "tags": [
+                    "berlintechno",
+                    "kitkatclub",
+                    "progressivehouse",
+                    "analogsynth"
+                ]
+            },
+            {
+                "username": "miralykkeofficial",
+                "password": "",
+                "active": true,
+                "iteratioms": 50,
+                "tags": [
+                    "berlintechno",
+                    "musicproducer",
+                    "progressivehouse"
+                ]
+            },
+            {
+                "username": "purzelbaumrecords",
+                "password": "",
+                "active": true,
+                "iteratioms": 50,
+                "tags": [
+                    "berlintechno",
+                    "progressivehouse",
+                    "kreuzberg"
+                ]
+            },
+            {
+                "username": "deuxfrancs",
+                "password": "",
+                "active": true,
+                "iteratioms": 50,
+                "tags": [
+                    "handmade",
+                    "handmadewithlove",
+                    "berlindesign"
+                ]
+            },
+            {
+                "username": "vanstaenaudio",
+                "password": "",
+                "active": false,
+                "iteratioms": 25,
+                "tags": [
+                    "analogsynth",
+                    "diy"
+                ]
+            },
+            {
+                "username": "theresapogge",
+                "password": "",
+                "active": true,
+                "iteratioms": 50,
+                "tags": [
+                    "entrepreneur",
+                    "femaleleaders",
+                    "coaching"
+                ]
+            }
+        ]
+    },
+    {
+        "application": "soundcloud",
+        "accounts": [
+            {
+                "username": "purzelbaumrecords",
+                "email": "info@purzelbaumrecords.com",
+                "password": "",
+                "active": true,
+                "iteratioms": 50
+            },
+            {
+                "username": "vanstaenmusic",
+                "email": "clement.vanstaen@gmail.com",
+                "password": "",
+                "active": true,
+                "iteratioms": 50
+            },
+            {
+                "username": "miralykke",
+                "email": "info@miralykke.com",
+                "password": "",
+                "active": true,
+                "iteratioms": 50
+            }
+        ]
+    }
+]

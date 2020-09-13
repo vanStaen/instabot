@@ -1,0 +1,31 @@
+{
+  "name": "clembot",
+  "version": "1.0.0",
+  "description": "Instagram/Soundcloud robot - Crawling and liking users",
+  "main": "instabot.py",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanStaen/clembot.git"
+  },
+  "keywords": [
+    "instagram",
+    "soundcloud",
+    "instabot",
+    "bot"
+  ],
+  "author": "Clément van Staen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanStaen/clembot/issues"
+  },
+  "homepage": "https://github.com/vanStaen/clembot#readme",
+  "dependencies": {
+    "instabot": "^0.1.3",
+    "instagramapi": "^2.0.0",
+    "instaloader": "^1.0.1",
+    "prettier": "^2.1.1",
+    "python3": "0.0.1",
+    "random": "^2.2.0",
+    "selenium": "^2.20.0"
+  }
+}

@@ -1,0 +1,11 @@
+import time, datetime
+
+unformattedTimeStamp = time.time()
+formattedTimeStamp = time.strftime("%H:%M:%S", time.gmtime(unformattedTimeStamp + 3600))
+
+print(formattedTimeStamp)
+
+unformattedDateStamp = datetime.datetime.now()
+formattedDateStamp = unformattedDateStamp.strftime("%Y-%m-%d %H:%M:%S")
+
+print (formattedDateStamp)
