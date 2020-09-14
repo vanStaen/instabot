@@ -79,7 +79,7 @@ for app in apps:
 
     appCounter = 1
 
-    if (appCounter == 0):
+    if (appCounter == 1):
 
         # Go though all the accounts
         for account in app['accounts']:
