@@ -77,9 +77,7 @@ def like_recent_media(target_user, max_likes):
 # Go Through al the apps in config.Json
 for app in apps:
 
-    appCounter = 1
-
-    if (appCounter == 1):
+    if (appCounter == 0):
 
         # Go though all the accounts
         for account in app['accounts']:
@@ -107,7 +105,7 @@ for app in apps:
 
                         for profile in file:
 
-                            if likeCounter >= account['iteratioms'] :
+                            if likeCounter >= account['iterations'] :
 
                                 #Break for statement, to switch insta account
                                 break

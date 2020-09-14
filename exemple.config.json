@@ -6,7 +6,7 @@
                 "username": "tt.lykke",
                 "password": "",
                 "active": true,
-                "iteratioms": 40,
+                "iterations": 40,
                 "tags": [
                     "travelgram",
                     "interiordesign",
@@ -17,7 +17,7 @@
                 "username": "clementvanstaen",
                 "password": "",
                 "active": true,
-                "iteratioms": 50,
+                "iterations": 50,
                 "tags": [
                     "amateurphotography",
                     "bouldern",
@@ -30,7 +30,7 @@
                 "username": "vanstaenmusic",
                 "password": "",
                 "active": true,
-                "iteratioms": 50,
+                "iterations": 50,
                 "tags": [
                     "berlintechno",
                     "kitkatclub",
@@ -42,7 +42,7 @@
                 "username": "miralykkeofficial",
                 "password": "",
                 "active": true,
-                "iteratioms": 50,
+                "iterations": 50,
                 "tags": [
                     "berlintechno",
                     "musicproducer",
@@ -53,7 +53,7 @@
                 "username": "purzelbaumrecords",
                 "password": "",
                 "active": true,
-                "iteratioms": 50,
+                "iterations": 50,
                 "tags": [
                     "berlintechno",
                     "progressivehouse",
@@ -64,7 +64,7 @@
                 "username": "deuxfrancs",
                 "password": "",
                 "active": true,
-                "iteratioms": 50,
+                "iterations": 50,
                 "tags": [
                     "handmade",
                     "handmadewithlove",
@@ -75,7 +75,7 @@
                 "username": "vanstaenaudio",
                 "password": "",
                 "active": false,
-                "iteratioms": 25,
+                "iterations": 25,
                 "tags": [
                     "analogsynth",
                     "diy"
@@ -85,7 +85,7 @@
                 "username": "theresapogge",
                 "password": "",
                 "active": true,
-                "iteratioms": 50,
+                "iterations": 50,
                 "tags": [
                     "entrepreneur",
                     "femaleleaders",
@@ -102,21 +102,21 @@
                 "email": "info@purzelbaumrecords.com",
                 "password": "",
                 "active": true,
-                "iteratioms": 50
+                "iterations": 50
             },
             {
                 "username": "vanstaenmusic",
                 "email": "clement.vanstaen@gmail.com",
                 "password": "",
                 "active": true,
-                "iteratioms": 50
+                "iterations": 50
             },
             {
                 "username": "miralykke",
                 "email": "info@miralykke.com",
                 "password": "",
                 "active": true,
-                "iteratioms": 50
+                "iterations": 50
             }
         ]
     }
