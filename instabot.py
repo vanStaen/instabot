@@ -7,6 +7,7 @@ import json
 userErrors = 0
 iterationProUser = 5
 iterationProHashtag = 10
+appCounter = 0
 
 # Read file
 with open('config.json', 'r') as config:
@@ -76,85 +77,94 @@ def like_recent_media(target_user, max_likes):
 # Go Through al the apps in config.Json
 for app in apps:
 
-    # Go though all the accounts
-    for account in app['accounts']:
+    appCounter = 1
 
-        # Check account Active-status
-        if account['active']:
+    if (appCounter == 0):
 
-            print('--------------------------------------')
-            print('Connection to account {}'.format(account['username']))
-            print('--------------------------------------')
+        # Go though all the accounts
+        for account in app['accounts']:
 
-            try:
-                api = InstagramAPI(account['username'], account['password'])
-                api.login()
-                logAction('### Connection to account {}'.format(account['username']))
-                sleep(5)
+            # Check account Active-status
+            if account['active']:
 
-                # Reset some variables
-                likeCounter = 0
+                print('--------------------------------------')
+                print('Connection to account {}'.format(account['username']))
+                print('--------------------------------------')
 
-                # Go though TargetUsers
-                targetUserFollowers = open("userlist_instagram/username_{}.txt".format(account['username']),"r")
+                try:
+                    api = InstagramAPI(account['username'], account['password'])
+                    api.login()
+                    logAction('### Connection to account {}'.format(account['username']))
+                    sleep(5)
 
-                with targetUserFollowers as file:
+                    # Reset some variables
+                    likeCounter = 0
 
-                    for profile in file:
+                    # Go though TargetUsers
+                    targetUserFollowers = open("userlist_instagram/username_{}.txt".format(account['username']),"r")
 
-                        if likeCounter >= account['iteratioms'] :
+                    with targetUserFollowers as file:
 
-                            #Break for statement, to switch insta account
-                            break
+                        for profile in file:
 
-                        try:
-                            # Like media from user
-                            like_recent_media(profile[:-1], iterationProUser)
-                            likeCounter += iterationProUser
-                            print('likeCounter: {}'.format(likeCounter))
-                            # Delete user from list
-                            with open("userlist_instagram/username_{}.txt".format(account['username']),"r") as file:
-                                lines = file.readlines()
-                            with open("userlist_instagram/username_{}.txt".format(account['username']),"w") as file:
-                                for line in lines:
-                                    if line.strip("\n") != profile[:-1]:
-                                        file.write(line)
+                            if likeCounter >= account['iteratioms'] :
 
-                            #Reset user Error
-                            userErrors = 0
-
-                            # Like media from hastags array
-                            like_tag_feed(account['tags'][randint(0,len(account['tags'])-1)], iterationProHashtag)
-                            likeCounter += iterationProHashtag
-                            print('likeCounter: {}'.format(likeCounter))
-
-                            # Wait for few secondes
-                            sleep(30)
-
-
-                        except:
-
-                            userErrors += 1
-                            print('USER ERROR {}'.format(userErrors))
-
-                            # Delete user from list
-                            with open("userlist_instagram/username_{}.txt".format(account['username']),"r") as file:
-                                lines = file.readlines()
-                            with open("userlist_instagram/username_{}.txt".format(account['username']),"w") as file:
-                                for line in lines:
-                                    if line.strip("\n") != profile[:-1]:
-                                        file.write(line)
-
-                            # Break process if too much User Errors at once
-                            if userErrors >= 20 :
+                                #Break for statement, to switch insta account
                                 break
-                            else :
-                                continue
 
-            except:
+                            try:
+                                # Like media from user
+                                like_recent_media(profile[:-1], iterationProUser)
+                                likeCounter += iterationProUser
+                                print('likeCounter: {}'.format(likeCounter))
+                                # Delete user from list
+                                with open("userlist_instagram/username_{}.txt".format(account['username']),"r") as file:
+                                    lines = file.readlines()
+                                with open("userlist_instagram/username_{}.txt".format(account['username']),"w") as file:
+                                    for line in lines:
+                                        if line.strip("\n") != profile[:-1]:
+                                            file.write(line)
 
-                print('LOGIN ERROR')
-                continue
+                                #Reset user Error
+                                userErrors = 0
+
+                                # Like media from hastags array
+                                like_tag_feed(account['tags'][randint(0,len(account['tags'])-1)], iterationProHashtag)
+                                likeCounter += iterationProHashtag
+                                print('likeCounter: {}'.format(likeCounter))
+
+                                # Wait for few secondes
+                                sleep(30)
+
+
+                            except:
+
+                                userErrors += 1
+                                print('USER ERROR {}'.format(userErrors))
+
+                                # Delete user from list
+                                with open("userlist_instagram/username_{}.txt".format(account['username']),"r") as file:
+                                    lines = file.readlines()
+                                with open("userlist_instagram/username_{}.txt".format(account['username']),"w") as file:
+                                    for line in lines:
+                                        if line.strip("\n") != profile[:-1]:
+                                            file.write(line)
+
+                                # Break process if too much User Errors at once
+                                if userErrors >= 20 :
+                                    break
+                                else :
+                                    continue
+
+                except:
+
+                    print('LOGIN ERROR')
+                    continue
+
+    else :
+        break
+
+    appCounter = appCounter + 1
 
 # Inform that the script ended.
 # I am pretty sure that I will never see this.
