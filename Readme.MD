@@ -16,17 +16,18 @@ And now that you are at it, install `brew` if you don't have it yet, as we will 
 
 ### What to install and how to do it
 
+
 The whole thing can't run without Python: `brew install python3`, to get the lattest python version (incl. `pip3`).</br>
-</br>
+
+#### Instabot: 
 The two most important package are `instabot` and `instagramapi`. Use pip3 to install those. </br>
 In case of admin rights problem, you may want to *sudo* it.</br>
 ```sudo pip3 install instabot``` </br>
 ```sudo pip3 install instagramapi``` </br>
-</br>
-For running craeler and code directly with a browser, install `selenium`.</br>
-Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight</br>
-version of Chrome and will be controlled by the script. Thus, your machine will act as a proxy.</br>
 
+#### Soundcloudbot:
+For running craeler and code directly with a browser, install `selenium`.</br>
+Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script. 
 
 ## How to start the script
 

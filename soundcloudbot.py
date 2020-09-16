@@ -3,16 +3,18 @@ from time import sleep
 import datetime
 from selenium.webdriver.common.by import By
 import random
+import json
 
 unformattedDateStamp = datetime.datetime.now()
 formattedDateStamp = unformattedDateStamp.strftime("%Y-%m-%d")
+appCounter = 0
 
-# Account, eMail, Password, Active, Iteration
-accounts = [
-    ["purzelbaumrecords", "info@purzelbaumrecords.com", "", True, 50],
-    ["vanstaenmusic", "clement.vanstaen@gmail.com", "", True, 50],
-    ["miralykke", "info@miralykke.com", "", True, 30]
-]
+# Read file
+with open('config.json', 'r') as config:
+    data = config.read()
+
+# parse file
+apps = json.loads(data)
 
 chromedriver_path = 'ressources/chromedriver'
 
@@ -108,78 +110,89 @@ def unfollow(account, user, unfollowCounter):
     # Login
     logAction('{} unfollowed! ... ({})'.format(user, unfollowCounter))
     # Delete from unfollow list
-    #file = open("userlist_soundcloud/followed_"+ account +".txt","a+")
-    #file.write("[" + formattedDateStamp + "] " + user + "\n")
+    # file = open("userlist_soundcloud/followed_"+ account +".txt","a+")
+    # file.write("[" + formattedDateStamp + "] " + user + "\n")
     # file.close()
 
 
-# Go though all the accounts
-for account in accounts:
+# Go Through al the apps in config.Json
+for app in apps:
 
-    # Check account Active-status
-    if account[3]:
+    if (appCounter == 1):
 
-        print('--------------------------------------')
-        print('Connection to account {}'.format(account[0]))
-        print('--------------------------------------')
+        # Go though all the accounts
+        for account in app['accounts']:
 
-        # Open WebDriver
-        driver = webdriver.Chrome(executable_path=chromedriver_path)
-        sleep(1)
+            print(account)
 
-        # Login to account
-        login(account[0], account[2])
-        logAction('### Connection to account {}'.format(account[0]))
-        sleep(1)
+            # Check account Active-status
+            if account['active']:
 
-        # Reset some variables
-        followCounter = 1
+                print('--------------------------------------')
+                print('Connection to account {}'.format(account['username']))
+                print('--------------------------------------')
 
-        # Go though TargetUsers
-        targetUserFollowers = open(
-            "userlist_soundcloud/username_{}.txt".format(account[0]), "r")
+                # Open WebDriver
+                driver = webdriver.Chrome(executable_path=chromedriver_path)
+                sleep(1)
 
-        with targetUserFollowers as file:
+                # Login to account
+                login(account['username'], account['password'])
+                logAction('### Connection to account {}'.format(
+                    account['username']))
+                sleep(1)
 
-            for profile in file:
+                # Reset some variables
+                followCounter = 1
 
-                if followCounter >= account[4]:
+                # Go though TargetUsers
+                targetUserFollowers = open(
+                    "userlist_soundcloud/username_{}.txt".format(account['username']), "r")
 
-                    # Break for statement, to switch account
-                    driver.quit()
-                    break
+                with targetUserFollowers as file:
 
-                try:
+                    for profile in file:
 
-                    # Follow User
-                    follow(account[0], profile[:-1], followCounter)
-                    print('{} followed ... ({})'.format(
-                        profile[:-1], followCounter))
-                    followCounter = followCounter+1
+                        if followCounter >= account[4]:
 
-                    # Delete user from list
-                    with open("userlist_soundcloud/username_{}.txt".format(account[0]), "r") as file:
-                        lines = file.readlines()
-                    with open("userlist_soundcloud/username_{}.txt".format(account[0]), "w") as file:
-                        for line in lines:
-                            if line.strip("\n") != profile[:-1]:
-                                file.write(line)
+                            # Break for statement, to switch account
+                            driver.quit()
+                            break
 
-                    # Reset user Error
-                    userErrors = 0
+                        try:
 
-                    # Wait for few secondes
-                    sleep(random.randint(0, 4))
+                            # Follow User
+                            follow(account['username'],
+                                   profile[:-1], followCounter)
+                            print('{} followed ... ({})'.format(
+                                profile[:-1], followCounter))
+                            followCounter = followCounter+1
 
-                except:
+                            # Delete user from list
+                            with open("userlist_soundcloud/username_{}.txt".format(account['username']), "r") as file:
+                                lines = file.readlines()
+                            with open("userlist_soundcloud/username_{}.txt".format(account['username']), "w") as file:
+                                for line in lines:
+                                    if line.strip("\n") != profile[:-1]:
+                                        file.write(line)
 
-                    userErrors += 1
+                            # Reset user Error
+                            userErrors = 0
 
-                    # Break process if too much User Errors at once
-                    if userErrors >= 3:
-                        break
-                    else:
-                        continue
+                            # Wait for few secondes
+                            sleep(random.randint(0, 4))
+
+                        except:
+
+                            userErrors += 1
+
+                            # Break process if too much User Errors at once
+                            if userErrors >= 3:
+                                break
+                            else:
+                                continue
+
+    appCounter = appCounter + 1
 
 
 # Inform that the script ended.
