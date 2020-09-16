@@ -41,4 +41,4 @@ Use -i to interact with python code.  </br>
 
 - Repository on git hub: https://github.com/vanStaen/clembot
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
-- Use with a cronjob: https://medium.com/gavinwiener/how-to-schedule-a-python-script-cron-job-dea6cbf69f4e
+- Cronjob on heroku with python: https://saqibameen.com/deploy-python-cron-job-scripts-on-heroku/
