@@ -47,3 +47,9 @@ Use -i to interact with python code. </br>
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
 - Send mail with python: https://blog.mailtrap.io/sending-emails-in-python-tutorial-with-code-examples/
 - Cronjob on heroku with python: https://saqibameen.com/deploy-python-cron-job-scripts-on-heroku/
+
+## To-dos:
+
+- Online logs instead of txt
+- Send email when script errors
+- Cron job on heroku
