@@ -53,3 +53,4 @@ Use -i to interact with python code. </br>
 - Online logs instead of txt
 - Send email when script errors
 - Cron job on heroku
+- Randomize iterations
