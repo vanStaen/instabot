@@ -9,11 +9,23 @@ iterationProUser = 5
 iterationProHashtag = 10
 appCounter = 0
 
-# Read file
+# Get Data for emailing
+with open('config.mail.json', 'r') as config:
+    data = config.read()
+emailData = json.loads(data)
+for email in emailData['emailAccount']:
+    smtp_server = email['smtp_server']
+    port = email['port']
+    sender_email = email['sender_email']
+    receiver_email = email['receiver_email']
+    password = email['password']
+message = """\
+Subject: Python Error report
+Error when running Python script"""
+
+# Read file vonfig.json and parse data
 with open('config.json', 'r') as config:
     data = config.read()
-
-# parse file
 apps = json.loads(data)
 
 
