@@ -3,6 +3,8 @@ from time import sleep
 from random import randint
 import time, datetime
 import json
+import smtplib
+import ssl
 
 userErrors = 0
 iterationProUser = 5
@@ -95,6 +97,25 @@ def like_recent_media(target_user, max_likes):
             if likes >= max_likes:
                 break
             sleep(randint(3, 22))
+
+
+def send_email_on_error(errorType):
+    # Create a secure SSL context
+    context = ssl.create_default_context()
+
+    # Try to log in to server and send email
+    try:
+        server = smtplib.SMTP(smtp_server, port)
+        server.ehlo()  # Can be omitted
+        server.starttls(context=context)  # Secure the connection
+        server.ehlo()  # Can be omitted
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message)
+    except Exception as e:
+        # Print any error messages to stdout
+        print(e)
+    finally:
+        server.quit()
 
 
 # Go Through al the apps in config.Json

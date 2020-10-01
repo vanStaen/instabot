@@ -75,7 +75,7 @@ Request return 400 error!
 
 ## To-dos:
 
-- Online logs instead of txt
 - Send email when script errors
+- Online logs instead of txt
 - Cron job on heroku
 - Randomize iterations
