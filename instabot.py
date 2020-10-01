@@ -65,14 +65,7 @@ def like_tag_feed(tag, max_likes):
                 sleep(randint(3, 22))
         try:
             next_max_id = temp["next_max_id"]
-        except Exception as e:
-            if (e.status_code == 400):
-                print(">>> This is an Error 400")
-                print(e)
-            else:
-                print(">>> This is not an Error 400")
-                print(e)
-            sys.exit("/!\ It came this far ... ")
+        except Exception:
             pass
         if likes >= max_likes:
             break
@@ -98,7 +91,17 @@ def like_recent_media(target_user, max_likes):
                 "%H:%M:%S", time.gmtime(unformattedTimeStamp + 3600 + 3600))
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
-            api.like(recent_post['pk'])
+            try:
+                api.like(recent_post['pk'])
+            except Exception as e:
+                if (e.status_code == 400):
+                    print(">>> This is an Error 400")
+                    print(e)
+                else:
+                    print(">>> This is not an Error 400")
+                    print(e)
+                sys.exit("/!\ It came this far ... ")
+                pass
             likes += 1
             logAction('{} - Photo #{} liked! ... ({})'.format(
                 target_user, recent_post["pk"], likeCounter + likes))
@@ -221,7 +224,7 @@ for app in apps:
                                             file.write(line)
 
                                 # Break process if too much User Errors at once
-                                if userErrors >= 20:
+                                if userErrors >= 5:
                                     break
                                 else:
                                     continue
