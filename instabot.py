@@ -5,6 +5,7 @@ import time, datetime
 import json
 import smtplib
 import ssl
+import sys
 
 userErrors = 0
 iterationProUser = 5
@@ -64,7 +65,14 @@ def like_tag_feed(tag, max_likes):
                 sleep(randint(3, 22))
         try:
             next_max_id = temp["next_max_id"]
-        except Exception:
+        except Exception as e:
+            if (e.status_code == 400):
+                print(">>> This is an Error 400")
+                print(e)
+            else:
+                print(">>> This is not an Error 400")
+                print(e)
+            sys.exit("/!\ It came this far ... ")
             pass
         if likes >= max_likes:
             break
