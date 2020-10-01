@@ -32,7 +32,9 @@ In case of admin rights problem, you may want to _sudo_ it.</br>
 For running craeler and code directly with a browser, install `selenium`.</br>
 Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
 
-## How to start the script
+## Under the hood
+
+### How to start the script
 
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
 `caffeinate python3 instabot.py` </br>
@@ -40,6 +42,29 @@ _Caffeinate_ is used to stop the computer from going to sleep modus. </br>
 </br>
 Use -i to interact with python code. </br>
 `caffeinate -i python3 soundcloudbot.py` </br>
+
+### Sending mail with Python
+Some mail are getting sent from the code, mainly to alert the admin of failure when running the code. </br>
+I used this ressoruce to set it up: https://realpython.com/python-send-email/
+
+#### Allow gmail to be access by less secured apps:
+By toggling this : https://myaccount.google.com/lesssecureapps
+
+## Errors
+
+### Error code comming from InstagramAPI
+
+#### Blocked account for spam:
+```
+Request return 400 error!
+{'message': 'feedback_required', 'spam': True, 'feedback_title': 'Try Again Later', 'feedback_message': 'We restrict certain activity to protect our community. Tell us if you think we made a mistake.', 'feedback_url': 'repute/report_problem/instagram_like_add/?violation_type&responsible_policy=Ig.Policy.Engagement.SessionClassifier.SessionClassifierRunPrediction', 'feedback_appeal_label': 'Tell us', 'feedback_ignore_label': 'OK', 'feedback_action': 'report_problem', 'category': 'instagram_like_add', 'status': 'fail'} 
+```
+
+#### Private user:
+```
+Request return 400 error! 
+{'message': 'Not authorized to view user', 'status': 'fail'}
+```
 
 ## Links
 
