@@ -57,6 +57,9 @@ The levels of logs:
 - ERROR: Due to a more serious problem, the software has not been able to perform some function.
 - CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
+>check promotheurs metrics+grafana :
+https://www.youtube.com/results?search_query=prometheus+python+
+
 
 ## Errors
 
