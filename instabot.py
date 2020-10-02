@@ -9,8 +9,6 @@ import ssl
 import sys
 
 errors = 0
-iterationProUser = 5
-iterationProHashtag = 10
 counterIterationsTotal = 0
 appCounter = 0
 
@@ -180,6 +178,9 @@ for app in apps:
                     with targetUserFollowers as file:
 
                         for profile in file:
+
+                            iterationProUser = randint(3, 7)
+                            iterationProHashtag = randint(7, 12)
 
                             if likeCounter >= account['iterations']:
 

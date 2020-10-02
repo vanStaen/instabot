@@ -75,9 +75,7 @@ Request return 400 error!
 
 ## To-dos:
 
-- Send email when script errors
 - Online logs instead of txt
-- Cron job on heroku
-- Randomize iterations
-- rework counting of iterations
 - read userlist from mysql DB
+- email when userlist is empty
+- Cron job on heroku
