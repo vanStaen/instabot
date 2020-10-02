@@ -233,7 +233,7 @@ for app in apps:
 
                 except:
 
-                    print('Some error happenned!')
+                    print('Login Error!')
                     continue
 
     else:
