@@ -22,9 +22,6 @@ for email in emailData['emailAccount']:
     sender_email = email['sender_email']
     receiver_email = email['receiver_email']
     password = email['password']
-message = """\
-Subject: Python Error report
-Error when running Python script"""
 
 # Read file vonfig.json and parse data
 with open('config.json', 'r') as config:
@@ -91,17 +88,7 @@ def like_recent_media(target_user, max_likes):
                 "%H:%M:%S", time.gmtime(unformattedTimeStamp + 3600 + 3600))
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
-            try:
-                api.like(recent_post['pk'])
-            except Exception as e:
-                if (e.status_code == 400):
-                    print(">>> This is an Error 400")
-                    print(e)
-                else:
-                    print(">>> This is not an Error 400")
-                    print(e)
-                sys.exit("/!\ It came this far ... ")
-                pass
+            api.like(recent_post['pk'])
             likes += 1
             logAction('{} - Photo #{} liked! ... ({})'.format(
                 target_user, recent_post["pk"], likeCounter + likes))
@@ -111,6 +98,19 @@ def like_recent_media(target_user, max_likes):
 
 
 def send_email_on_error(errorType):
+    if errorType == 0:
+        message = """\
+            Subject: Instabot ran successfully
+            Instabot ran successfully""",
+    elif errorType == 1:
+        message = """\
+            Subject: Python Error report
+            Error when running Python script"""
+    else:
+        message = """\
+            Subject: All hands on deck! 
+            Something weird is going on in your script."""
+
     # Create a secure SSL context
     context = ssl.create_default_context()
 
@@ -231,7 +231,7 @@ for app in apps:
 
                 except:
 
-                    print('LOGIN ERROR')
+                    print('Some error happenned!')
                     continue
 
     else:
@@ -240,6 +240,7 @@ for app in apps:
     appCounter = appCounter + 1
 
 # Inform that the script ended.
+send_email_on_error(0)
 print('------------------------')
 print('SCRIPT RAN SUCCESSFULLY')
 print('------------------------')
