@@ -7,7 +7,7 @@ import smtplib
 import ssl
 import sys
 
-userErrors = 0
+errors = 0
 iterationProUser = 5
 iterationProHashtag = 10
 appCounter = 0
@@ -164,6 +164,9 @@ for app in apps:
 
                         for profile in file:
 
+                            #Reset user Error
+                            errors = 0
+
                             if likeCounter >= account['iterations']:
 
                                 #Break for statement, to switch insta account
@@ -189,9 +192,6 @@ for app in apps:
                                         if line.strip("\n") != profile[:-1]:
                                             file.write(line)
 
-                                #Reset user Error
-                                userErrors = 0
-
                                 # Like media from hastags array
                                 like_tag_feed(
                                     account['tags'][randint(
@@ -206,8 +206,8 @@ for app in apps:
 
                             except:
 
-                                userErrors += 1
-                                print('USER ERROR {}'.format(userErrors))
+                                errors += 1
+                                print('(!) ERROR {}'.format(errors))
 
                                 # Delete user from list
                                 with open(
@@ -224,7 +224,8 @@ for app in apps:
                                             file.write(line)
 
                                 # Break process if too much User Errors at once
-                                if userErrors >= 5:
+                                if errors >= 10:
+                                    send_email_on_error(1)
                                     break
                                 else:
                                     continue
