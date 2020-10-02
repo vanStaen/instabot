@@ -98,19 +98,20 @@ def like_recent_media(target_user, max_likes):
             sleep(randint(3, 22))
 
 
-def send_email_on_error(errorType):
-    if errorType == 0:
+def send_email(mailType):
+
+    if mailType == 0:
         message = """\
-        Subject: Instabot ran successfully
-        Instabot ran successfully""",
-    elif errorType == 1:
+Subject: Instabot ran successfully
+Instabot ran successfully"""
+    elif mailType == 1:
         message = """\
-        Subject: Python Error report
-        Error when running Python script"""
+Subject: Python Error report
+Error when running Python script"""
     else:
-        message = """\
-        Subject: All hands on deck! 
-        Something weird is going on in your script."""
+        mailType = """\
+Subject: All hands on deck! 
+Something weird is going on in your script."""
 
     # Create a secure SSL context
     context = ssl.create_default_context()
@@ -221,7 +222,7 @@ for app in apps:
 
                                 # Break process if too much User Errors at once
                                 if errors >= 10:
-                                    send_email_on_error(1)
+                                    send_email(1)
                                     break
                                 else:
                                     continue
@@ -237,7 +238,7 @@ for app in apps:
     appCounter = appCounter + 1
 
 # Inform that the script ended.
-send_email_on_error(0)
+send_email(0)
 print('------------------------')
 print('SCRIPT RAN SUCCESSFULLY')
 print('------------------------')

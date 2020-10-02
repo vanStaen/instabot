@@ -13,14 +13,16 @@ for email in emailData['emailAccount']:
     receiver_email = email['receiver_email']
     password = email['password']
 
-message = """\
+
+def send_mail(errorType):
+
+    message = """\
 Subject: Hi there
 This message is sent from Python."""
 
-
-def send_mail():
     # Create a secure SSL context
     context = ssl.create_default_context()
+
     # Try to log in to server and send email
     try:
         with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
@@ -31,4 +33,4 @@ def send_mail():
         print(e)
 
 
-send_mail()
+send_mail(0)
