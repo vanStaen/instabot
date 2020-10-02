@@ -80,3 +80,4 @@ Request return 400 error!
 - Cron job on heroku
 - Randomize iterations
 - rework counting of iterations
+- read userlist from mysql DB

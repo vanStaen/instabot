@@ -2,7 +2,7 @@
     "emailAccount": [
         {
             "smtp_server": "smtp.gmail.com",
-            "port": "587",
+            "port": "465",
             "sender_email": "email@gmail.com",
             "password": "password",
             "receiver_email": "email@gmail.com"

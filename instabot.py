@@ -101,33 +101,28 @@ def like_recent_media(target_user, max_likes):
 def send_email_on_error(errorType):
     if errorType == 0:
         message = """\
-            Subject: Instabot ran successfully
-            Instabot ran successfully""",
+        Subject: Instabot ran successfully
+        Instabot ran successfully""",
     elif errorType == 1:
         message = """\
-            Subject: Python Error report
-            Error when running Python script"""
+        Subject: Python Error report
+        Error when running Python script"""
     else:
         message = """\
-            Subject: All hands on deck! 
-            Something weird is going on in your script."""
+        Subject: All hands on deck! 
+        Something weird is going on in your script."""
 
     # Create a secure SSL context
     context = ssl.create_default_context()
 
     # Try to log in to server and send email
     try:
-        server = smtplib.SMTP(smtp_server, port)
-        server.ehlo()  # Can be omitted
-        server.starttls(context=context)  # Secure the connection
-        server.ehlo()  # Can be omitted
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, message)
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
     except Exception as e:
         # Print any error messages to stdout
         print(e)
-    finally:
-        server.quit()
 
 
 # Go Through al the apps in config.Json
@@ -144,6 +139,9 @@ for app in apps:
                 print('--------------------------------------')
                 print('Connection to account {}'.format(account['username']))
                 print('--------------------------------------')
+
+                #Reset user Error
+                errors = 0
 
                 try:
                     api = InstagramAPI(account['username'],
@@ -164,9 +162,6 @@ for app in apps:
                     with targetUserFollowers as file:
 
                         for profile in file:
-
-                            #Reset user Error
-                            errors = 0
 
                             if likeCounter >= account['iterations']:
 
