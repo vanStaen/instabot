@@ -1,7 +1,8 @@
 from InstagramAPI import InstagramAPI
 from time import sleep
 from random import randint
-import time, datetime
+import time
+import datetime
 import json
 import smtplib
 import ssl
