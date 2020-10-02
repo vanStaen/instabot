@@ -79,3 +79,4 @@ Request return 400 error!
 - Online logs instead of txt
 - Cron job on heroku
 - Randomize iterations
+- rework counting of iterations
