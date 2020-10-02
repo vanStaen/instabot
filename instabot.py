@@ -11,6 +11,7 @@ import sys
 errors = 0
 iterationProUser = 5
 iterationProHashtag = 10
+counterIterationsTotal = 0
 appCounter = 0
 
 # Get Data for emailing
@@ -39,6 +40,8 @@ def logAction(data):
 
 
 def like_tag_feed(tag, max_likes):
+    global likeCounter
+    global counterIterationsTotal
     print('# Liking media with hashtag #{}'.format(tag))
     next_max = 1
     next_max_id = ''
@@ -56,8 +59,10 @@ def like_tag_feed(tag, max_likes):
                     formattedTimeStamp, post["pk"]))
                 api.like(post["pk"])
                 likes += 1
+                likeCounter += 1
+                counterIterationsTotal += 1
                 logAction('#{} - Photo liked! ... ({})'.format(
-                    tag, likeCounter + likes))
+                    tag, likeCounter))
                 if likes >= max_likes:
                     break
                 sleep(randint(3, 22))
@@ -70,6 +75,8 @@ def like_tag_feed(tag, max_likes):
 
 
 def like_recent_media(target_user, max_likes):
+    global likeCounter
+    global counterIterationsTotal
     print('# Liking media from User {}'.format(target_user))
 
     def get_user_profile(target_user):
@@ -91,39 +98,46 @@ def like_recent_media(target_user, max_likes):
                 formattedTimeStamp, recent_post["pk"], target_user))
             api.like(recent_post['pk'])
             likes += 1
+            likeCounter += 1
+            counterIterationsTotal += 1
             logAction('{} - Photo #{} liked! ... ({})'.format(
-                target_user, recent_post["pk"], likeCounter + likes))
+                target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
                 break
             sleep(randint(3, 22))
 
 
-def send_email(mailType):
+def send_email(mailType, detail):
 
     if mailType == 0:
-        message = """\
+        message = f"""\
 Subject: Instabot ran successfully
-Instabot ran successfully"""
+Instabot ran successfully with {detail} iterations """
     elif mailType == 1:
-        message = """\
+        message = f"""\
 Subject: Python Error report
-Error when running Python script"""
+There were too many erros when running the instabot script for the account {userAccount} """
     else:
         mailType = """\
 Subject: All hands on deck! 
-Something weird is going on in your script."""
+Something weird is going on in your python script."""
 
     # Create a secure SSL context
     context = ssl.create_default_context()
 
     # Try to log in to server and send email
     try:
-        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-            server.login(sender_email, password)
-            server.sendmail(sender_email, receiver_email, message)
+        server = smtplib.SMTP(smtp_server, port)
+        server.ehlo()  # Can be omitted
+        server.starttls(context=context)  # Secure the connection
+        server.ehlo()  # Can be omitted
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message)
     except Exception as e:
         # Print any error messages to stdout
         print(e)
+    finally:
+        server.quit()
 
 
 # Go Through al the apps in config.Json
@@ -144,6 +158,9 @@ for app in apps:
                 #Reset user Error
                 errors = 0
 
+                #For error handling
+                userAccount = account['username']
+
                 try:
                     api = InstagramAPI(account['username'],
                                        account['password'])
@@ -152,7 +169,7 @@ for app in apps:
                         account['username']))
                     sleep(5)
 
-                    # Reset some variables
+                    # Reset the like counter
                     likeCounter = 0
 
                     # Go though TargetUsers
@@ -173,7 +190,6 @@ for app in apps:
                                 # Like media from user
                                 like_recent_media(profile[:-1],
                                                   iterationProUser)
-                                likeCounter += iterationProUser
                                 print('likeCounter: {}'.format(likeCounter))
                                 # Delete user from list
                                 with open(
@@ -195,7 +211,6 @@ for app in apps:
                                         0,
                                         len(account['tags']) - 1)],
                                     iterationProHashtag)
-                                likeCounter += iterationProHashtag
                                 print('likeCounter: {}'.format(likeCounter))
 
                                 # Wait for few secondes
@@ -222,14 +237,16 @@ for app in apps:
 
                                 # Break process if too much User Errors at once
                                 if errors >= 10:
-                                    send_email(1)
+                                    send_email(1, userAccount)
                                     break
                                 else:
                                     continue
 
                 except:
 
-                    print('Login Error!')
+                    print(
+                        f'Some unhandled error happened for account {userAccount} !'
+                    )
                     continue
 
     else:
@@ -238,7 +255,7 @@ for app in apps:
     appCounter = appCounter + 1
 
 # Inform that the script ended.
-send_email(0)
+send_email(0, counterIterationsTotal)
 print('------------------------')
 print('SCRIPT RAN SUCCESSFULLY')
 print('------------------------')
