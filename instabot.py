@@ -7,6 +7,7 @@ import json
 import smtplib
 import ssl
 import sys
+import logging
 
 errors = 0
 counterIterationsTotal = 0
@@ -28,13 +29,10 @@ with open('config.json', 'r') as config:
     data = config.read()
 apps = json.loads(data)
 
-
-def logAction(data):
-    unformattedDateStamp = datetime.datetime.now()
-    formattedDateStamp = unformattedDateStamp.strftime("%Y-%m-%d %H:%M:%S")
-    file = open("log/log_instagram.txt", "a+")
-    file.write("[" + formattedDateStamp + "] " + data + "\n")
-    file.close()
+#Setting up logging
+logging.basicConfig(filename='log/insta_bot.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 def like_tag_feed(tag, max_likes):
@@ -59,7 +57,7 @@ def like_tag_feed(tag, max_likes):
                 likes += 1
                 likeCounter += 1
                 counterIterationsTotal += 1
-                logAction('#{} - Photo liked! ... ({})'.format(
+                logging.info('#{} - Photo liked! ... ({})'.format(
                     tag, likeCounter))
                 if likes >= max_likes:
                     break
@@ -98,7 +96,7 @@ def like_recent_media(target_user, max_likes):
             likes += 1
             likeCounter += 1
             counterIterationsTotal += 1
-            logAction('{} - Photo #{} liked! ... ({})'.format(
+            logging.info('{} - Photo #{} liked! ... ({})'.format(
                 target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
                 break
@@ -163,7 +161,7 @@ for app in apps:
                     api = InstagramAPI(account['username'],
                                        account['password'])
                     api.login()
-                    logAction('### Connection to account {}'.format(
+                    logging.info('### Connection to account {}'.format(
                         account['username']))
                     sleep(5)
 
@@ -221,6 +219,9 @@ for app in apps:
 
                                 errors += 1
                                 print('(!) ERROR {}'.format(errors))
+                                logging.warning(
+                                    '(!) ERROR #{} on account {}'.format(
+                                        errors, account['username']))
 
                                 # Delete user from list
                                 with open(
@@ -239,6 +240,9 @@ for app in apps:
                                 # Break process if too much User Errors at once
                                 if errors >= 10:
                                     send_email(1, userAccount)
+                                    logging.critical(
+                                        '10 ERROR on account {}. Account will be dropped for now.'
+                                        .format(account['username']))
                                     break
                                 else:
                                     continue
@@ -257,6 +261,9 @@ for app in apps:
 
 # Inform that the script ended.
 send_email(0, counterIterationsTotal)
+logging.info(
+    'SCRIPT RAN SUCCESSFULLY ({} iterations)'.format(counterIterationsTotal))
+
 print('------------------------')
 print('SCRIPT RAN SUCCESSFULLY')
 print('------------------------')

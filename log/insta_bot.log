@@ -1,0 +1,79 @@
+2020-10-03 11:40:15,415:INFO:Starting new HTTPS connection (1): i.instagram.com
+2020-10-03 11:40:16,123:DEBUG:"GET /api/v1/si/fetch_headers/?challenge_type=signup&guid=0945cf142e3a430ca0d30805284d8a01 HTTP/1.1" 200 16
+2020-10-03 11:40:16,128:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:18,229:DEBUG:"POST /api/v1/accounts/login/ HTTP/1.1" 200 707
+2020-10-03 11:40:18,237:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:18,877:DEBUG:"POST /api/v1/qe/sync/ HTTP/1.1" 200 342
+2020-10-03 11:40:18,882:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:19,447:DEBUG:"GET /api/v1/friendships/autocomplete_user_list/ HTTP/1.1" 200 27944
+2020-10-03 11:40:19,455:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:20,321:DEBUG:"GET /api/v1/feed/timeline/ HTTP/1.1" 405 33
+2020-10-03 11:40:20,325:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:21,078:DEBUG:"GET /api/v1/direct_v2/inbox/ HTTP/1.1" 404 0
+2020-10-03 11:40:21,082:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:22,063:DEBUG:"GET /api/v1/news/inbox/ HTTP/1.1" 200 20075
+2020-10-03 11:40:22,069:INFO:### Connection to account clementvanstaen
+2020-10-03 11:40:27,073:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:27,769:DEBUG:"GET /api/v1/users/juanfra_wt/usernameinfo/ HTTP/1.1" 200 759
+2020-10-03 11:40:27,773:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:28,245:DEBUG:"GET /api/v1/feed/user/4035402343/?max_id=&min_timestamp=None&rank_token=4238711719_d7a77516-cec6-4d6a-9a68-c053a21f5702&ranked_content=true HTTP/1.1" 200 12858
+2020-10-03 11:40:28,251:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:29,064:DEBUG:"POST /api/v1/media/2396768420170951145/like/ HTTP/1.1" 200 16
+2020-10-03 11:40:29,066:INFO:juanfra_wt - Photo #2396768420170951145 liked! ... (1)
+2020-10-03 11:40:39,070:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:40:39,824:DEBUG:"POST /api/v1/media/2392386095161106542/like/ HTTP/1.1" 200 16
+2020-10-03 11:40:39,826:INFO:juanfra_wt - Photo #2392386095161106542 liked! ... (2)
+2020-10-03 11:41:01,830:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:02,559:DEBUG:"POST /api/v1/media/2333043922863399670/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:02,561:INFO:juanfra_wt - Photo #2333043922863399670 liked! ... (3)
+2020-10-03 11:41:08,565:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:09,792:DEBUG:"POST /api/v1/media/2327613625831765887/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:09,794:INFO:juanfra_wt - Photo #2327613625831765887 liked! ... (4)
+2020-10-03 11:41:19,798:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:20,742:DEBUG:"POST /api/v1/media/2321427510491443336/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:20,743:INFO:juanfra_wt - Photo #2321427510491443336 liked! ... (5)
+2020-10-03 11:41:27,751:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:28,626:DEBUG:"POST /api/v1/media/2230507688296183965/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:28,628:INFO:juanfra_wt - Photo #2230507688296183965 liked! ... (6)
+2020-10-03 11:41:34,657:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:35,733:DEBUG:"POST /api/v1/media/2181294940043625153/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:35,735:INFO:juanfra_wt - Photo #2181294940043625153 liked! ... (7)
+2020-10-03 11:41:35,765:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:38,938:DEBUG:"GET /api/v1/feed/tag/amateurphotography/?max_id=&rank_token=4238711719_d7a77516-cec6-4d6a-9a68-c053a21f5702&ranked_content=true& HTTP/1.1" 200 126229
+2020-10-03 11:41:39,002:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:39,891:DEBUG:"POST /api/v1/media/2411708625195596343/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:39,892:INFO:#amateurphotography - Photo liked! ... (8)
+2020-10-03 11:41:45,896:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:41:46,751:DEBUG:"POST /api/v1/media/2411708616951573434/like/ HTTP/1.1" 200 16
+2020-10-03 11:41:46,753:INFO:#amateurphotography - Photo liked! ... (9)
+2020-10-03 11:41:59,757:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:42:00,507:DEBUG:"POST /api/v1/media/2411708423015366116/like/ HTTP/1.1" 200 16
+2020-10-03 11:42:00,509:INFO:#amateurphotography - Photo liked! ... (10)
+2020-10-03 11:42:22,513:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:42:22,709:DEBUG:"POST /api/v1/media/2411708323491858909/like/ HTTP/1.1" 400 114
+2020-10-03 11:42:22,710:INFO:#amateurphotography - Photo liked! ... (11)
+2020-10-03 11:42:38,714:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:42:39,332:DEBUG:"POST /api/v1/media/2411708268563669423/like/ HTTP/1.1" 200 16
+2020-10-03 11:42:39,333:INFO:#amateurphotography - Photo liked! ... (12)
+2020-10-03 11:42:51,368:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:42:52,407:DEBUG:"POST /api/v1/media/2411707960953578731/like/ HTTP/1.1" 200 16
+2020-10-03 11:42:52,409:INFO:#amateurphotography - Photo liked! ... (13)
+2020-10-03 11:43:11,413:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:43:12,162:DEBUG:"POST /api/v1/media/2411707944922961567/like/ HTTP/1.1" 200 16
+2020-10-03 11:43:12,164:INFO:#amateurphotography - Photo liked! ... (14)
+2020-10-03 11:43:32,184:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:43:33,152:DEBUG:"POST /api/v1/media/2411707935359256253/like/ HTTP/1.1" 200 16
+2020-10-03 11:43:33,153:INFO:#amateurphotography - Photo liked! ... (15)
+2020-10-03 11:43:39,158:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:43:40,093:DEBUG:"POST /api/v1/media/2411707906551541902/like/ HTTP/1.1" 200 16
+2020-10-03 11:43:40,095:INFO:#amateurphotography - Photo liked! ... (16)
+2020-10-03 11:43:58,099:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:44:00,093:DEBUG:"POST /api/v1/media/2411707916928157405/like/ HTTP/1.1" 200 16
+2020-10-03 11:44:00,095:INFO:#amateurphotography - Photo liked! ... (17)
+2020-10-03 11:44:30,100:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:44:30,504:DEBUG:"GET /api/v1/users/hero.bouldering/usernameinfo/ HTTP/1.1" 200 712
+2020-10-03 11:44:30,508:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:44:31,531:DEBUG:"GET /api/v1/feed/user/9234603659/?max_id=&min_timestamp=None&rank_token=4238711719_d7a77516-cec6-4d6a-9a68-c053a21f5702&ranked_content=true HTTP/1.1" 200 20237
+2020-10-03 11:44:31,539:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:44:32,521:DEBUG:"POST /api/v1/media/2233343364569450850/like/ HTTP/1.1" 200 16
+2020-10-03 11:44:32,523:INFO:hero.bouldering - Photo #2233343364569450850 liked! ... (18)

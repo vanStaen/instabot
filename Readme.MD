@@ -57,10 +57,6 @@ The levels of logs:
 - ERROR: Due to a more serious problem, the software has not been able to perform some function.
 - CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
->check promotheurs metrics + grafana :
-https://www.youtube.com/results?search_query=prometheus+python
-
-
 ## Errors
 
 ### Error code comming from InstagramAPI
@@ -90,3 +86,5 @@ Request return 400 error!
 - read userlist from mysql DB
 - email when userlist is empty
 - Cron job on heroku
+- set acccount with more than 10 errors per iteration to Active = false
+- Logs management (analysis tool). Prometheus + grafana ? see https://www.loggly.com/ultimate-guide/centralizing-python-logs/
