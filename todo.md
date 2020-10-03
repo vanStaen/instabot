@@ -3,11 +3,13 @@ Bots written in python, generating traffic on social plattform such as Instragra
 
 ## To-dos:
 - [ ] Improve the handling of logs
+    - [x] Use python logging feature
     - [ ] jsoninfy the logs : https://www.datadoghq.com/blog/python-logging-best-practices/
     - [ ] Logs management (analysis tool). Prometheus + grafana ? 
         - https://www.loggly.com/ultimate-guide/centralizing-python-logs/
         - https://www.youtube.com/results?search_query=prometheus+python
 - [ ] Run the script automatically from a server    
+    - [x] Send mail when scripts error and script ran sucessfully
     - [ ] read userlist from mysql DB
     - [ ] email when userlist is empty
     - [ ] Cron job on heroku
@@ -19,6 +21,4 @@ Bots written in python, generating traffic on social plattform such as Instragra
 
 
 ## Completed ✓
-- [x] Use python logging feature
 - [x] Randomize iterations pro User and pro hashtags
-- [x] Send mail when scripts error and script ran sucessfully
