@@ -77,7 +77,7 @@ Request return 400 error!
 
 - Repository on git hub: https://github.com/vanStaen/clembot
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
-- Send mail with python: https://blog.mailtrap.io/sending-emails-in-python-tutorial-with-code-examples/
+- Send mail with python: https://realpython.com/python-send-email/
 - Cronjob on heroku with python: https://saqibameen.com/deploy-python-cron-job-scripts-on-heroku/
 
 ## To-dos:
@@ -86,5 +86,5 @@ Request return 400 error!
 - read userlist from mysql DB
 - email when userlist is empty
 - Cron job on heroku
-- set acccount with more than 10 errors per iteration to Active = false
+- Set acccount with more than 10 errors per iteration to Active = false (json write)
 - Logs management (analysis tool). Prometheus + grafana ? see https://www.loggly.com/ultimate-guide/centralizing-python-logs/, and https://www.youtube.com/results?search_query=prometheus+python
