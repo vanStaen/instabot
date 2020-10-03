@@ -35,7 +35,6 @@ Save the chromedriver in the right folder. Per default, this executable is saved
 ## Under the hood
 
 ### How to start the script
-
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
 `caffeinate python3 instabot.py` </br>
 _Caffeinate_ is used to stop the computer from going to sleep modus. </br>
@@ -49,6 +48,14 @@ I used this ressoruce to set it up: https://realpython.com/python-send-email/
 
 #### Allow gmail to be access by less secured apps:
 By toggling this : https://myaccount.google.com/lesssecureapps
+
+### Logging
+The levels of logs:
+- DEBUG: Detailed information, typically of interest only when diagnosing problems.
+- INFO: Confirmation that things are working as expected.
+- WARNING: An indication that something unexpected happened, or indicative of some problem in the near future (e.g. ‘disk space low’). The software is still working as expected.
+- ERROR: Due to a more serious problem, the software has not been able to perform some function.
+- CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
 ## Errors
 
@@ -79,3 +86,5 @@ Request return 400 error!
 - read userlist from mysql DB
 - email when userlist is empty
 - Cron job on heroku
+- set acccount with more than 10 errors per iteration to Active = false
+- Logs management (analysis tool). Prometheus + grafana ? see https://www.loggly.com/ultimate-guide/centralizing-python-logs/
