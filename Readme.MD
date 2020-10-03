@@ -87,4 +87,4 @@ Request return 400 error!
 - email when userlist is empty
 - Cron job on heroku
 - set acccount with more than 10 errors per iteration to Active = false
-- Logs management (analysis tool). Prometheus + grafana ? see https://www.loggly.com/ultimate-guide/centralizing-python-logs/
+- Logs management (analysis tool). Prometheus + grafana ? see https://www.loggly.com/ultimate-guide/centralizing-python-logs/, and https://www.youtube.com/results?search_query=prometheus+python
