@@ -77,3 +77,14 @@
 2020-10-03 11:44:31,539:INFO:Resetting dropped connection: i.instagram.com
 2020-10-03 11:44:32,521:DEBUG:"POST /api/v1/media/2233343364569450850/like/ HTTP/1.1" 200 16
 2020-10-03 11:44:32,523:INFO:hero.bouldering - Photo #2233343364569450850 liked! ... (18)
+2020-10-03 11:44:47,570:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:44:48,506:DEBUG:"POST /api/v1/media/2230127876041335803/like/ HTTP/1.1" 200 16
+2020-10-03 11:44:48,507:INFO:hero.bouldering - Photo #2230127876041335803 liked! ... (19)
+2020-10-03 11:45:09,512:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:45:10,543:DEBUG:"POST /api/v1/media/2229305907439975236/like/ HTTP/1.1" 200 16
+2020-10-03 11:45:10,545:INFO:hero.bouldering - Photo #2229305907439975236 liked! ... (20)
+2020-10-03 11:45:28,565:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:45:29,277:DEBUG:"POST /api/v1/media/2206540798896392908/like/ HTTP/1.1" 200 16
+2020-10-03 11:45:29,278:INFO:hero.bouldering - Photo #2206540798896392908 liked! ... (21)
+2020-10-03 11:45:29,311:INFO:Resetting dropped connection: i.instagram.com
+2020-10-03 11:45:33,686:DEBUG:"GET /api/v1/feed/tag/kitkatclub/?max_id=&rank_token=4238711719_d7a77516-cec6-4d6a-9a68-c053a21f5702&ranked_content=true& HTTP/1.1" 200 194986
