@@ -105,17 +105,20 @@ def like_recent_media(target_user, max_likes):
 
 def send_email(mailType, detail):
 
+    unformattedDateStamp = datetime.datetime.now()
+    formattedDateStamp = unformattedDateStamp.strftime("%d/%m %H:%M")
+
     if mailType == 0:
         message = f"""\
-Subject: Instabot ran successfully
+Subject: {formattedDateStamp}, Instabot ran successfully
 Instabot ran successfully with {detail} iterations """
     elif mailType == 1:
         message = f"""\
-Subject: Python Error report
+Subject:  {formattedDateStamp}, Python Error report
 There were too many erros when running the instabot script for the account {userAccount} """
     else:
-        mailType = """\
-Subject: All hands on deck! 
+        mailType = f"""\
+Subject:  {formattedDateStamp}, All hands on deck! 
 Something weird is going on in your python script."""
 
     # Create a secure SSL context
@@ -238,10 +241,10 @@ for app in apps:
                                             file.write(line)
 
                                 # Break process if too much User Errors at once
-                                if errors >= 10:
+                                if errors >= 20:
                                     send_email(1, userAccount)
                                     logging.critical(
-                                        '10 ERROR on account {}. Account will be dropped for now.'
+                                        '20 ERROR on account {}. Account will be dropped for now.'
                                         .format(account['username']))
                                     break
                                 else:
