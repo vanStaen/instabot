@@ -57,6 +57,8 @@ The levels of logs:
 - ERROR: Due to a more serious problem, the software has not been able to perform some function.
 - CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
+Quite complete tutorial about the logging feature of python: https://www.datadoghq.com/blog/python-logging-best-practices/ 
+
 ## Errors
 
 ### Error code comming from InstagramAPI
@@ -79,12 +81,3 @@ Request return 400 error!
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
 - Send mail with python: https://realpython.com/python-send-email/
 - Cronjob on heroku with python: https://saqibameen.com/deploy-python-cron-job-scripts-on-heroku/
-
-## To-dos:
-
-- Online logs instead of txt
-- read userlist from mysql DB
-- email when userlist is empty
-- Cron job on heroku
-- Set acccount with more than 10 errors per iteration to Active = false (json write)
-- Logs management (analysis tool). Prometheus + grafana ? see https://www.loggly.com/ultimate-guide/centralizing-python-logs/, and https://www.youtube.com/results?search_query=prometheus+python
