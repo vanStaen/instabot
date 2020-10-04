@@ -1,23 +1,25 @@
 {
     "ionos": [
         {
-            "id": "ionos.fr",
+            "id": 1,
+            "name": "ionos.fr",
             "type": "mySQL",
             "host": "db123456789.db.1and1.com",
             "user": "dba123456789",
             "pwd": "password",
-            "name": "db123456789",
+            "database": "db123456789",
             "port": "3306"
         }
     ],
     "awardspace": [
         {
-            "id": "ioawardspacenos.net",
+            "id": 2,
+            "name": "ioawardspacenos.net",
             "type": "mySQL",
             "host": "abc123.awardspace.net",
             "user": "dba123456789",
             "pwd": "password",
-            "name": "db123456789",
+            "database": "db123456789",
             "port": "3306"
         }
     ]

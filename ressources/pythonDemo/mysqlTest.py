@@ -10,7 +10,7 @@ for db in dbData['awardspace']:
     id = db['id']
     host = db['host']
     user = db['user']
-    name = db['name']
+    database = db['database']
     pwd = db['pwd']
 
 print('###########')
@@ -18,10 +18,10 @@ print(name)
 
 # Connect to MySQL
 try:
-    connection = mysql.connector.connect(host=host_mysqli,
-                                         database=bd_mysqli,
-                                         user=user_mysqli,
-                                         password=pass_mysqli)
+    connection = mysql.connector.connect(host=host,
+                                         database=database,
+                                         user=user,
+                                         password=pwd)
     if connection.is_connected():
         db_Info = connection.get_server_info()
         print("Connected to MySQL Server version ", db_Info)
