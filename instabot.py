@@ -30,9 +30,14 @@ with open('config.json', 'r') as config:
 apps = json.loads(data)
 
 #Setting up logging
-logging.basicConfig(filename='log/insta_bot.log',
-                    level=logging.DEBUG,
-                    format='%(asctime)s:%(levelname)s:%(message)s')
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler('log/insta_bot.log')
+file_formatter = logging.Formatter(
+    "{'time':'%(asctime)s', 'level': '%(levelname)s', 'message': '%(message)s'}"
+)
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
 
 
 def like_tag_feed(tag, max_likes):

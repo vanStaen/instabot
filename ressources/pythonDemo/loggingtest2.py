@@ -1,46 +1,21 @@
-import logging.config
-import structlog
+import logging
 
-from structlog import configure, processors, stdlib, threadlocal
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
-logging.config.dictConfig({
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'json': {
-            'format': '%(message)s %(lineno)d %(pathname)s',
-            'class': 'pythonjsonlogger.jsonlogger.JsonFormatter'
-        }
-    },
-    'handlers': {
-        'json': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'json'
-        }
-    },
-    'loggers': {
-        '': {
-            'handlers': ['json'],
-            'level': logging.INFO
-        }
-    }
-})
+file_handler = logging.FileHandler('foo.log')
+stream_handler = logging.StreamHandler()
 
-configure(
-    context_class=threadlocal.wrap_dict(dict),
-    logger_factory=stdlib.LoggerFactory(),
-    wrapper_class=stdlib.BoundLogger,
-    processors=[
-        stdlib.filter_by_level,
-        stdlib.add_logger_name,
-        stdlib.add_log_level,
-        stdlib.PositionalArgumentsFormatter(),
-        processors.TimeStamper(fmt="iso"),
-        processors.StackInfoRenderer(),
-        processors.format_exc_info,
-        processors.UnicodeDecoder(),
-        stdlib.render_to_log_kwargs]
+stream_formatter = logging.Formatter(
+    '%(asctime)-15s %(levelname)-8s %(message)s')
+file_formatter = logging.Formatter(
+    "{'time':'%(asctime)s', 'level': '%(levelname)s', 'message': '%(message)s'}"
+)
 
+file_handler.setFormatter(file_formatter)
+stream_handler.setFormatter(stream_formatter)
 
-log = structlog.getLogger(__name__)
-log.info("event", some_param=42)
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+logging.debug('test')
