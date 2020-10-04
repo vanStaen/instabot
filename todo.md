@@ -11,6 +11,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
 - [ ] Run the script automatically from a server    
     - [x] Send mail when scripts error and script ran sucessfully
     - [ ] read userlist from mysql DB
+        - [ ] connect to mySQL DB https://pynative.com/python-mysql-database-connection/
+        - [ ] read from db
+        - [ ] update db 
     - [ ] email when userlist is empty
     - [ ] Cron job on heroku
 - [ ] Set acccount with more than 10 errors per iteration to Active = false (json write)
