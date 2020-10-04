@@ -7,14 +7,14 @@ with open('../../config.mysql.db.json', 'r') as config:
     data = config.read()
 dbData = json.loads(data)
 for db in dbData['awardspace']:
-    id = db['id']
+    name = db['name']
     host = db['host']
     user = db['user']
     database = db['database']
     pwd = db['pwd']
 
-print('###########')
-print(name)
+print('#############################')
+print(f"Connection to {name}")
 
 # Connect to MySQL
 try:
