@@ -1,8 +1,11 @@
 {
-    "mySQL": {
-        "host_mysqli": "123456789.db.1and1.com",
-        "user_mysqli": "db123456789",
-        "pass_mysqli": "password",
-        "bd_mysqli": "db5987654321"
-    }
+    "mySQL": [
+        {
+            "name": "ionos.fr",
+            "host_mysqli": "123456789.db.1and1.com",
+            "user_mysqli": "db123456789",
+            "pass_mysqli": "password",
+            "bd_mysqli": "db5987654321"
+        }
+    ]
 }

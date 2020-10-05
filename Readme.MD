@@ -15,6 +15,8 @@ Sondcloud bot written in python. Will go a list of user and follow them. The unf
 I would always recommand using `npm` (node package manager) which come with the install of `node.js`.</br>
 Nevertheless the python specific package manager `pip` is here mandatory for some package (see below).</br>
 And now that you are at it, install `brew` if you don't have it yet, as we will need it to get `python3`. </br>
+</br>
+To updagrade pip3, run `pip3 install --upgrade pip`.
 
 ### What to install and how to do it
 
