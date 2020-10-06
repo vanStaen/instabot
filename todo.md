@@ -21,6 +21,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
     - [ ] Read flag from msyql db
     - [ ] Update flag from script
     - [ ] Create FrontEnd to manage flag status
+- [ ] Details of iterations in the summary mail. 
 
 
 ## Completed ✓
