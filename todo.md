@@ -13,7 +13,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
     - [ ] read userlist from DB
         - [x] connect to postgreSQL
         - [x] insert all data in postgreSQL
-        - [ ] read from db
+        - [x] read from db
         - [ ] update db 
     - [ ] email when userlist is empty
     - [ ] Cron job on heroku
