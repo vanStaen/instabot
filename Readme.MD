@@ -61,6 +61,20 @@ The levels of logs:
 
 Quite complete tutorial about the logging feature of python: https://www.datadoghq.com/blog/python-logging-best-practices/ 
 
+
+### Python and postgreSQL
+
+#### Install
+To install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
+
+#### Login
+The file configDB.py containt a fonction reading the config data from fiöe database.ini
+
+#### SQL 
+To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES ('anyInstaProfil');`.
+The column ùsername`has a type Char Variable (30), as we assume that a instagram login can't be longer than 30 characters. 
+
+
 ## Errors
 
 ### Error code comming from InstagramAPI
