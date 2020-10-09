@@ -2,7 +2,7 @@ import psycopg2
 from postgreSQL.configDB import configDB
 
 
-def fetchFirst():
+def fetchFirst(table):
 
     try:
         params = configDB()
@@ -10,7 +10,7 @@ def fetchFirst():
         connection = psycopg2.connect(**params)
 
         cursor = connection.cursor()
-        postgreSQL_select_Query = "SELECT * FROM public.test LIMIT 1;"
+        postgreSQL_select_Query = "SELECT * FROM public.userlist_" + table + " LIMIT 1;"
 
         cursor.execute(postgreSQL_select_Query)
         data = cursor.fetchall()
