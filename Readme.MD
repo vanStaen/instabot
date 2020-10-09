@@ -61,6 +61,11 @@ The levels of logs:
 
 Quite complete tutorial about the logging feature of python: https://www.datadoghq.com/blog/python-logging-best-practices/ 
 
+
+### Python and postgreSQL
+
+to install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
+
 ## Errors
 
 ### Error code comming from InstagramAPI
