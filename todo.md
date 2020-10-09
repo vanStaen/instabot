@@ -18,9 +18,8 @@ Bots written in python, generating traffic on social plattform such as Instragra
     - [ ] email when userlist is empty
     - [ ] Cron job on heroku
 - [ ] Set acccount with more than 10 errors per iteration to Active = false (json write)
-    - [ ] move the flag from config file to a mysql table
-    - [ ] Read flag from msyql db
-    - [ ] Update flag from script
+    - [ ] move the flag from config file to postgres table
+    - [ ] Read flag from db
     - [ ] Create FrontEnd to manage flag status
 - [ ] Details of iterations in the summary mail. 
 
