@@ -1,26 +1,11 @@
 {
-    "ionos": [
+    "emailAccount": [
         {
-            "id": 1,
-            "name": "ionos.fr",
-            "type": "mySQL",
-            "host": "db123456789.db.1and1.com",
-            "user": "dba123456789",
-            "pwd": "password",
-            "database": "db123456789",
-            "port": "3306"
-        }
-    ],
-    "awardspace": [
-        {
-            "id": 2,
-            "name": "ioawardspacenos.net",
-            "type": "mySQL",
-            "host": "abc123.awardspace.net",
-            "user": "dba123456789",
-            "pwd": "password",
-            "database": "db123456789",
-            "port": "3306"
+            "smtp_server": "smtp.gmail.com",
+            "port": "123",
+            "sender_email": "email@gmail.com",
+            "password": "password",
+            "receiver_email": "email@gmail.com"
         }
     ]
 }
