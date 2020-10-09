@@ -10,8 +10,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
         - https://www.youtube.com/results?search_query=prometheus+python
 - [ ] Run the script automatically from a server    
     - [x] Send mail when scripts error and script ran sucessfully
-    - [ ] read userlist from mysql DB
-        - [ ] connect to mySQL DB https://pynative.com/python-mysql-database-connection/
+    - [ ] read userlist from DB
+        - [x] connect to postgreSQL
+        - [x] insert all data in postgreSQL
         - [ ] read from db
         - [ ] update db 
     - [ ] email when userlist is empty
