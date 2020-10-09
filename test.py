@@ -1,4 +1,5 @@
 from postgreSQL.fetch import fetchFirst
+from postgreSQL.delete import deleteUser
 import logging
 
 #Setting up logging
@@ -15,3 +16,5 @@ account = 'clementvanstaen'
 result = fetchFirst(account)
 logging.info('Fetch user {} from postgreSQL table {}.'.format(result, account))
 print('Username: {}'.format(result))
+
+deleteUser('test', 'test4')
