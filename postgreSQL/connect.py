@@ -1,5 +1,5 @@
 import psycopg2
-from configDB import configDB
+from postgreSQL.configDB import configDB
 
 
 def connect():
@@ -34,6 +34,3 @@ def connect():
         if conn is not None:
             conn.close()
             print('Database connection closed.')
-
-
-connect()
