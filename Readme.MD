@@ -71,7 +71,8 @@ To install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
 The file configDB.py containt a fonction reading the config data from fiöe database.ini
 
 #### SQL 
-To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES ('anyInstaProfil');`
+To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES ('anyInstaProfil');`.
+The column ùsername`has a type Char Variable (30), as we assume that a instagram login can't be longer than 30 characters. 
 
 
 ## Errors
