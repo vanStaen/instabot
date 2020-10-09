@@ -182,9 +182,9 @@ for app in apps:
                     targetUserFollowers = fetchFirst(account['username'])
                     logging.info(
                         'Fetched user {} from postgreSQL table {}.'.format(
-                            targetUserFollowers, account))
+                            targetUserFollowers, account['username']))
                     print('Fetched user {} from postgreSQL table {}.'.format(
-                        targetUserFollowers, account))
+                        targetUserFollowers, account['username']))
 
                     for i in range(account['iterations']):
 
@@ -197,13 +197,15 @@ for app in apps:
                                               iterationProUser)
                             print('likeCounter: {}'.format(likeCounter))
                             # Delete user from list
-                            deleteUser(targetUserFollowers,
+                            deleteUser(account['username'],
                                        targetUserFollowers)
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}.'.
-                                format(targetUserFollowers, account))
+                                format(targetUserFollowers,
+                                       account['username']))
                             print('Deleted user {} from postgreSQL table {}.'.
-                                  format(targetUserFollowers, account))
+                                  format(targetUserFollowers,
+                                         account['username']))
 
                             # Like media from hastags array
                             like_tag_feed(
@@ -225,13 +227,15 @@ for app in apps:
                                     errors, account['username']))
 
                             # Delete user from list
-                            deleteUser(targetUserFollowers,
+                            deleteUser(account['username'],
                                        targetUserFollowers)
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}.'.
-                                format(targetUserFollowers, account))
+                                format(targetUserFollowers,
+                                       account['username']))
                             print('Deleted user {} from postgreSQL table {}.'.
-                                  format(targetUserFollowers, account))
+                                  format(targetUserFollowers,
+                                         account['username']))
 
                             # Break process if too much User Errors at once
                             if errors >= 20:
