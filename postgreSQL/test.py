@@ -1,11 +1,11 @@
-from postgreSQL.fetch import fetchFirst
-from postgreSQL.delete import deleteUser
+from fetch import fetchFirst
+from delete import deleteUser
 import logging
 
 #Setting up logging
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler('log/insta_bot.log')
+file_handler = logging.FileHandler('l../og/insta_bot.log')
 file_formatter = logging.Formatter(
     "{'time':'%(asctime)s', 'level': '%(levelname)s', 'message': '%(message)s'}"
 )
