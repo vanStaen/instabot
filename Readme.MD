@@ -64,7 +64,15 @@ Quite complete tutorial about the logging feature of python: https://www.datadog
 
 ### Python and postgreSQL
 
-to install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
+#### Install
+To install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
+
+#### Login
+The file configDB.py containt a fonction reading the config data from fiöe database.ini
+
+#### SQL 
+To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES ('anyInstaProfil');`
+
 
 ## Errors
 
