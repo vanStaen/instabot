@@ -4490,3 +4490,384 @@
 {'time':'2020-10-10 20:34:37,088', 'level': 'INFO', 'message': 'Deleted user maggie_cally from postgreSQL table theresapogge'}
 {'time':'2020-10-10 20:34:39,767', 'level': 'CRITICAL', 'message': '10 ERROR on account theresapogge. Account will be dropped for now.'}
 {'time':'2020-10-10 20:34:41,590', 'level': 'INFO', 'message': 'SCRIPT RAN SUCCESSFULLY (329 iterations)'}
+{'time':'2020-10-10 23:33:28,600', 'level': 'INFO', 'message': 'Starting new HTTPS connection (1): i.instagram.com'}
+{'time':'2020-10-10 23:33:29,676', 'level': 'DEBUG', 'message': '"GET /api/v1/si/fetch_headers/?challenge_type=signup&guid=b9508005d7b7463d9280deebc1093ec1 HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:33:29,681', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:32,178', 'level': 'DEBUG', 'message': '"POST /api/v1/accounts/login/ HTTP/1.1" 200 714'}
+{'time':'2020-10-10 23:33:32,189', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:32,530', 'level': 'DEBUG', 'message': '"POST /api/v1/qe/sync/ HTTP/1.1" 200 342'}
+{'time':'2020-10-10 23:33:32,538', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:33,291', 'level': 'DEBUG', 'message': '"GET /api/v1/friendships/autocomplete_user_list/ HTTP/1.1" 200 28581'}
+{'time':'2020-10-10 23:33:33,341', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:33,643', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/timeline/ HTTP/1.1" 405 33'}
+{'time':'2020-10-10 23:33:33,649', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:34,181', 'level': 'DEBUG', 'message': '"GET /api/v1/direct_v2/inbox/ HTTP/1.1" 404 0'}
+{'time':'2020-10-10 23:33:34,193', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:35,235', 'level': 'DEBUG', 'message': '"GET /api/v1/news/inbox/ HTTP/1.1" 200 19715'}
+{'time':'2020-10-10 23:33:35,239', 'level': 'INFO', 'message': '### Connection to account clementvanstaen'}
+{'time':'2020-10-10 23:33:42,733', 'level': 'INFO', 'message': 'Fetched user 4handsonthewall from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:33:42,737', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:43,536', 'level': 'DEBUG', 'message': '"GET /api/v1/users/4handsonthewall/usernameinfo/ HTTP/1.1" 200 803'}
+{'time':'2020-10-10 23:33:43,544', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:44,924', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/6617158805/?max_id=&min_timestamp=None&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true HTTP/1.1" 200 21691'}
+{'time':'2020-10-10 23:33:44,982', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:33:46,044', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2322765585565437564/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:33:46,046', 'level': 'INFO', 'message': '4handsonthewall - Photo #2322765585565437564 liked! ... (1)'}
+{'time':'2020-10-10 23:34:08,054', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:34:10,066', 'level': 'DEBUG', 'message': '"POST /api/v1/media/1915879239778231359/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:34:10,067', 'level': 'INFO', 'message': '4handsonthewall - Photo #1915879239778231359 liked! ... (2)'}
+{'time':'2020-10-10 23:34:25,073', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:34:26,811', 'level': 'DEBUG', 'message': '"POST /api/v1/media/1914708111156310074/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:34:26,813', 'level': 'INFO', 'message': '4handsonthewall - Photo #1914708111156310074 liked! ... (3)'}
+{'time':'2020-10-10 23:34:44,819', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:34:46,202', 'level': 'DEBUG', 'message': '"POST /api/v1/media/1913065798323600079/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:34:46,204', 'level': 'INFO', 'message': '4handsonthewall - Photo #1913065798323600079 liked! ... (4)'}
+{'time':'2020-10-10 23:34:57,241', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:34:58,297', 'level': 'DEBUG', 'message': '"POST /api/v1/media/1885796075475151345/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:34:58,299', 'level': 'INFO', 'message': '4handsonthewall - Photo #1885796075475151345 liked! ... (5)'}
+{'time':'2020-10-10 23:35:18,306', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:35:19,547', 'level': 'DEBUG', 'message': '"POST /api/v1/media/1884050829003427044/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:35:19,549', 'level': 'INFO', 'message': '4handsonthewall - Photo #1884050829003427044 liked! ... (6)'}
+{'time':'2020-10-10 23:35:22,506', 'level': 'INFO', 'message': 'Deleted user 4handsonthewall from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:35:22,812', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:35:28,156', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/musicproducer/?max_id=&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true& HTTP/1.1" 200 174420'}
+{'time':'2020-10-10 23:35:28,830', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:35:31,024', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417141202316937308/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:35:31,027', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (7)'}
+{'time':'2020-10-10 23:35:40,035', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:35:41,129', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140988641464036/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:35:41,131', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (8)'}
+{'time':'2020-10-10 23:36:00,138', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:36:01,833', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140942622784296/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:36:01,835', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (9)'}
+{'time':'2020-10-10 23:36:13,843', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:36:14,736', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417133157053749638/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:36:14,737', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (10)'}
+{'time':'2020-10-10 23:36:21,742', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:36:23,008', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417135674089933409/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:36:23,011', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (11)'}
+{'time':'2020-10-10 23:36:40,458', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:36:42,868', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140674246890339/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:36:42,869', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (12)'}
+{'time':'2020-10-10 23:36:48,876', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:36:49,683', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140713688773265/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:36:49,685', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (13)'}
+{'time':'2020-10-10 23:37:10,693', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:37:11,400', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140704429373639/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:37:11,403', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (14)'}
+{'time':'2020-10-10 23:37:23,412', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:37:24,931', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140696752247775/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:37:24,933', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (15)'}
+{'time':'2020-10-10 23:37:41,940', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:37:42,606', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417122270922948305/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:37:42,608', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (16)'}
+{'time':'2020-10-10 23:37:48,615', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:37:49,488', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417140592727493125/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:37:49,490', 'level': 'INFO', 'message': '#musicproducer - Photo liked! ... (17)'}
+{'time':'2020-10-10 23:38:22,385', 'level': 'INFO', 'message': 'Fetched user astikadabra from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:38:22,424', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:38:22,901', 'level': 'DEBUG', 'message': '"GET /api/v1/users/astikadabra/usernameinfo/ HTTP/1.1" 200 750'}
+{'time':'2020-10-10 23:38:22,907', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:38:24,021', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/1581447424/?max_id=&min_timestamp=None&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true HTTP/1.1" 200 18307'}
+{'time':'2020-10-10 23:38:24,029', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:38:25,205', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2411327820284171338/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:38:25,207', 'level': 'INFO', 'message': 'astikadabra - Photo #2411327820284171338 liked! ... (18)'}
+{'time':'2020-10-10 23:38:30,213', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:38:32,856', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2409151450590466893/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:38:32,858', 'level': 'INFO', 'message': 'astikadabra - Photo #2409151450590466893 liked! ... (19)'}
+{'time':'2020-10-10 23:38:43,861', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:38:44,907', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2406781869116758869/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:38:44,909', 'level': 'INFO', 'message': 'astikadabra - Photo #2406781869116758869 liked! ... (20)'}
+{'time':'2020-10-10 23:38:57,949', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:39:06,512', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2403558382151449319/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:39:06,514', 'level': 'INFO', 'message': 'astikadabra - Photo #2403558382151449319 liked! ... (21)'}
+{'time':'2020-10-10 23:39:26,523', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:39:27,386', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2376982021257636871/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:39:27,388', 'level': 'INFO', 'message': 'astikadabra - Photo #2376982021257636871 liked! ... (22)'}
+{'time':'2020-10-10 23:39:32,392', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:39:33,531', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2370633094198772658/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:39:33,533', 'level': 'INFO', 'message': 'astikadabra - Photo #2370633094198772658 liked! ... (23)'}
+{'time':'2020-10-10 23:39:34,124', 'level': 'INFO', 'message': 'Deleted user astikadabra from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:39:34,128', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:39:37,046', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/amateurphotography/?max_id=&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true& HTTP/1.1" 200 133604'}
+{'time':'2020-10-10 23:39:37,167', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:39:37,995', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417143211792741581/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:39:37,997', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (24)'}
+{'time':'2020-10-10 23:39:43,002', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:39:44,440', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142901571126991/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:39:44,442', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (25)'}
+{'time':'2020-10-10 23:40:04,720', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:40:05,582', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142630661058499/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:40:05,584', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (26)'}
+{'time':'2020-10-10 23:40:15,588', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:40:17,136', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142586387256719/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:40:17,138', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (27)'}
+{'time':'2020-10-10 23:40:27,201', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:40:28,262', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142353602357004/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:40:28,264', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (28)'}
+{'time':'2020-10-10 23:40:49,287', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:40:51,551', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142305973423026/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:40:51,553', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (29)'}
+{'time':'2020-10-10 23:40:56,564', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:40:57,763', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142132202477290/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:40:57,765', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (30)'}
+{'time':'2020-10-10 23:41:16,773', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:41:17,516', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142090102362620/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:41:17,518', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (31)'}
+{'time':'2020-10-10 23:41:29,523', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:41:30,578', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417142019090397626/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:41:30,580', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (32)'}
+{'time':'2020-10-10 23:41:42,587', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:41:44,724', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417141695180510588/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:41:44,727', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (33)'}
+{'time':'2020-10-10 23:42:07,324', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:42:17,273', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417141721294354790/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:42:17,275', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (34)'}
+{'time':'2020-10-10 23:42:47,619', 'level': 'INFO', 'message': 'Fetched user bong.hedlufsen from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:42:47,623', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:42:47,873', 'level': 'DEBUG', 'message': '"GET /api/v1/users/bong.hedlufsen/usernameinfo/ HTTP/1.1" 200 668'}
+{'time':'2020-10-10 23:42:47,881', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:42:48,564', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/8504025882/?max_id=&min_timestamp=None&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true HTTP/1.1" 200 23744'}
+{'time':'2020-10-10 23:42:48,584', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:42:49,836', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2388647115423084158/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:42:49,838', 'level': 'INFO', 'message': 'bong.hedlufsen - Photo #2388647115423084158 liked! ... (35)'}
+{'time':'2020-10-10 23:42:52,845', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:42:53,712', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2318351899316856661/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:42:53,714', 'level': 'INFO', 'message': 'bong.hedlufsen - Photo #2318351899316856661 liked! ... (36)'}
+{'time':'2020-10-10 23:43:11,772', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:13,238', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2310582987115138242/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:43:13,240', 'level': 'INFO', 'message': 'bong.hedlufsen - Photo #2310582987115138242 liked! ... (37)'}
+{'time':'2020-10-10 23:43:24,250', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:26,952', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2309075867346744924/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:43:26,954', 'level': 'INFO', 'message': 'bong.hedlufsen - Photo #2309075867346744924 liked! ... (38)'}
+{'time':'2020-10-10 23:43:27,956', 'level': 'INFO', 'message': 'Deleted user bong.hedlufsen from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:43:28,022', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:31,714', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/amateurphotography/?max_id=&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true& HTTP/1.1" 200 124336'}
+{'time':'2020-10-10 23:43:31,883', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:32,570', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417145356396747598/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:43:32,572', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (39)'}
+{'time':'2020-10-10 23:43:35,577', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:36,888', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417145341683365833/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:43:36,889', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (40)'}
+{'time':'2020-10-10 23:43:50,893', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:51,567', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417145318900784452/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:43:51,568', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (41)'}
+{'time':'2020-10-10 23:43:58,576', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:43:59,813', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417145255114914627/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:43:59,815', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (42)'}
+{'time':'2020-10-10 23:44:10,822', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:44:11,605', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144925626267254/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:44:11,607', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (43)'}
+{'time':'2020-10-10 23:44:33,629', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:44:35,287', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144868313936133/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:44:35,289', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (44)'}
+{'time':'2020-10-10 23:44:43,296', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:44:44,304', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144669839557357/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:44:44,305', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (45)'}
+{'time':'2020-10-10 23:45:01,311', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:45:02,219', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144536371404290/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:45:02,220', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (46)'}
+{'time':'2020-10-10 23:45:14,225', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:45:15,271', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144332359298402/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:45:15,273', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (47)'}
+{'time':'2020-10-10 23:45:20,281', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:45:20,947', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144106093315649/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:45:20,949', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (48)'}
+{'time':'2020-10-10 23:45:39,976', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:45:40,635', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417144108407989494/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:45:40,637', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (49)'}
+{'time':'2020-10-10 23:45:57,641', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:45:58,442', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417143930772782294/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:45:58,444', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (50)'}
+{'time':'2020-10-10 23:46:28,868', 'level': 'INFO', 'message': 'Fetched user _lotta.love_ from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:46:28,872', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:29,195', 'level': 'DEBUG', 'message': '"GET /api/v1/users/_lotta.love_/usernameinfo/ HTTP/1.1" 200 893'}
+{'time':'2020-10-10 23:46:29,200', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:29,393', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/5365414399/?max_id=&min_timestamp=None&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true HTTP/1.1" 400 60'}
+{'time':'2020-10-10 23:46:29,394', 'level': 'WARNING', 'message': '(!) ERROR #1 on account clementvanstaen'}
+{'time':'2020-10-10 23:46:29,828', 'level': 'INFO', 'message': 'Deleted user _lotta.love_ from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:46:30,205', 'level': 'INFO', 'message': 'Fetched user eifelblock from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:46:30,210', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:30,540', 'level': 'DEBUG', 'message': '"GET /api/v1/users/eifelblock/usernameinfo/ HTTP/1.1" 200 1289'}
+{'time':'2020-10-10 23:46:30,546', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:31,188', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/3513061188/?max_id=&min_timestamp=None&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true HTTP/1.1" 200 28084'}
+{'time':'2020-10-10 23:46:31,199', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:31,982', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2416217396527453522/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:46:31,984', 'level': 'INFO', 'message': 'eifelblock - Photo #2416217396527453522 liked! ... (51)'}
+{'time':'2020-10-10 23:46:37,989', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:39,054', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2415645146333931338/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:46:39,056', 'level': 'INFO', 'message': 'eifelblock - Photo #2415645146333931338 liked! ... (52)'}
+{'time':'2020-10-10 23:46:54,061', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:46:55,014', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2415402225626035997/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:46:55,016', 'level': 'INFO', 'message': 'eifelblock - Photo #2415402225626035997 liked! ... (53)'}
+{'time':'2020-10-10 23:47:10,038', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:47:11,160', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2413230083128140609/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:47:11,162', 'level': 'INFO', 'message': 'eifelblock - Photo #2413230083128140609 liked! ... (54)'}
+{'time':'2020-10-10 23:47:26,257', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:47:27,320', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2411337017555864005/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:47:27,321', 'level': 'INFO', 'message': 'eifelblock - Photo #2411337017555864005 liked! ... (55)'}
+{'time':'2020-10-10 23:47:30,369', 'level': 'INFO', 'message': 'Deleted user eifelblock from postgreSQL table clementvanstaen'}
+{'time':'2020-10-10 23:47:30,373', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:47:33,853', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/amateurphotography/?max_id=&rank_token=4238711719_f93d0de2-b89b-4bf5-8c15-8b2a6c217cec&ranked_content=true& HTTP/1.1" 200 129439'}
+{'time':'2020-10-10 23:47:34,168', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:47:35,545', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417147393992660773/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:47:35,547', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (56)'}
+{'time':'2020-10-10 23:47:43,569', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:47:44,231', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417147312512327346/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:47:44,233', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (57)'}
+{'time':'2020-10-10 23:47:59,239', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:47:59,833', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417147274806113733/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:47:59,835', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (58)'}
+{'time':'2020-10-10 23:48:19,841', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:48:21,318', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417147153924554944/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:48:21,319', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (59)'}
+{'time':'2020-10-10 23:48:37,325', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:48:39,300', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417147070995784854/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:48:39,302', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (60)'}
+{'time':'2020-10-10 23:48:47,309', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:48:48,006', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417146913036988657/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:48:48,008', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (61)'}
+{'time':'2020-10-10 23:48:58,144', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:48:59,032', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417146799892820401/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:48:59,035', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (62)'}
+{'time':'2020-10-10 23:49:03,040', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:49:03,985', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417146724102950195/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:49:03,987', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (63)'}
+{'time':'2020-10-10 23:49:11,991', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:49:13,858', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417146647497046652/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:49:13,860', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (64)'}
+{'time':'2020-10-10 23:49:23,868', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:49:47,447', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417146569844090292/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:49:47,449', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (65)'}
+{'time':'2020-10-10 23:49:54,485', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:49:57,938', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417146466830157002/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:49:57,939', 'level': 'INFO', 'message': '#amateurphotography - Photo liked! ... (66)'}
+{'time':'2020-10-10 23:50:27,959', 'level': 'INFO', 'message': 'Starting new HTTPS connection (1): i.instagram.com'}
+{'time':'2020-10-10 23:50:28,155', 'level': 'DEBUG', 'message': '"GET /api/v1/si/fetch_headers/?challenge_type=signup&guid=90e43b3d561446fa9fa936255f3ec1f1 HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:50:28,160', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:29,803', 'level': 'DEBUG', 'message': '"POST /api/v1/accounts/login/ HTTP/1.1" 200 675'}
+{'time':'2020-10-10 23:50:29,811', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:30,099', 'level': 'DEBUG', 'message': '"POST /api/v1/qe/sync/ HTTP/1.1" 200 337'}
+{'time':'2020-10-10 23:50:30,104', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:30,294', 'level': 'DEBUG', 'message': '"GET /api/v1/friendships/autocomplete_user_list/ HTTP/1.1" 429 80'}
+{'time':'2020-10-10 23:50:30,300', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:30,493', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/timeline/ HTTP/1.1" 405 33'}
+{'time':'2020-10-10 23:50:30,498', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:30,698', 'level': 'DEBUG', 'message': '"GET /api/v1/direct_v2/inbox/ HTTP/1.1" 404 0'}
+{'time':'2020-10-10 23:50:30,703', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:31,672', 'level': 'DEBUG', 'message': '"GET /api/v1/news/inbox/ HTTP/1.1" 200 19088'}
+{'time':'2020-10-10 23:50:31,722', 'level': 'INFO', 'message': '### Connection to account tt.lykke'}
+{'time':'2020-10-10 23:50:37,181', 'level': 'INFO', 'message': 'Fetched user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:50:37,185', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:37,419', 'level': 'DEBUG', 'message': '"GET /api/v1/users/lovebydesigner/usernameinfo/ HTTP/1.1" 200 666'}
+{'time':'2020-10-10 23:50:37,424', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:37,844', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/5647255245/?max_id=&min_timestamp=None&rank_token=3247162307_641de4e5-67f7-48c8-8a89-e37be88dfe6b&ranked_content=true HTTP/1.1" 200 5326'}
+{'time':'2020-10-10 23:50:38,237', 'level': 'INFO', 'message': 'Deleted user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:50:38,241', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:42,627', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/goodtimes/?max_id=&rank_token=3247162307_641de4e5-67f7-48c8-8a89-e37be88dfe6b&ranked_content=true& HTTP/1.1" 200 184547'}
+{'time':'2020-10-10 23:50:42,978', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:44,227', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148996558923024/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:50:44,231', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (1)'}
+{'time':'2020-10-10 23:50:57,238', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:50:58,369', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148971712461289/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:50:58,371', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (2)'}
+{'time':'2020-10-10 23:51:07,379', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:51:08,309', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148949465210580/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:51:08,311', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (3)'}
+{'time':'2020-10-10 23:51:28,331', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:51:29,395', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148891207025709/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:51:29,397', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (4)'}
+{'time':'2020-10-10 23:51:42,404', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:51:43,231', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148608259799096/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:51:43,233', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (5)'}
+{'time':'2020-10-10 23:51:52,236', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:51:53,255', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148478821976191/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:51:53,257', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (6)'}
+{'time':'2020-10-10 23:52:14,261', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:52:16,161', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417147890278106918/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:52:16,163', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (7)'}
+{'time':'2020-10-10 23:52:20,170', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:52:21,218', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148383434628276/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:52:21,220', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (8)'}
+{'time':'2020-10-10 23:52:41,243', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:52:42,645', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148356256897796/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:52:42,647', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (9)'}
+{'time':'2020-10-10 23:52:47,652', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:52:48,486', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148019537690315/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:52:48,487', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (10)'}
+{'time':'2020-10-10 23:53:05,494', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:53:07,344', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148010678196121/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:53:07,346', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (11)'}
+{'time':'2020-10-10 23:53:15,353', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:53:16,208', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417148003683243443/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:53:16,209', 'level': 'INFO', 'message': '#goodtimes - Photo liked! ... (12)'}
+{'time':'2020-10-10 23:53:59,338', 'level': 'INFO', 'message': 'Fetched user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:53:59,357', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:53:59,593', 'level': 'DEBUG', 'message': '"GET /api/v1/users/lovebydesigner/usernameinfo/ HTTP/1.1" 200 666'}
+{'time':'2020-10-10 23:53:59,597', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:53:59,934', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/5647255245/?max_id=&min_timestamp=None&rank_token=3247162307_641de4e5-67f7-48c8-8a89-e37be88dfe6b&ranked_content=true HTTP/1.1" 200 5313'}
+{'time':'2020-10-10 23:54:00,273', 'level': 'INFO', 'message': 'Deleted user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:54:00,277', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:54:04,091', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/travelgram/?max_id=&rank_token=3247162307_641de4e5-67f7-48c8-8a89-e37be88dfe6b&ranked_content=true& HTTP/1.1" 200 168671'}
+{'time':'2020-10-10 23:54:04,426', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:54:05,256', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150668499659612/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:54:05,258', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (13)'}
+{'time':'2020-10-10 23:54:25,263', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:54:26,480', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150495174811826/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:54:26,481', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (14)'}
+{'time':'2020-10-10 23:54:31,489', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:54:32,154', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150618587992136/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:54:32,156', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (15)'}
+{'time':'2020-10-10 23:54:53,185', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:54:54,324', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150593799728632/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:54:54,326', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (16)'}
+{'time':'2020-10-10 23:55:05,333', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:55:06,281', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150530374916505/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:55:06,283', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (17)'}
+{'time':'2020-10-10 23:55:24,310', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:55:26,050', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150532329126340/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:55:26,052', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (18)'}
+{'time':'2020-10-10 23:55:33,061', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:55:36,462', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150503319458961/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:55:36,464', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (19)'}
+{'time':'2020-10-10 23:55:42,472', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:55:43,632', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417150232386451372/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:55:43,634', 'level': 'INFO', 'message': '#travelgram - Photo liked! ... (20)'}
+{'time':'2020-10-10 23:56:13,985', 'level': 'INFO', 'message': 'Fetched user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:56:14,003', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:56:14,219', 'level': 'DEBUG', 'message': '"GET /api/v1/users/lovebydesigner/usernameinfo/ HTTP/1.1" 200 666'}
+{'time':'2020-10-10 23:56:14,225', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:56:14,569', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/5647255245/?max_id=&min_timestamp=None&rank_token=3247162307_641de4e5-67f7-48c8-8a89-e37be88dfe6b&ranked_content=true HTTP/1.1" 200 5324'}
+{'time':'2020-10-10 23:56:14,926', 'level': 'INFO', 'message': 'Deleted user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:56:14,930', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:56:18,538', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/interiordesign/?max_id=&rank_token=3247162307_641de4e5-67f7-48c8-8a89-e37be88dfe6b&ranked_content=true& HTTP/1.1" 200 138714'}
+{'time':'2020-10-10 23:56:18,768', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:56:19,417', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417151790545125193/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:56:19,419', 'level': 'INFO', 'message': '#interiordesign - Photo liked! ... (21)'}
+{'time':'2020-10-10 23:57:48,426', 'level': 'INFO', 'message': 'Starting new HTTPS connection (1): i.instagram.com'}
+{'time':'2020-10-10 23:57:48,638', 'level': 'DEBUG', 'message': '"GET /api/v1/si/fetch_headers/?challenge_type=signup&guid=ac854ccaff1c4663bb2a1255c3a35bd0 HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:57:48,642', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:50,336', 'level': 'DEBUG', 'message': '"POST /api/v1/accounts/login/ HTTP/1.1" 200 675'}
+{'time':'2020-10-10 23:57:50,343', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:50,586', 'level': 'DEBUG', 'message': '"POST /api/v1/qe/sync/ HTTP/1.1" 200 337'}
+{'time':'2020-10-10 23:57:50,591', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:50,810', 'level': 'DEBUG', 'message': '"GET /api/v1/friendships/autocomplete_user_list/ HTTP/1.1" 429 80'}
+{'time':'2020-10-10 23:57:50,814', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:51,024', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/timeline/ HTTP/1.1" 405 33'}
+{'time':'2020-10-10 23:57:51,029', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:51,240', 'level': 'DEBUG', 'message': '"GET /api/v1/direct_v2/inbox/ HTTP/1.1" 404 0'}
+{'time':'2020-10-10 23:57:51,245', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:52,413', 'level': 'DEBUG', 'message': '"GET /api/v1/news/inbox/ HTTP/1.1" 200 18517'}
+{'time':'2020-10-10 23:57:52,422', 'level': 'INFO', 'message': '### Connection to account tt.lykke'}
+{'time':'2020-10-10 23:57:57,769', 'level': 'INFO', 'message': 'Fetched user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:57:57,773', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:58,018', 'level': 'DEBUG', 'message': '"GET /api/v1/users/lovebydesigner/usernameinfo/ HTTP/1.1" 200 666'}
+{'time':'2020-10-10 23:57:58,022', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:57:59,159', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/user/5647255245/?max_id=&min_timestamp=None&rank_token=3247162307_fec43ea4-f16a-495e-b133-eedf87b74543&ranked_content=true HTTP/1.1" 200 5315'}
+{'time':'2020-10-10 23:57:59,507', 'level': 'INFO', 'message': 'Deleted user lovebydesigner from postgreSQL table tt.lykke'}
+{'time':'2020-10-10 23:57:59,511', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:58:02,580', 'level': 'DEBUG', 'message': '"GET /api/v1/feed/tag/interiordesign/?max_id=&rank_token=3247162307_fec43ea4-f16a-495e-b133-eedf87b74543&ranked_content=true& HTTP/1.1" 200 134240'}
+{'time':'2020-10-10 23:58:02,694', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}
+{'time':'2020-10-10 23:58:04,737', 'level': 'DEBUG', 'message': '"POST /api/v1/media/2417152665701224380/like/ HTTP/1.1" 200 16'}
+{'time':'2020-10-10 23:58:04,738', 'level': 'INFO', 'message': '#interiordesign - Photo liked! ... (1)'}
+{'time':'2020-10-10 23:58:12,747', 'level': 'INFO', 'message': 'Resetting dropped connection: i.instagram.com'}

@@ -188,7 +188,7 @@ for app in apps:
                             account['username'].replace(".", ""))
                         logging.info(
                             'Fetched user {} from postgreSQL table {}'.format(
-                                targetUserFollower, account['username']))
+                                targetUserFollower, account['username'].replace(".", "")))
                         print('> Fetched user {} from postgreSQL table {}'.
                               format(targetUserFollower, account['username']))
 
@@ -232,7 +232,7 @@ for app in apps:
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
-                                       account['username']))
+                                       account['username'].replace(".", "")))
                             print(
                                 '> Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
