@@ -121,11 +121,11 @@ Subject: {formattedDateStamp}, Instabot ran successfully
 Instabot ran successfully with {detail} iterations """
     elif mailType == 1:
         message = f"""\
-Subject:  /!\ Python Error report
+Subject: Python Error report
 There were too many erros when running the instabot script for the account {userAccount} ({formattedDateStamp}) """
     else:
         mailType = f"""\
-Subject:  /!\ All hands on deck! 
+Subject: All hands on deck! 
 Something weird is going on in your python script ({formattedDateStamp})."""
 
     # Create a secure SSL context
@@ -187,9 +187,9 @@ for app in apps:
                         targetUserFollower = fetchFirst(
                             account['username'].replace(".", ""))
                         logging.info(
-                            'Fetched user {} from postgreSQL table {}.'.format(
+                            'Fetched user {} from postgreSQL table {}'.format(
                                 targetUserFollower, account['username']))
-                        print('> Fetched user {} from postgreSQL table {}.'.
+                        print('> Fetched user {} from postgreSQL table {}'.
                               format(targetUserFollower, account['username']))
 
                         try:
@@ -200,11 +200,11 @@ for app in apps:
                             # Delete user from list
                             deleteUser(account['username'], targetUserFollower)
                             logging.info(
-                                'Deleted user {} from postgreSQL table {}.'.
+                                'Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
                                        account['username']))
                             print(
-                                '> Deleted user {} from postgreSQL table {}.'.
+                                '> Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
                                        account['username']))
 
@@ -230,16 +230,16 @@ for app in apps:
                             # Delete user from list
                             deleteUser(account['username'], targetUserFollower)
                             logging.info(
-                                'Deleted user {} from postgreSQL table {}.'.
+                                'Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
                                        account['username']))
                             print(
-                                '> Deleted user {} from postgreSQL table {}.'.
+                                '> Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
                                        account['username']))
 
                             # Break process if too much User Errors at once
-                            if errors >= 10:
+                            if errors >= 20:
                                 send_email(1, userAccount)
                                 logging.critical(
                                     '10 ERROR on account {}. Account will be dropped for now.'
