@@ -121,12 +121,12 @@ Subject: {formattedDateStamp}, Instabot ran successfully
 Instabot ran successfully with {detail} iterations """
     elif mailType == 1:
         message = f"""\
-Subject:  {formattedDateStamp}, Python Error report
-There were too many erros when running the instabot script for the account {userAccount} """
+Subject:  /!\ Python Error report
+There were too many erros when running the instabot script for the account {userAccount} ({formattedDateStamp}) """
     else:
         mailType = f"""\
-Subject:  {formattedDateStamp}, All hands on deck! 
-Something weird is going on in your python script."""
+Subject:  /!\ All hands on deck! 
+Something weird is going on in your python script ({formattedDateStamp})."""
 
     # Create a secure SSL context
     context = ssl.create_default_context()
@@ -239,10 +239,10 @@ for app in apps:
                                        account['username']))
 
                             # Break process if too much User Errors at once
-                            if errors >= 20:
+                            if errors >= 10:
                                 send_email(1, userAccount)
                                 logging.critical(
-                                    '20 ERROR on account {}. Account will be dropped for now.'
+                                    '10 ERROR on account {}. Account will be dropped for now.'
                                     .format(account['username']))
                                 break
                             else:
