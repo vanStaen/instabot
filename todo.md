@@ -21,7 +21,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
     - [ ] move the flag from config file to postgres table
     - [ ] Read flag from db
     - [ ] Create FrontEnd to manage flag status
-- [ ] Details of iterations in the summary mail. 
+- [ ] Details of iterations in the summary mail.
+    - [ ] Incl. how many iterations ran pro account
+    - [ ] Incl. how many user left in the table pro account
 
 
 ## Completed ✓

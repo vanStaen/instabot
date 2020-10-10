@@ -4,4 +4,4 @@ config.mail.json
 config.db.json
 .DS_Store
 database.ini
-log/insta_bot.log
+log
