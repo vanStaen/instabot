@@ -4,5 +4,5 @@ config.mail.json
 config.db.json
 .DS_Store
 database.ini
-log
 log/insta_bot.log
+postgreSQL/__pycache__
