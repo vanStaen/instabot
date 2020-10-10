@@ -179,33 +179,33 @@ for app in apps:
                     # Reset the like counter
                     likeCounter = 0
 
-                    targetUserFollowers = fetchFirst(account['username'])
-                    logging.info(
-                        'Fetched user {} from postgreSQL table {}.'.format(
-                            targetUserFollowers, account['username']))
-                    print('Fetched user {} from postgreSQL table {}.'.format(
-                        targetUserFollowers, account['username']))
-
-                    for i in range(account['iterations']):
+                    while likeCounter < account['iterations'] + 1:
 
                         iterationProUser = randint(3, 7)
                         iterationProHashtag = randint(7, 12)
 
+                        targetUserFollower = fetchFirst(account['username'])
+                        logging.info(
+                            'Fetched user {} from postgreSQL table {}.'.format(
+                                targetUserFollower, account['username']))
+                        print('> Fetched user {} from postgreSQL table {}.'.
+                              format(targetUserFollower, account['username']))
+
                         try:
                             # Like media from user
-                            like_recent_media(targetUserFollowers,
+                            like_recent_media(targetUserFollower,
                                               iterationProUser)
                             print('likeCounter: {}'.format(likeCounter))
                             # Delete user from list
-                            deleteUser(account['username'],
-                                       targetUserFollowers)
+                            deleteUser(account['username'], targetUserFollower)
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}.'.
-                                format(targetUserFollowers,
+                                format(targetUserFollower,
                                        account['username']))
-                            print('Deleted user {} from postgreSQL table {}.'.
-                                  format(targetUserFollowers,
-                                         account['username']))
+                            print(
+                                '> Deleted user {} from postgreSQL table {}.'.
+                                format(targetUserFollower,
+                                       account['username']))
 
                             # Like media from hastags array
                             like_tag_feed(
@@ -227,15 +227,15 @@ for app in apps:
                                     errors, account['username']))
 
                             # Delete user from list
-                            deleteUser(account['username'],
-                                       targetUserFollowers)
+                            deleteUser(account['username'], targetUserFollower)
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}.'.
-                                format(targetUserFollowers,
+                                format(targetUserFollower,
                                        account['username']))
-                            print('Deleted user {} from postgreSQL table {}.'.
-                                  format(targetUserFollowers,
-                                         account['username']))
+                            print(
+                                '> Deleted user {} from postgreSQL table {}.'.
+                                format(targetUserFollower,
+                                       account['username']))
 
                             # Break process if too much User Errors at once
                             if errors >= 20:
