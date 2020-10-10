@@ -31,7 +31,7 @@ with open('config.json', 'r') as config:
     data = config.read()
 apps = json.loads(data)
 
-#Setting up logging
+# Setting up logging
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler('log/insta_bot.log')
@@ -161,10 +161,10 @@ for app in apps:
                 print('Connection to account {}'.format(account['username']))
                 print('--------------------------------------')
 
-                #Reset user Error
+                # Reset user Error
                 errors = 0
 
-                #For error handling
+                # For error handling
                 userAccount = account['username']
 
                 try:
@@ -184,7 +184,8 @@ for app in apps:
                         iterationProUser = randint(3, 7)
                         iterationProHashtag = randint(7, 12)
 
-                        targetUserFollower = fetchFirst(account['username'])
+                        targetUserFollower = fetchFirst(
+                            account['username'].replace(".", ""))
                         logging.info(
                             'Fetched user {} from postgreSQL table {}.'.format(
                                 targetUserFollower, account['username']))
