@@ -2,7 +2,8 @@ from postgreSQL.fetch import fetchFirst
 from postgreSQL.delete import deleteUser
 import logging
 
-#Setting up logging
+# Move Test.py in the main folder to run it.
+
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler('log/insta_bot.log')
@@ -12,9 +13,18 @@ file_formatter = logging.Formatter(
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
-account = 'clementvanstaen'
+account = 'test'
+
 result = fetchFirst(account)
 logging.info('Fetch user {} from postgreSQL table {}.'.format(result, account))
 print('Username: {}'.format(result))
 
-deleteUser('test', 'test4')
+deleteUser(account, result)
+print('Deleted: {}'.format(result))
+
+result = fetchFirst(account)
+logging.info('Fetch user {} from postgreSQL table {}.'.format(result, account))
+print('Username: {}'.format(result))
+
+deleteUser(account, result)
+print('Deleted: {}'.format(result))

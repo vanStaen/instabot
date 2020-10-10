@@ -1,6 +1,8 @@
 from InstagramAPI import InstagramAPI
 from time import sleep
 from random import randint
+from postgreSQL.fetch import fetchFirst
+from postgreSQL.delete import deleteUser
 import time
 import datetime
 import json
@@ -166,6 +168,7 @@ for app in apps:
                 userAccount = account['username']
 
                 try:
+
                     api = InstagramAPI(account['username'],
                                        account['password'])
                     api.login()
@@ -176,84 +179,73 @@ for app in apps:
                     # Reset the like counter
                     likeCounter = 0
 
-                    # Go though TargetUsers
-                    targetUserFollowers = open(
-                        "userlist_instagram/username_{}.txt".format(
-                            account['username']), "r")
+                    while likeCounter < account['iterations'] + 1:
 
-                    with targetUserFollowers as file:
+                        iterationProUser = randint(3, 7)
+                        iterationProHashtag = randint(7, 12)
 
-                        for profile in file:
+                        targetUserFollower = fetchFirst(account['username'])
+                        logging.info(
+                            'Fetched user {} from postgreSQL table {}.'.format(
+                                targetUserFollower, account['username']))
+                        print('> Fetched user {} from postgreSQL table {}.'.
+                              format(targetUserFollower, account['username']))
 
-                            iterationProUser = randint(3, 7)
-                            iterationProHashtag = randint(7, 12)
+                        try:
+                            # Like media from user
+                            like_recent_media(targetUserFollower,
+                                              iterationProUser)
+                            print('likeCounter: {}'.format(likeCounter))
+                            # Delete user from list
+                            deleteUser(account['username'], targetUserFollower)
+                            logging.info(
+                                'Deleted user {} from postgreSQL table {}.'.
+                                format(targetUserFollower,
+                                       account['username']))
+                            print(
+                                '> Deleted user {} from postgreSQL table {}.'.
+                                format(targetUserFollower,
+                                       account['username']))
 
-                            if likeCounter >= account['iterations']:
+                            # Like media from hastags array
+                            like_tag_feed(
+                                account['tags'][randint(
+                                    0,
+                                    len(account['tags']) - 1)],
+                                iterationProHashtag)
+                            print('likeCounter: {}'.format(likeCounter))
 
-                                #Break for statement, to switch insta account
+                            # Wait for few secondes
+                            sleep(30)
+
+                        except:
+
+                            errors += 1
+                            print('(!) ERROR {}'.format(errors))
+                            logging.warning(
+                                '(!) ERROR #{} on account {}'.format(
+                                    errors, account['username']))
+
+                            # Delete user from list
+                            deleteUser(account['username'], targetUserFollower)
+                            logging.info(
+                                'Deleted user {} from postgreSQL table {}.'.
+                                format(targetUserFollower,
+                                       account['username']))
+                            print(
+                                '> Deleted user {} from postgreSQL table {}.'.
+                                format(targetUserFollower,
+                                       account['username']))
+
+                            # Break process if too much User Errors at once
+                            if errors >= 20:
+                                send_email(1, userAccount)
+                                logging.critical(
+                                    '20 ERROR on account {}. Account will be dropped for now.'
+                                    .format(account['username']))
                                 break
-
-                            try:
-                                # Like media from user
-                                like_recent_media(profile[:-1],
-                                                  iterationProUser)
-                                print('likeCounter: {}'.format(likeCounter))
-                                # Delete user from list
-                                with open(
-                                        "userlist_instagram/username_{}.txt".
-                                        format(account['username']),
-                                        "r") as file:
-                                    lines = file.readlines()
-                                with open(
-                                        "userlist_instagram/username_{}.txt".
-                                        format(account['username']),
-                                        "w") as file:
-                                    for line in lines:
-                                        if line.strip("\n") != profile[:-1]:
-                                            file.write(line)
-
-                                # Like media from hastags array
-                                like_tag_feed(
-                                    account['tags'][randint(
-                                        0,
-                                        len(account['tags']) - 1)],
-                                    iterationProHashtag)
-                                print('likeCounter: {}'.format(likeCounter))
-
-                                # Wait for few secondes
-                                sleep(30)
-
-                            except:
-
-                                errors += 1
-                                print('(!) ERROR {}'.format(errors))
-                                logging.warning(
-                                    '(!) ERROR #{} on account {}'.format(
-                                        errors, account['username']))
-
-                                # Delete user from list
-                                with open(
-                                        "userlist_instagram/username_{}.txt".
-                                        format(account['username']),
-                                        "r") as file:
-                                    lines = file.readlines()
-                                with open(
-                                        "userlist_instagram/username_{}.txt".
-                                        format(account['username']),
-                                        "w") as file:
-                                    for line in lines:
-                                        if line.strip("\n") != profile[:-1]:
-                                            file.write(line)
-
-                                # Break process if too much User Errors at once
-                                if errors >= 20:
-                                    send_email(1, userAccount)
-                                    logging.critical(
-                                        '20 ERROR on account {}. Account will be dropped for now.'
-                                        .format(account['username']))
-                                    break
-                                else:
-                                    continue
+                            else:
+                                continue
 
                 except:
 
