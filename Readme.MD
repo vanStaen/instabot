@@ -91,7 +91,7 @@ Quite complete tutorial about the logging feature of python: https://www.datadog
 
 #### Install
 
-To install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
+To install to postgreSQL driver "psycopg2" run: `pip3 install psycopg2-binary`.
 
 #### Login
 
