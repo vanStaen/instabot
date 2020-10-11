@@ -118,6 +118,7 @@ Request return 400 error!
 
 - Repository on git hub: https://github.com/vanStaen/clembot
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
+- how to write a docker file: https://www.educative.io/edpresso/how-do-you-write-a-dockerfile
 
 ## todo
 
