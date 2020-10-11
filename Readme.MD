@@ -38,6 +38,12 @@ Save the chromedriver in the right folder. Per default, this executable is saved
 
 
 ## Deployment 
+
+To create the Docker file : 
+```
+docker build -t python-barcode . 
+```
+
 To deploy a docker file on Heroku:
 ```
 $ heroku login
