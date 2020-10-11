@@ -26,24 +26,39 @@ The whole thing can't run without Python: `brew install python3`, to get the lat
 
 The two most important package are `instabot` and `instagramapi`. Use pip3 to install those. </br>
 In case of admin rights problem, you may want to _sudo_ it.</br>
-`sudo pip3 install instabot` </br>
-`sudo pip3 install instagramapi` </br>
+```
+sudo pip3 install instabot
+sudo pip3 install instagramapi
+```
 
 #### Soundcloudbot:
 
 For running craeler and code directly with a browser, install `selenium`.</br>
 Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
 
+
+## Deployment 
+To deploy a docker file on Heroku:
+```
+$ heroku login
+$ heroku container:login
+$ heroku container:push web --app instabot-cvs
+```
+
 ## Under the hood
 
 ### How to start the script
 
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
-`caffeinate python3 instabot.py` </br>
+```
+caffeinate python3 instabot.py
+```
 _Caffeinate_ is used to stop the computer from going to sleep modus. </br>
 </br>
 Use -i to interact with python code. </br>
-`caffeinate -i python3 soundcloudbot.py` </br>
+```
+caffeinate -i python3 soundcloudbot.py
+```
 
 ### Sending mail with Python
 
