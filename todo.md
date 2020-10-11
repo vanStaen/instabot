@@ -16,6 +16,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
         - [x] read from db
         - [x] update db 
     - [ ] email when userlist is empty
+    - [ ] Deploy as a docker image on heroku (to use config.json)
     - [ ] Cron job on heroku
 - [ ] Set acccount with more than 10 errors per iteration to Active = false (json write)
     - [ ] move the flag from config file to postgres table
