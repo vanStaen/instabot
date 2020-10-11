@@ -188,7 +188,7 @@ for app in apps:
                             account['username'].replace(".", ""))
                         logging.info(
                             'Fetched user {} from postgreSQL table {}'.format(
-                                targetUserFollower, account['username'].replace(".", "")))
+                                targetUserFollower, account['username']))
                         print('> Fetched user {} from postgreSQL table {}'.
                               format(targetUserFollower, account['username']))
 
@@ -198,7 +198,8 @@ for app in apps:
                                               iterationProUser)
                             print('likeCounter: {}'.format(likeCounter))
                             # Delete user from list
-                            deleteUser(account['username'], targetUserFollower)
+                            deleteUser(account['username'].replace(
+                                ".", ""), targetUserFollower)
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
@@ -228,11 +229,12 @@ for app in apps:
                                     errors, account['username']))
 
                             # Delete user from list
-                            deleteUser(account['username'], targetUserFollower)
+                            deleteUser(account['username'].replace(
+                                ".", ""), targetUserFollower)
                             logging.info(
                                 'Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
-                                       account['username'].replace(".", "")))
+                                       account['username']))
                             print(
                                 '> Deleted user {} from postgreSQL table {}'.
                                 format(targetUserFollower,
