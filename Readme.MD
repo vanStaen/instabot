@@ -121,5 +121,7 @@ Request return 400 error!
 
 ## todo
 
+- Deploy docker node app to heroku: https://www.youtube.com/watch?v=6l55lOyerZk
+- Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
 - Cronjob on heroku with python: https://saqibameen.com/deploy-python-cron-job-scripts-on-heroku/
