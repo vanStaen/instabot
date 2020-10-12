@@ -39,10 +39,9 @@ Save the chromedriver in the right folder. Per default, this executable is saved
 
 ## Deployment 
 
-To create the Docker file : 
-```
-docker build -t python-barcode . 
-```
+To create the Docker file : `docker build -t instabot-cvs . `
+List to all the commandline for docker: https://docs.docker.com/engine/reference/commandline/
+Most useful: `docker image list` and `docker image rm your-docker-file`.
 
 To deploy a docker file on Heroku:
 ```
