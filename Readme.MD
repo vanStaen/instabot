@@ -38,6 +38,11 @@ Save the chromedriver in the right folder. Per default, this executable is saved
 
 
 ## Deployment 
+
+To create the Docker file : `docker build -t instabot-cvs . `
+List to all the commandline for docker: https://docs.docker.com/engine/reference/commandline/
+Most useful: `docker image list` and `docker image rm your-docker-file`.
+
 To deploy a docker file on Heroku:
 ```
 $ heroku login
@@ -85,7 +90,7 @@ Quite complete tutorial about the logging feature of python: https://www.datadog
 
 #### Install
 
-To install to postgreSQL driver "psycopg2" run: `pip install psycopg2-binary`.
+To install to postgreSQL driver "psycopg2" run: `pip3 install psycopg2-binary`.
 
 #### Login
 
@@ -118,6 +123,7 @@ Request return 400 error!
 
 - Repository on git hub: https://github.com/vanStaen/clembot
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
+- how to write a docker file: https://www.educative.io/edpresso/how-do-you-write-a-dockerfile
 
 ## todo
 
