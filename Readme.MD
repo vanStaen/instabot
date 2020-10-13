@@ -48,6 +48,7 @@ To deploy a docker file on Heroku:
 $ heroku login
 $ heroku container:login
 $ heroku container:push web --app instabot-cvs
+$ heroku container:release
 ```
 
 ## Under the hood
