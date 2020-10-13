@@ -123,6 +123,10 @@ Instabot ran successfully with {detail} iterations """
         message = f"""\
 Subject: Python Error report
 There were too many erros when running the instabot script for the account {userAccount} ({formattedDateStamp}) """
+    elif mailType == 2:
+        message = f"""\
+Subject: {formattedDateStamp}, Instabot script started
+Instabot started running """
     else:
         mailType = f"""\
 Subject: All hands on deck! 
@@ -145,6 +149,9 @@ Something weird is going on in your python script ({formattedDateStamp})."""
     finally:
         server.quit()
 
+
+# Info mail on script start
+send_email(2, '')
 
 # Go Through al the apps in config.Json
 for app in apps:
