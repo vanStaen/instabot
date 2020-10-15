@@ -248,7 +248,7 @@ for app in apps:
                                        account['username']))
 
                             # Break process if too much User Errors at once
-                            if errors >= 20:
+                            if errors >= 10:
                                 send_email(1, userAccount)
                                 logging.critical(
                                     '10 ERROR on account {}. Account will be dropped for now.'
