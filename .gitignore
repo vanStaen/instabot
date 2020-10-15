@@ -5,4 +5,3 @@ config.db.json
 .DS_Store
 database.ini
 postgreSQL/__pycache__
-log
