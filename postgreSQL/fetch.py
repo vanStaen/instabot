@@ -5,8 +5,7 @@ from postgreSQL.configDB import configDB
 def fetchFirst(table):
 
     try:
-        params = configDB()
-        #print('Connecting to the PostgreSQL database...')
+        params = configDB(section='postgresql_aws')
         connection = psycopg2.connect(**params)
 
         cursor = connection.cursor()
@@ -22,7 +21,7 @@ def fetchFirst(table):
         print("Error while fetching data from PostgreSQL", error)
 
     finally:
-        #closing database connection.
+        # closing database connection.
         if (connection):
             cursor.close()
             connection.close()
