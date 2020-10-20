@@ -19,8 +19,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
     - [x] update db
   - [x] ~~Deploy as a docker image on heroku (to use config.json)~~
   - [x] Migrate db from Heroku to AWS RDS S3
-  - [ ] Populate Heroku PostgresQL with config.Json
-  - [ ] Save db Connection variable as .env
+  - [x] Populate Heroku PostgresQL with config.Json
+  - [ ] Save db Connection variable as .env (use boto 3 https://www.youtube.com/watch?v=SmilJDG4B_8)
+  - [ ] Rewrite code to use .env var and account info from db
   - [ ] Deploy masterbranch on heroku
   - [ ] Cron job on heroku
 - [ ] Details of iterations in the summary mail.
