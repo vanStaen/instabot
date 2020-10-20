@@ -101,12 +101,16 @@ To install to postgreSQL driver "psycopg2" run: `pip3 install psycopg2-binary`.
 
 #### Login
 
-The file configDB.py containt a fonction reading the config data from fiöe database.ini
+The file configDB.py containt a fonction reading the config data from file database.ini
 
 #### SQL
 
 To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES ('anyInstaProfil');`.
 The column ùsername`has a type Char Variable (30), as we assume that a instagram login can't be longer than 30 characters.
+
+#### Authorisation
+
+For both database hosts, AWS (security groups) and mongodb.com (whitelisting), some authorisation must be set up in order to have access to the databse from an external actor: pgAdmin is used to deisplay the databases.
 
 ## Errors
 
