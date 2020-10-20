@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 
 
-def configDB(filename='database.ini', section='postgresql'):
+def configDB(filename='database.ini', section='postgresql_heroku'):
     # create a parser
     parser = ConfigParser()
     # read config file
