@@ -2,7 +2,9 @@ from InstagramAPI import InstagramAPI
 from time import sleep
 from random import randint
 from postgreSQL.fetch import fetchFirst
+from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
+from decouple import config
 import time
 import datetime
 import json
@@ -16,20 +18,11 @@ counterIterationsTotal = 0
 appCounter = 0
 
 # Get Data for emailing
-with open('config.mail.json', 'r') as config:
-    data = config.read()
-emailData = json.loads(data)
-for email in emailData['emailAccount']:
-    smtp_server = email['smtp_server']
-    port = email['port']
-    sender_email = email['sender_email']
-    receiver_email = email['receiver_email']
-    password = email['password']
-
-# Read file vonfig.json and parse data
-with open('config.json', 'r') as config:
-    data = config.read()
-apps = json.loads(data)
+smtp_server = config('SMTP_SERVER_GMAIL')
+port = config('PORT_GMAIL')
+sender_email = config('EMAIL_GMAIL')
+receiver_email = config('EMAIL_GMAIL')
+password = config('PWD_GMAIL')
 
 # Setting up logging
 logger = logging.getLogger()
@@ -40,6 +33,12 @@ file_formatter = logging.Formatter(
 )
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
+
+# Loading Accounts infos
+accounts = fetchAllAccount()
+password = {}
+for account in accounts:
+    password[account[3]] = config(account[3].upper()+'_PWD')
 
 
 def like_tag_feed(tag, max_likes):
@@ -129,7 +128,7 @@ Subject: {formattedDateStamp}, Instabot script started
 Instabot started running """
     else:
         mailType = f"""\
-Subject: All hands on deck! 
+Subject: All hands on deck!
 Something weird is going on in your python script ({formattedDateStamp})."""
 
     # Create a secure SSL context
@@ -153,121 +152,112 @@ Something weird is going on in your python script ({formattedDateStamp})."""
 # Info mail on script start
 send_email(2, '')
 
-# Go Through al the apps in config.Json
-for app in apps:
+# Go though all the accounts
+for account in accounts:
 
-    if (appCounter == 0):
+    # Check account Active-status
+    if account[0]:
 
-        # Go though all the accounts
-        for account in app['accounts']:
+        print('--------------------------------------')
+        print('Connection to account {}'.format(account[3]))
+        print('--------------------------------------')
 
-            # Check account Active-status
-            if account['active']:
+        # Reset user Error
+        errors = 0
 
-                print('--------------------------------------')
-                print('Connection to account {}'.format(account['username']))
-                print('--------------------------------------')
+        # For error handling
+        userAccount = account[3]
 
-                # Reset user Error
-                errors = 0
+        try:
 
-                # For error handling
-                userAccount = account['username']
+            api = InstagramAPI(account[3],
+                               password[account[3]])
+            api.login()
+            logging.info('### Connection to account {}'.format(
+                account[3]))
+            sleep(5)
+
+            # Reset the like counter
+            likeCounter = 0
+
+            while likeCounter < account[1] + 1:
+
+                iterationProUser = randint(3, 7)
+                iterationProHashtag = randint(7, 12)
+
+                targetUserFollower = fetchFirst(
+                    account[3].replace(".", ""))
+                logging.info(
+                    'Fetched user {} from postgreSQL table {}'.format(
+                        targetUserFollower, account[3]))
+                print('> Fetched user {} from postgreSQL table {}'.
+                      format(targetUserFollower, account[3]))
 
                 try:
+                    # Like media from user
+                    like_recent_media(targetUserFollower,
+                                      iterationProUser)
+                    print('likeCounter: {}'.format(likeCounter))
+                    # Delete user from list
+                    deleteUser(account[3].replace(
+                        ".", ""), targetUserFollower)
+                    logging.info(
+                        'Deleted user {} from postgreSQL table {}'.
+                        format(targetUserFollower,
+                               account[3]))
+                    print(
+                        '> Deleted user {} from postgreSQL table {}'.
+                        format(targetUserFollower,
+                               account[3]))
 
-                    api = InstagramAPI(account['username'],
-                                       account['password'])
-                    api.login()
-                    logging.info('### Connection to account {}'.format(
-                        account['username']))
-                    sleep(5)
+                    # Like media from hastags array
+                    like_tag_feed(
+                        account[2][randint(
+                            0,
+                            len(account[2]) - 1)],
+                        iterationProHashtag)
+                    print('likeCounter: {}'.format(likeCounter))
 
-                    # Reset the like counter
-                    likeCounter = 0
-
-                    while likeCounter < account['iterations'] + 1:
-
-                        iterationProUser = randint(3, 7)
-                        iterationProHashtag = randint(7, 12)
-
-                        targetUserFollower = fetchFirst(
-                            account['username'].replace(".", ""))
-                        logging.info(
-                            'Fetched user {} from postgreSQL table {}'.format(
-                                targetUserFollower, account['username']))
-                        print('> Fetched user {} from postgreSQL table {}'.
-                              format(targetUserFollower, account['username']))
-
-                        try:
-                            # Like media from user
-                            like_recent_media(targetUserFollower,
-                                              iterationProUser)
-                            print('likeCounter: {}'.format(likeCounter))
-                            # Delete user from list
-                            deleteUser(account['username'].replace(
-                                ".", ""), targetUserFollower)
-                            logging.info(
-                                'Deleted user {} from postgreSQL table {}'.
-                                format(targetUserFollower,
-                                       account['username']))
-                            print(
-                                '> Deleted user {} from postgreSQL table {}'.
-                                format(targetUserFollower,
-                                       account['username']))
-
-                            # Like media from hastags array
-                            like_tag_feed(
-                                account['tags'][randint(
-                                    0,
-                                    len(account['tags']) - 1)],
-                                iterationProHashtag)
-                            print('likeCounter: {}'.format(likeCounter))
-
-                            # Wait for few secondes
-                            sleep(30)
-
-                        except:
-
-                            errors += 1
-                            print('(!) ERROR {}'.format(errors))
-                            logging.warning(
-                                '(!) ERROR #{} on account {}'.format(
-                                    errors, account['username']))
-
-                            # Delete user from list
-                            deleteUser(account['username'].replace(
-                                ".", ""), targetUserFollower)
-                            logging.info(
-                                'Deleted user {} from postgreSQL table {}'.
-                                format(targetUserFollower,
-                                       account['username']))
-                            print(
-                                '> Deleted user {} from postgreSQL table {}'.
-                                format(targetUserFollower,
-                                       account['username']))
-
-                            # Break process if too much User Errors at once
-                            if errors >= 10:
-                                send_email(1, userAccount)
-                                logging.critical(
-                                    '10 ERROR on account {}. Account will be dropped for now.'
-                                    .format(account['username']))
-                                break
-                            else:
-                                continue
+                    # Wait for few secondes
+                    sleep(30)
 
                 except:
 
+                    errors += 1
+                    print('(!) ERROR {}'.format(errors))
+                    logging.warning(
+                        '(!) ERROR #{} on account {}'.format(
+                            errors, account[3]))
+
+                    # Delete user from list
+                    deleteUser(account[3].replace(
+                        ".", ""), targetUserFollower)
+                    logging.info(
+                        'Deleted user {} from postgreSQL table {}'.
+                        format(targetUserFollower,
+                               account[3]))
                     print(
-                        f'Some unhandled error happened for account {userAccount} !'
-                    )
-                    continue
+                        '> Deleted user {} from postgreSQL table {}'.
+                        format(targetUserFollower,
+                               account[3]))
 
-    else:
-        break
+                    # Break process if too much User Errors at once
+                    if errors >= 10:
+                        send_email(1, userAccount)
+                        logging.critical(
+                            '10 ERROR on account {}. Account will be dropped for now.'
+                            .format(account[3]))
+                        break
+                    else:
+                        continue
 
-    appCounter = appCounter + 1
+        except:
+
+            print(
+                f'Some unhandled error happened for account {userAccount} !'
+            )
+            continue
+
 
 # Inform that the script ended.
 send_email(0, counterIterationsTotal)
