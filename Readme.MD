@@ -10,8 +10,17 @@ I would always recommand using `npm` (node package manager) which come with the 
 Nevertheless the python specific package manager `pip` is here mandatory for some package (see below).</br>
 And now that you are at it, install `brew` if you don't have it yet, as we will need it to get `python3`. </br>
 </br>
-To updagrade pip3, run `pip3 install --upgrade pip`.
-With `pip3 show <packageneame>` you can see the details of a package.
+To updagrade pip3, run the following:
+
+```
+pip3 install --upgrade pip
+```
+
+With the following command you can see the details of a package:
+
+```
+pip3 show <packageneame>
+```
 
 ### What to install and how to do it
 
@@ -122,9 +131,7 @@ Request return 400 error!
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
 - how to write a docker file: https://www.educative.io/edpresso/how-do-you-write-a-dockerfile
 
-## todo
+## Ressources for later dark days
 
-- Deploy docker node app to heroku: https://www.youtube.com/watch?v=6l55lOyerZk
 - Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
-- Cronjob on heroku with python: https://saqibameen.com/deploy-python-cron-job-scripts-on-heroku/
