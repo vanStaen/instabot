@@ -1,12 +1,6 @@
 # PythonBot
 
-### Instabot :
-
-This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts.
-
-### Soundcloudbot :
-
-Sondcloud bot written in python. Will go a list of user and follow them. The unfollow script is there too. Will help generate trafic on the users pages.
+This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. You will find this project online under: https://instabot-cvs.herokuapp.com/
 
 ## How to Install it
 
@@ -32,27 +26,14 @@ sudo pip3 install instabot
 sudo pip3 install instagramapi
 ```
 
-#### Soundcloudbot:
+##### The draft for a Soundcloudbot is a bit different:
 
-For running craeler and code directly with a browser, install `selenium`.</br>
+For running crawler and code directly with a browser, install `selenium`.</br>
 Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
 
 ## Deployment
 
-To create the Docker file : `docker build -t instabot-cvs . `
-List to all the commandline for docker: https://docs.docker.com/engine/reference/commandline/
-Most useful: `docker image list` and `docker image rm your-docker-file`.
-
-To deploy a docker file on Heroku:
-
-```
-$ heroku login
-$ heroku container:login
-$ heroku container:push web --app instabot-cvs
-$ heroku container:release web
-```
-
-Ressources on deploying Docker on Heroku: https://devcenter.heroku.com/articles/container-registry-and-runtime
+Runninn the following command 'npm run deploy' will trigger the deployment of the master branch.
 
 ## Under the hood
 
