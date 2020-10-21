@@ -11,6 +11,7 @@ Nevertheless the python specific package manager `pip` is here mandatory for som
 And now that you are at it, install `brew` if you don't have it yet, as we will need it to get `python3`. </br>
 </br>
 To updagrade pip3, run `pip3 install --upgrade pip`.
+With `pip3 show <packageneame>` you can see the details of a package.
 
 ### What to install and how to do it
 
