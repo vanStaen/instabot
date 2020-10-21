@@ -18,8 +18,8 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Save db Connection variable as .env
   - [x] Add passwords to .env var
   - [x] Rewrite code to use .env var and account info from db
-  - [ ] Create node.s server to access logs
-  - [ ] Deploy masterbranch on heroku
+  - [x] Create node.js server to access logs
+  - [x] Deploy masterbranch on heroku
   - [ ] Cron job on heroku
 - [ ] Details of iterations in the summary mail.
   - [ ] Incl. how many iterations ran pro account
