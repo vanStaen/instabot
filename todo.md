@@ -12,12 +12,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
     - https://www.youtube.com/results?search_query=prometheus+python
 - [ ] Run the script automatically from a server
   - [x] Send mail when scripts error and script ran sucessfully
-  - [x] read userlist from DB
-    - [x] connect to postgreSQL
-    - [x] insert all data in postgreSQL
-    - [x] read from db
-    - [x] update db
-  - [x] ~~Deploy as a docker image on heroku (to use config.json)~~
+  - [x] read userlist from postgreSQL DB
   - [x] Migrate db from Heroku to AWS RDS S3
   - [x] Populate Heroku PostgresQL with config.Json
   - [x] Save db Connection variable as .env

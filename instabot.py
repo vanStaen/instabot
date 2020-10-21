@@ -1,10 +1,10 @@
 from InstagramAPI import InstagramAPI
 from time import sleep
 from random import randint
+from decouple import config
 from postgreSQL.fetch import fetchFirst
 from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
-from decouple import config
 import time
 import datetime
 import json
