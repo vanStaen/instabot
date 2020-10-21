@@ -1,0 +1,7 @@
+body,
+a {
+  background: #333;
+  background-image: url("../robot.png");
+  background-repeat: no-repeat;
+  color: #fff;
+}

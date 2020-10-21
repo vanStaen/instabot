@@ -2,7 +2,14 @@
   "name": "pythonbot",
   "version": "1.0.0",
   "description": "Instagram/Soundcloud robot - Crawling and liking users",
-  "main": "instabot.py",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write '**/*.{html,js,jsx,ts,tsx,css,json,graphql,graphqls}'",
+    "start": "node index.js",
+    "dev": "nodemon index",
+    "version": "heroku --version; git --version",
+    "deploy": "heroku login; heroku git:remote -a instabot-cvs; git push heroku master; heroku open"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vanStaen/pythonBot.git"
@@ -21,9 +28,11 @@
   "homepage": "https://github.com/vanStaen/pythonBot#readme",
   "dependencies": {
     "docker": "^1.0.0",
+    "express": "^4.17.1",
     "instabot": "^0.1.3",
     "instagramapi": "^2.0.0",
     "instaloader": "^1.0.1",
+    "nodemon": "^2.0.6",
     "prettier": "^2.1.1",
     "python3": "0.0.1",
     "random": "^2.2.0",
