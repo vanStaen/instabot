@@ -1,3 +1,0 @@
-instaloader==4.5.3
-InstagramAPI==1.0.2
-instabot==0.117.0
