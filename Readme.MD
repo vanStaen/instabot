@@ -16,8 +16,6 @@ To updagrade pip3, run `pip3 install --upgrade pip`.
 
 The whole thing can't run without Python: `brew install python3`, to get the lattest python version (incl. `pip3`).</br>
 
-#### Instabot:
-
 The two most important package are `instabot` and `instagramapi`. Use pip3 to install those. </br>
 In case of admin rights problem, you may want to _sudo_ it.</br>
 
@@ -26,7 +24,9 @@ sudo pip3 install instabot
 sudo pip3 install instagramapi
 ```
 
-##### The draft for a Soundcloudbot is a bit different:
+All the needed packages shold be listed in the file "requirement.txt" as heroku will need this file to install the dependancies on the server side.
+
+##### The package dependacies for a Soundcloudbot is a bit different:
 
 For running crawler and code directly with a browser, install `selenium`.</br>
 Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
@@ -34,6 +34,10 @@ Save the chromedriver in the right folder. Per default, this executable is saved
 ## Deployment
 
 Runninn the following command 'npm run deploy' will trigger the deployment of the master branch.
+
+## Debugging and logs
+
+Use `heroku logs --tail` when logged on the Heroku CLI , to access all the logs from the server.
 
 ## Under the hood
 
