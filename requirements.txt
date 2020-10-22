@@ -2,7 +2,7 @@ instaloader==4.5.3
 InstagramAPI==1.0.2
 instabot==0.117.0
 psycopg2-binary==2.8.6
+decouple==0.0.7
 requests==2.11.1
-moviepy=>1.0.1
-requests-toolbelt>=0.9.1
-decouple=>0.0.7
+moviepy==1.0.1
+requests-toolbelt==0.9.1
