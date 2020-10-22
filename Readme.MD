@@ -44,7 +44,13 @@ Save the chromedriver in the right folder. Per default, this executable is saved
 ## Deployment
 
 Runninng the following command 'npm run deploy' will trigger the deployment of the master branch.
-When deploying on Heroku, be sure that both python and node.js buildpack are initialized. In the Heroki CLI, just run `heroku buildpacks:add heroku/python`to set up python.
+When deploying on Heroku, be sure that both python and node.js buildpack are initialized. In the Heroki CLI, just run:
+
+```
+heroku buildpacks:clear
+heroku buildpacks:add --index 1 heroku/nodejs
+heroku buildpacks:add --index 2 heroku/python
+```
 
 ## Debugging and logs
 
