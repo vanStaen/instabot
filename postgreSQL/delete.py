@@ -5,7 +5,7 @@ from postgreSQL.configDB import configDB
 def deleteUser(table, user):
 
     try:
-        params = configDB(section='postgresql_aws')
+        params = configDB(section='aws')
         connection = psycopg2.connect(**params)
 
         cursor = connection.cursor()

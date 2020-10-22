@@ -1,17 +1,14 @@
 import smtplib
 import ssl
 import json
+from decouple import config
 
-# Get Data for emailing
-with open('../../config.mail.json', 'r') as config:
-    data = config.read()
-emailData = json.loads(data)
-for email in emailData['emailAccount']:
-    smtp_server = email['smtp_server']
-    port = email['port']
-    sender_email = email['sender_email']
-    receiver_email = email['receiver_email']
-    password = email['password']
+
+smtp_server = config('SMTP_SERVER_GMAIL')
+port = config('PORT_GMAIL')
+sender_email = config('EMAIL_GMAIL')
+receiver_email = config('EMAIL_GMAIL')
+password = config('PWD_GMAIL')
 
 message = """\
 Subject: Hi there
@@ -23,9 +20,7 @@ context = ssl.create_default_context()
 # Try to log in to server and send email
 try:
     server = smtplib.SMTP(smtp_server, port)
-    server.ehlo()  # Can be omitted
     server.starttls(context=context)  # Secure the connection
-    server.ehlo()  # Can be omitted
     server.login(sender_email, password)
     server.sendmail(sender_email, receiver_email, message)
 except Exception as e:

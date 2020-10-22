@@ -7,7 +7,7 @@ def connect():
     conn = None
     try:
         # read connection parameters
-        params = configDB(section='postgresql_aws')
+        params = configDB(section='aws')
 
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')

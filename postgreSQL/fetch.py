@@ -5,7 +5,7 @@ from postgreSQL.configDB import configDB
 def fetchFirst(table):
 
     try:
-        params = configDB(section='postgresql_aws')
+        params = configDB(section='aws')
         connection = psycopg2.connect(**params)
 
         cursor = connection.cursor()
@@ -29,7 +29,7 @@ def fetchFirst(table):
 def fetchAllAccount():
 
     try:
-        params = configDB(section='postgresql_heroku')
+        params = configDB(section='heroku')
         connection = psycopg2.connect(**params)
 
         cursor = connection.cursor()

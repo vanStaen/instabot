@@ -1,20 +1,11 @@
-from configparser import ConfigParser
+from decouple import config
 
 
-def configDB(section, filename='database.ini', ):
-    # create a parser
-    parser = ConfigParser()
-    # read config file
-    parser.read(filename)
-
-    # get section, default to postgresql
+def configDB(section):
     db = {}
-    if parser.has_section(section):
-        params = parser.items(section)
-        for param in params:
-            db[param[0]] = param[1]
-    else:
-        raise Exception('Section {0} not found in the {1} file'.format(
-            section, filename))
+    db['host'] = config(section.upper()+'_DATABASE_HOST')
+    db['database'] = config(section.upper()+'_DATABASE_DATABASE')
+    db['user'] = config(section.upper()+'_DATABASE_USER')
+    db['password'] = config(section.upper()+'_DATABASE_PWD')
 
     return db
