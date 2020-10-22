@@ -5,6 +5,7 @@ from decouple import config
 from postgreSQL.fetch import fetchFirst
 from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
+from helpers.sendMail import sendMail
 import time
 import datetime
 import json
@@ -16,13 +17,6 @@ import logging
 errors = 0
 counterIterationsTotal = 0
 appCounter = 0
-
-# Get Data for emailing
-smtp_server = config('SMTP_SERVER_GMAIL')
-port = config('PORT_GMAIL')
-sender_email = config('EMAIL_GMAIL')
-receiver_email = config('EMAIL_GMAIL')
-password = config('PWD_GMAIL')
 
 # Setting up logging
 logger = logging.getLogger()
@@ -109,48 +103,8 @@ def like_recent_media(target_user, max_likes):
             sleep(randint(3, 22))
 
 
-def send_email(mailType, detail):
-
-    unformattedDateStamp = datetime.datetime.now()
-    formattedDateStamp = unformattedDateStamp.strftime("%d/%m %H:%M")
-
-    if mailType == 0:
-        message = f"""\
-Subject: {formattedDateStamp}, Instabot ran successfully
-Instabot ran successfully with {detail} iterations """
-    elif mailType == 1:
-        message = f"""\
-Subject: Python Error report
-There were too many erros when running the instabot script for the account {userAccount} ({formattedDateStamp}) """
-    elif mailType == 2:
-        message = f"""\
-Subject: {formattedDateStamp}, Instabot script started
-Instabot started running """
-    else:
-        mailType = f"""\
-Subject: All hands on deck!
-Something weird is going on in your python script ({formattedDateStamp})."""
-
-    # Create a secure SSL context
-    context = ssl.create_default_context()
-
-    # Try to log in to server and send email
-    try:
-        server = smtplib.SMTP(smtp_server, port)
-        server.ehlo()  # Can be omitted
-        server.starttls(context=context)  # Secure the connection
-        server.ehlo()  # Can be omitted
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, message)
-    except Exception as e:
-        # Print any error messages to stdout
-        print(e)
-    finally:
-        server.quit()
-
-
 # Info mail on script start
-send_email(2, '')
+print(sendMail(2, ''))
 
 # Go though all the accounts
 for account in accounts:
@@ -243,7 +197,7 @@ for account in accounts:
 
                     # Break process if too much User Errors at once
                     if errors >= 10:
-                        send_email(1, userAccount)
+                        print(sendMail(1, userAccount))
                         logging.critical(
                             '10 ERROR on account {}. Account will be dropped for now.'
                             .format(account[3]))
@@ -260,7 +214,7 @@ for account in accounts:
 
 
 # Inform that the script ended.
-send_email(0, counterIterationsTotal)
+print(sendMail(0, counterIterationsTotal))
 logging.info(
     'SCRIPT RAN SUCCESSFULLY ({} iterations)'.format(counterIterationsTotal))
 
