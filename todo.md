@@ -29,3 +29,5 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Rewrite code to use .env var and account info from db
   - [x] Deploy masterbranch on heroku
   - [x] Cron job on heroku (Scheduler)
+- [x] Deactivate account when more than 10 tries without a like
+- [x] Deactivate account when more than 15 errors

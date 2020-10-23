@@ -57,6 +57,12 @@ A procfile is needed (from the python framework) to start a web process running:
 ## Debugging and logs
 
 Use `heroku logs --tail` when logged on the Heroku CLI , to access all the logs from the server.
+If the schedluer is running and the script is throwing error, but won't kill itself:
+
+```
+heroku ps
+heroku ps:stop <name of the scheduler>
+```
 
 ## Under the hood
 
