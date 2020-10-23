@@ -17,7 +17,7 @@ import logging
 errors = 0
 counterIterationsTotal = 0
 appCounter = 0
-maxTriesBeforeAbortAccount = 10
+maxTriesBeforeAbortAccount = 50
 maxErrorsBeforeAbortAccount = 20
 
 # Setting up logging
@@ -40,8 +40,6 @@ for account in accounts:
 def like_tag_feed(tag, max_likes):
     global likeCounter
     global counterIterationsTotal
-    global tryLikes
-
     print('# Liking media with hashtag #{}'.format(tag))
 
     next_max = 1
@@ -60,16 +58,14 @@ def like_tag_feed(tag, max_likes):
                     time.gmtime(unformattedTimeStamp + 3600 + 3600))
                 print('[{}] Running ... Liking {}'.format(
                     formattedTimeStamp, post["pk"]))
+                tryLikes += 1
                 api.like(post["pk"])
                 likes += 1
-                tryLikes += 1
                 likeCounter += 1
                 counterIterationsTotal += 1
                 logging.info('#{} - Photo liked! ... ({})'.format(
                     tag, likeCounter))
                 if likes >= max_likes:
-                    break
-                if tryLikes >= maxTriesBeforeAbortAccount:
                     break
                 sleep(randint(3, 22))
         try:
@@ -78,14 +74,11 @@ def like_tag_feed(tag, max_likes):
             pass
         if likes >= max_likes:
             break
-        if tryLikes >= maxTriesBeforeAbortAccount:
-            break
 
 
 def like_recent_media(target_user, max_likes):
     global likeCounter
     global counterIterationsTotal
-    global tryLikes
 
     print('# Liking media from User {}'.format(target_user))
 
@@ -97,9 +90,8 @@ def like_recent_media(target_user, max_likes):
     user_id = user_profile['pk']
     user_posts = api.getUserFeed(user_id)
     info = api.LastJson
-    tryLikes = 0
-
     likes = 0
+
     for recent_post in info['items']:
         if not recent_post["has_liked"]:
             unformattedTimeStamp = time.time()
@@ -107,16 +99,14 @@ def like_recent_media(target_user, max_likes):
                 "%H:%M:%S", time.gmtime(unformattedTimeStamp + 3600 + 3600))
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
+            tryLikes += 1
             api.like(recent_post['pk'])
             likes += 1
-            tryLikes += 1
             likeCounter += 1
             counterIterationsTotal += 1
             logging.info('{} - Photo #{} liked! ... ({})'.format(
                 target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
-                break
-            if tryLikes >= maxTriesBeforeAbortAccount:
                 break
             sleep(randint(3, 22))
 
@@ -134,8 +124,9 @@ for account in accounts:
         print('Connection to account {}'.format(account[3]))
         print('--------------------------------------')
 
-        # Reset user Error
+        # Reset user Error & tryLikes
         errors = 0
+        tryLikes = 0
 
         # For error handling
         userAccount = account[3]
