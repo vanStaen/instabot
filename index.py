@@ -231,7 +231,7 @@ for account in accounts:
         # return numbers of errors
         if errors >= 1:
             logging.critical('{} ERROR on account {}. Account will NOT be dropped.'.format(
-                maxErrorsBeforeAbortAccount, account[3]))
+                errors, account[3]))
 
 
 # Inform that the script ended.
