@@ -5,9 +5,9 @@ from decouple import config
 from postgreSQL.fetch import fetchFirst
 from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
+from postgreSQL.deactivate import deactivate
 from helpers.sendMail import sendMail
 import time
-import datetime
 import json
 import smtplib
 import ssl
@@ -17,6 +17,8 @@ import logging
 errors = 0
 counterIterationsTotal = 0
 appCounter = 0
+maxTriesBeforeAbortAccount = 10
+maxErrorsBeforeAbortAccount = 20
 
 # Setting up logging
 logger = logging.getLogger()
@@ -38,10 +40,15 @@ for account in accounts:
 def like_tag_feed(tag, max_likes):
     global likeCounter
     global counterIterationsTotal
+    global tryLikes
+
     print('# Liking media with hashtag #{}'.format(tag))
+
     next_max = 1
     next_max_id = ''
     likes = 0
+    tryLikes = 0
+
     for n in range(next_max):
         api.getHashtagFeed(tag, next_max_id)
         temp = api.LastJson
@@ -55,11 +62,14 @@ def like_tag_feed(tag, max_likes):
                     formattedTimeStamp, post["pk"]))
                 api.like(post["pk"])
                 likes += 1
+                tryLikes += 1
                 likeCounter += 1
                 counterIterationsTotal += 1
                 logging.info('#{} - Photo liked! ... ({})'.format(
                     tag, likeCounter))
                 if likes >= max_likes:
+                    break
+                if tryLikes >= maxTriesBeforeAbortAccount:
                     break
                 sleep(randint(3, 22))
         try:
@@ -68,11 +78,15 @@ def like_tag_feed(tag, max_likes):
             pass
         if likes >= max_likes:
             break
+        if tryLikes >= maxTriesBeforeAbortAccount:
+            break
 
 
 def like_recent_media(target_user, max_likes):
     global likeCounter
     global counterIterationsTotal
+    global tryLikes
+
     print('# Liking media from User {}'.format(target_user))
 
     def get_user_profile(target_user):
@@ -83,6 +97,7 @@ def like_recent_media(target_user, max_likes):
     user_id = user_profile['pk']
     user_posts = api.getUserFeed(user_id)
     info = api.LastJson
+    tryLikes = 0
 
     likes = 0
     for recent_post in info['items']:
@@ -94,11 +109,14 @@ def like_recent_media(target_user, max_likes):
                 formattedTimeStamp, recent_post["pk"], target_user))
             api.like(recent_post['pk'])
             likes += 1
+            tryLikes += 1
             likeCounter += 1
             counterIterationsTotal += 1
             logging.info('{} - Photo #{} liked! ... ({})'.format(
                 target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
+                break
+            if tryLikes >= maxTriesBeforeAbortAccount:
                 break
             sleep(randint(3, 22))
 
@@ -164,6 +182,15 @@ for account in accounts:
                         format(targetUserFollower,
                                account[3]))
 
+                    # Kill process if too many tries did not brought a like
+                    if tryLikes >= maxTriesBeforeAbortAccount:
+                        deactivate(account[3])
+                        print(sendMail(1, userAccount))
+                        logging.critical(
+                            '{} ERROR on account {}. Account will be dropped for now.'
+                            .format(maxTriesBeforeAbortAccount, account[3]))
+                        break
+
                     # Like media from hastags array
                     like_tag_feed(
                         account[2][randint(
@@ -171,6 +198,15 @@ for account in accounts:
                             len(account[2]) - 1)],
                         iterationProHashtag)
                     print('likeCounter: {}'.format(likeCounter))
+
+                    # Kill process if too many tries did not brought a like
+                    if tryLikes >= maxTriesBeforeAbortAccount:
+                        deactivate(account[3])
+                        print(sendMail(1, userAccount))
+                        logging.critical(
+                            '{} ERROR on account {}. Account will be dropped for now.'
+                            .format(maxTriesBeforeAbortAccount, account[3]))
+                        break
 
                     # Wait for few secondes
                     sleep(30)
@@ -196,11 +232,12 @@ for account in accounts:
                                account[3]))
 
                     # Break process if too much User Errors at once
-                    if errors >= 10:
+                    if errors >= maxTriesBeforeAbortAccount:
+                        deactivate(account[3])
                         print(sendMail(1, userAccount))
                         logging.critical(
-                            '10 ERROR on account {}. Account will be dropped for now.'
-                            .format(account[3]))
+                            '{} ERROR on account {}. Account will be dropped for now.'
+                            .format(maxErrorsBeforeAbortAccount, account[3]))
                         break
                     else:
                         continue

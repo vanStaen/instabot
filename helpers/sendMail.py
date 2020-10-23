@@ -16,7 +16,7 @@ def sendMail(mailType, detail):
         messageBody = f"Instabot ran successfully with {detail} iterations."
     elif mailType == 1:
         messageSubject = "Python Error report."
-        messageBody = f"There were too many erros when running the instabot script for the account {detail} ({formattedDateStamp})."
+        messageBody = f"There were too many erros when running the instabot script for the account {detail} ({formattedDateStamp}). The account will be deactivated."
     elif mailType == 2:
         messageSubject = f"{formattedDateStamp}, Instabot script started."
         messageBody = "Instabot started running"
