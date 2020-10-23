@@ -52,6 +52,8 @@ heroku buildpacks:add --index 1 heroku/nodejs
 heroku buildpacks:add --index 2 heroku/python
 ```
 
+A procfile is needed (from the python framework) to start a web process running: in our case a node pointing to index.js
+
 ## Debugging and logs
 
 Use `heroku logs --tail` when logged on the Heroku CLI , to access all the logs from the server.

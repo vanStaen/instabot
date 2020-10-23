@@ -7,7 +7,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
 - [ ] Improve the handling of logs
   - [x] Use python logging feature
   - [x] jsoninfy the logs : https://www.datadoghq.com/blog/python-logging-best-practices/
-  - [?] Create node.js server to access logs
+  - [x] Create node.js server to access logs
   - [ ] Logs management (analysis tool). Prometheus + grafana ?
     - https://www.loggly.com/ultimate-guide/centralizing-python-logs/
     - https://www.youtube.com/results?search_query=prometheus+python
