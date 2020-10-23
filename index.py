@@ -18,7 +18,6 @@ errors = 0
 counterIterationsTotal = 0
 appCounter = 0
 maxTriesBeforeAbortAccount = 50
-maxErrorsBeforeAbortAccount = 20
 
 # Setting up logging
 logger = logging.getLogger()
@@ -222,23 +221,17 @@ for account in accounts:
                         format(targetUserFollower,
                                account[3]))
 
-                    # Break process if too much User Errors at once
-                    if errors >= maxTriesBeforeAbortAccount:
-                        deactivate(account[3])
-                        print(sendMail(1, userAccount))
-                        logging.critical(
-                            '{} ERROR on account {}. Account will be dropped for now.'
-                            .format(maxErrorsBeforeAbortAccount, account[3]))
-                        break
-                    else:
-                        continue
-
         except:
 
             print(
                 f'Some unhandled error happened for account {userAccount} !'
             )
             continue
+
+        # return numbers of errors
+        if errors >= 1:
+            logging.critical('{} ERROR on account {}. Account will NOT be dropped.'.format(
+                maxErrorsBeforeAbortAccount, account[3]))
 
 
 # Inform that the script ended.
