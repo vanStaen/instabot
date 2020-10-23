@@ -132,6 +132,12 @@ Request return 400 error!
 {'message': 'Not authorized to view user', 'status': 'fail'}
 ```
 
+#### Media has been deleted:
+
+````
+{'message': 'Sorry, this media has been deleted', 'like_error_key': 'like_media_does_not_exist', 'status': 'fail'}
+```
+
 ## Links
 
 - Repository on git hub: https://github.com/vanStaen/clembot
@@ -142,3 +148,4 @@ Request return 400 error!
 
 - Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
+````
