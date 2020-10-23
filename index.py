@@ -17,6 +17,7 @@ import logging
 errors = 0
 counterIterationsTotal = 0
 appCounter = 0
+fourHundredCounter = 0
 
 # Setting up logging
 logger = logging.getLogger()
@@ -58,10 +59,6 @@ def like_tag_feed(tag, max_likes):
                 result = api.like(post['pk'])
                 counterIterationsTotal += 1
                 if result == False:
-                    deactivate(account[3])
-                    print(sendMail(1, userAccount))
-                    logging.critical(
-                        '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                     return False
                 likes += 1
                 likeCounter += 1
@@ -104,10 +101,6 @@ def like_recent_media(target_user, max_likes):
             result = api.like(recent_post['pk'])
             counterIterationsTotal += 1
             if result == False:
-                deactivate(account[3])
-                print(sendMail(1, userAccount))
-                logging.critical(
-                    '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                 return False
             likes += 1
             likeCounter += 1
@@ -133,6 +126,7 @@ for account in accounts:
 
         # Reset user Error
         errors = 0
+        fourHundredCounter = 0
 
         # For error handling
         userAccount = account[3]
@@ -167,7 +161,15 @@ for account in accounts:
                     result = like_recent_media(targetUserFollower,
                                                iterationProUser)
                     print('likeCounter: {}'.format(likeCounter))
+
                     if result == False:
+                        fourHundredCounter = + 1
+
+                    if fourHundredCounter >= 5:
+                        deactivate(account[3])
+                        print(sendMail(1, userAccount))
+                        logging.critical(
+                            '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
                     # Delete user from list
@@ -191,6 +193,13 @@ for account in accounts:
                     print('likeCounter: {}'.format(likeCounter))
 
                     if result == False:
+                        fourHundredCounter = + 1
+
+                    if fourHundredCounter >= 5:
+                        deactivate(account[3])
+                        print(sendMail(1, userAccount))
+                        logging.critical(
+                            '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
                     # Wait for few secondes

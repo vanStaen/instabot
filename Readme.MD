@@ -143,6 +143,7 @@ Request return 400 error!
 #### Media has been deleted:
 
 ````
+Request return 400 error!
 {'message': 'Sorry, this media has been deleted', 'like_error_key': 'like_media_does_not_exist', 'status': 'fail'}
 ```
 
