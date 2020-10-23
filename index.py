@@ -39,6 +39,8 @@ for account in accounts:
 def like_tag_feed(tag, max_likes):
     global likeCounter
     global counterIterationsTotal
+    global fourHundredCounter
+
     print('# Liking media with hashtag #{}'.format(tag))
 
     next_max = 1
@@ -60,6 +62,8 @@ def like_tag_feed(tag, max_likes):
                 counterIterationsTotal += 1
                 if result == False:
                     return False
+                if result == True:
+                    fourHundredCounter = 0
                 likes += 1
                 likeCounter += 1
                 logging.info('#{} - Photo liked! ... ({})'.format(
@@ -78,6 +82,7 @@ def like_tag_feed(tag, max_likes):
 def like_recent_media(target_user, max_likes):
     global likeCounter
     global counterIterationsTotal
+    global fourHundredCounter
 
     print('# Liking media from User {}'.format(target_user))
 
@@ -102,6 +107,8 @@ def like_recent_media(target_user, max_likes):
             counterIterationsTotal += 1
             if result == False:
                 return False
+            if result == True:
+                fourHundredCounter = 0
             likes += 1
             likeCounter += 1
             logging.info('{} - Photo #{} liked! ... ({})'.format(
@@ -163,7 +170,7 @@ for account in accounts:
                     print('likeCounter: {}'.format(likeCounter))
 
                     if result == False:
-                        fourHundredCounter = + 1
+                        fourHundredCounter += 1
 
                     if fourHundredCounter >= 5:
                         deactivate(account[3])
@@ -193,7 +200,7 @@ for account in accounts:
                     print('likeCounter: {}'.format(likeCounter))
 
                     if result == False:
-                        fourHundredCounter = + 1
+                        fourHundredCounter += 1
 
                     if fourHundredCounter >= 5:
                         deactivate(account[3])

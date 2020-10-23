@@ -3,5 +3,6 @@ a {
   background: #333;
   background-image: url("../robot.png");
   background-repeat: no-repeat;
+  background-size: 100%;
   color: #fff;
 }
