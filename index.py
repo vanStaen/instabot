@@ -17,7 +17,6 @@ import logging
 errors = 0
 counterIterationsTotal = 0
 appCounter = 0
-maxTriesBeforeAbortAccount = 50
 
 # Setting up logging
 logger = logging.getLogger()
@@ -39,13 +38,11 @@ for account in accounts:
 def like_tag_feed(tag, max_likes):
     global likeCounter
     global counterIterationsTotal
-    global tryLikes
     print('# Liking media with hashtag #{}'.format(tag))
 
     next_max = 1
     next_max_id = ''
     likes = 0
-    tryLikes = 0
 
     for n in range(next_max):
         api.getHashtagFeed(tag, next_max_id)
@@ -58,15 +55,20 @@ def like_tag_feed(tag, max_likes):
                     time.gmtime(unformattedTimeStamp + 3600 + 3600))
                 print('[{}] Running ... Liking {}'.format(
                     formattedTimeStamp, post["pk"]))
-                tryLikes += 1
-                api.like(post["pk"])
+                result = api.like(post['pk'])
+                counterIterationsTotal += 1
+                if result == False:
+                    deactivate(account[3])
+                    print(sendMail(1, userAccount))
+                    logging.critical(
+                        '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
+                    return False
                 likes += 1
                 likeCounter += 1
-                counterIterationsTotal += 1
                 logging.info('#{} - Photo liked! ... ({})'.format(
                     tag, likeCounter))
                 if likes >= max_likes:
-                    break
+                    return True
                 sleep(randint(3, 22))
         try:
             next_max_id = temp["next_max_id"]
@@ -79,7 +81,6 @@ def like_tag_feed(tag, max_likes):
 def like_recent_media(target_user, max_likes):
     global likeCounter
     global counterIterationsTotal
-    global tryLikes
 
     print('# Liking media from User {}'.format(target_user))
 
@@ -100,15 +101,20 @@ def like_recent_media(target_user, max_likes):
                 "%H:%M:%S", time.gmtime(unformattedTimeStamp + 3600 + 3600))
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
-            tryLikes += 1
-            api.like(recent_post['pk'])
+            result = api.like(recent_post['pk'])
+            counterIterationsTotal += 1
+            if result == False:
+                deactivate(account[3])
+                print(sendMail(1, userAccount))
+                logging.critical(
+                    '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
+                return False
             likes += 1
             likeCounter += 1
-            counterIterationsTotal += 1
             logging.info('{} - Photo #{} liked! ... ({})'.format(
                 target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
-                break
+                return True
             sleep(randint(3, 22))
 
 
@@ -125,9 +131,8 @@ for account in accounts:
         print('Connection to account {}'.format(account[3]))
         print('--------------------------------------')
 
-        # Reset user Error & tryLikes
+        # Reset user Error
         errors = 0
-        tryLikes = 0
 
         # For error handling
         userAccount = account[3]
@@ -159,9 +164,12 @@ for account in accounts:
 
                 try:
                     # Like media from user
-                    like_recent_media(targetUserFollower,
-                                      iterationProUser)
+                    result = like_recent_media(targetUserFollower,
+                                               iterationProUser)
                     print('likeCounter: {}'.format(likeCounter))
+                    if result == False:
+                        break
+
                     # Delete user from list
                     deleteUser(account[3].replace(
                         ".", ""), targetUserFollower)
@@ -174,30 +182,15 @@ for account in accounts:
                         format(targetUserFollower,
                                account[3]))
 
-                    # Kill process if too many tries did not brought a like
-                    if tryLikes >= maxTriesBeforeAbortAccount:
-                        deactivate(account[3])
-                        print(sendMail(1, userAccount))
-                        logging.critical(
-                            '{} ERROR on account {}. Account will be dropped for now.'
-                            .format(maxTriesBeforeAbortAccount, account[3]))
-                        break
-
                     # Like media from hastags array
-                    like_tag_feed(
+                    result = like_tag_feed(
                         account[2][randint(
                             0,
                             len(account[2]) - 1)],
                         iterationProHashtag)
                     print('likeCounter: {}'.format(likeCounter))
 
-                    # Kill process if too many tries did not brought a like
-                    if tryLikes >= maxTriesBeforeAbortAccount:
-                        deactivate(account[3])
-                        print(sendMail(1, userAccount))
-                        logging.critical(
-                            '{} ERROR on account {}. Account will be dropped for now.'
-                            .format(maxTriesBeforeAbortAccount, account[3]))
+                    if result == False:
                         break
 
                     # Wait for few secondes
@@ -206,11 +199,10 @@ for account in accounts:
                 except Exception as e:
 
                     errors += 1
-                    print(str(e))
-                    print('(!) Error {}'.format(errors))
-                    logging.warning(
-                        '(!) Error #{} on account {}'.format(
-                            errors, account[3]))
+                    print('Error #{} on account {}'.format(
+                        errors, account[3]))
+                    logging.warning('Error #{} on account {}'.format(
+                        errors, account[3]))
 
                     # Delete user from list
                     deleteUser(account[3].replace(
