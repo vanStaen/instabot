@@ -15,6 +15,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [ ] Incl. how many iterations ran pro account
   - [ ] Incl. how many user left in the table pro account
 - [ ] Send email when userlist (DB) is empty
+- [ ] Front end to manage active status of accounts
 
 ## Completed ✓
 
