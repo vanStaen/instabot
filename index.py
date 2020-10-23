@@ -39,6 +39,7 @@ for account in accounts:
 def like_tag_feed(tag, max_likes):
     global likeCounter
     global counterIterationsTotal
+    global tryLikes
     print('# Liking media with hashtag #{}'.format(tag))
 
     next_max = 1
@@ -78,6 +79,7 @@ def like_tag_feed(tag, max_likes):
 def like_recent_media(target_user, max_likes):
     global likeCounter
     global counterIterationsTotal
+    global tryLikes
 
     print('# Liking media from User {}'.format(target_user))
 
@@ -201,12 +203,13 @@ for account in accounts:
                     # Wait for few secondes
                     sleep(30)
 
-                except:
+                except Exception as e:
 
                     errors += 1
-                    print('(!) ERROR {}'.format(errors))
+                    print(str(e))
+                    print('(!) Error {}'.format(errors))
                     logging.warning(
-                        '(!) ERROR #{} on account {}'.format(
+                        '(!) Error #{} on account {}'.format(
                             errors, account[3]))
 
                     # Delete user from list
