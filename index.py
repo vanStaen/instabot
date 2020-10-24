@@ -61,13 +61,14 @@ def like_tag_feed(tag, max_likes):
                 result = api.like(post['pk'])
                 counterIterationsTotal += 1
                 if result == False:
+                    logging.critical(f"Api return error 400 for tag {tag}")
                     return False
                 if result == True:
                     fourHundredCounter = 0
                 likes += 1
                 likeCounter += 1
-                logging.info('#{} - Photo liked! ... ({})'.format(
-                    tag, likeCounter))
+                logging.info(
+                    '#{} - Photo liked! ... ({})'.format(tag, likeCounter))
                 if likes >= max_likes:
                     return True
                 sleep(randint(3, 22))
@@ -106,13 +107,15 @@ def like_recent_media(target_user, max_likes):
             result = api.like(recent_post['pk'])
             counterIterationsTotal += 1
             if result == False:
+                logging.critical(
+                    f"Api return error 400 for user {target_user}")
                 return False
             if result == True:
                 fourHundredCounter = 0
             likes += 1
             likeCounter += 1
-            logging.info('{} - Photo #{} liked! ... ({})'.format(
-                target_user, recent_post["pk"], likeCounter))
+            logging.info(
+                '{} - Photo #{} liked! ... ({})'.format(target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
                 return True
             sleep(randint(3, 22))
@@ -157,11 +160,6 @@ for account in accounts:
 
                 targetUserFollower = fetchFirst(
                     account[3].replace(".", ""))
-                logging.info(
-                    'Fetched user {} from postgreSQL table {}'.format(
-                        targetUserFollower, account[3]))
-                print('> Fetched user {} from postgreSQL table {}'.
-                      format(targetUserFollower, account[3]))
 
                 try:
                     # Like media from user
@@ -176,20 +174,12 @@ for account in accounts:
                         deactivate(account[3])
                         print(sendMail(1, userAccount))
                         logging.critical(
-                            '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
+                            'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
                     # Delete user from list
                     deleteUser(account[3].replace(
                         ".", ""), targetUserFollower)
-                    logging.info(
-                        'Deleted user {} from postgreSQL table {}'.
-                        format(targetUserFollower,
-                               account[3]))
-                    print(
-                        '> Deleted user {} from postgreSQL table {}'.
-                        format(targetUserFollower,
-                               account[3]))
 
                     # Like media from hastags array
                     result = like_tag_feed(
@@ -206,7 +196,7 @@ for account in accounts:
                         deactivate(account[3])
                         print(sendMail(1, userAccount))
                         logging.critical(
-                            '400 Error on account {}. Account will be dropped for now.'.format(account[3]))
+                            'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
                     # Wait for few secondes
@@ -223,14 +213,6 @@ for account in accounts:
                     # Delete user from list
                     deleteUser(account[3].replace(
                         ".", ""), targetUserFollower)
-                    logging.info(
-                        'Deleted user {} from postgreSQL table {}'.
-                        format(targetUserFollower,
-                               account[3]))
-                    print(
-                        '> Deleted user {} from postgreSQL table {}'.
-                        format(targetUserFollower,
-                               account[3]))
 
         except:
 

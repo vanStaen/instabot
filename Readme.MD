@@ -71,7 +71,7 @@ heroku ps:stop <name of the scheduler>
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
 
 ```
-caffeinate python3 instabot.py
+caffeinate python3 index.py
 ```
 
 _Caffeinate_ is used to stop the computer from going to sleep modus. </br>
