@@ -71,7 +71,7 @@ def like_tag_feed(tag, max_likes):
                     '#{} - Photo liked! ... ({})'.format(tag, likeCounter))
                 if likes >= max_likes:
                     return True
-                sleep(randint(3, 22))
+                sleep(randint(3, 17))
         try:
             next_max_id = temp["next_max_id"]
         except Exception:
@@ -118,7 +118,7 @@ def like_recent_media(target_user, max_likes):
                 '{} - Photo #{} liked! ... ({})'.format(target_user, recent_post["pk"], likeCounter))
             if likes >= max_likes:
                 return True
-            sleep(randint(3, 22))
+            sleep(randint(3, 17))
 
 
 # Info mail on script start
