@@ -62,6 +62,7 @@ def like_tag_feed(tag, max_likes):
                 counterIterationsTotal += 1
                 if result == False:
                     logging.critical(f"Api return error 400 for tag {tag}")
+                    print(f"Api return error 400 for tag {tag}")
                     return False
                 if result == True:
                     fourHundredCounter = 0
@@ -109,6 +110,7 @@ def like_recent_media(target_user, max_likes):
             if result == False:
                 logging.critical(
                     f"Api return error 400 for user {target_user}")
+                print(f"Api return error 400 for tag {tag}")
                 return False
             if result == True:
                 fourHundredCounter = 0
