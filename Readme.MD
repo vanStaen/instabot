@@ -142,7 +142,7 @@ Request return 400 error!
 
 #### Media has been deleted:
 
-````
+```
 Request return 400 error!
 {'message': 'Sorry, this media has been deleted', 'like_error_key': 'like_media_does_not_exist', 'status': 'fail'}
 ```
@@ -157,4 +157,7 @@ Request return 400 error!
 
 - Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
-````
+
+```
+
+```
