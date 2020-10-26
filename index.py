@@ -181,7 +181,7 @@ for account in accounts:
                         break
 
                     # check if we already maxed up the iteration threshold
-                    if likeCounter < account[1] + 1:
+                    if likeCounter > account[1] + 1:
                         break
 
                     # Delete user from list
