@@ -18,6 +18,7 @@ errors = 0
 counterIterationsTotal = 0
 appCounter = 0
 fourHundredCounter = 0
+maxOfFourHundredsBeforeDeactivate = 3
 
 # Setting up logging
 logger = logging.getLogger()
@@ -172,7 +173,7 @@ for account in accounts:
                     if result == False:
                         fourHundredCounter += 1
 
-                    if fourHundredCounter >= 5:
+                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate:
                         deactivate(account[3])
                         print(sendMail(1, userAccount))
                         logging.critical(
@@ -194,7 +195,7 @@ for account in accounts:
                     if result == False:
                         fourHundredCounter += 1
 
-                    if fourHundredCounter >= 5:
+                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate:
                         deactivate(account[3])
                         print(sendMail(1, userAccount))
                         logging.critical(
