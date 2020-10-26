@@ -180,6 +180,10 @@ for account in accounts:
                             'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
+                    # check if we already maxed up the iteration threshold
+                    if likeCounter < account[1] + 1:
+                        break
+
                     # Delete user from list
                     deleteUser(account[3].replace(
                         ".", ""), targetUserFollower)
