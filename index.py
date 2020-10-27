@@ -7,6 +7,7 @@ from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
 from postgreSQL.deactivate import deactivate
 from helpers.sendMail import sendMail
+from helpers.getDateTime import getDateTime
 import time
 import json
 import smtplib
@@ -36,6 +37,9 @@ password = {}
 for account in accounts:
     password[account[3]] = config(account[3].upper()+'_PWD')
 
+# Get a TimeStamp
+formattedTimeStamp = getDateTime()
+
 
 def like_tag_feed(tag, max_likes):
     global likeCounter
@@ -53,10 +57,6 @@ def like_tag_feed(tag, max_likes):
         temp = api.LastJson
         for post in temp["items"]:
             if not post["has_liked"]:
-                unformattedTimeStamp = time.time()
-                formattedTimeStamp = time.strftime(
-                    "%H:%M:%S",
-                    time.gmtime(unformattedTimeStamp + 3600 + 3600))
                 print('[{}] Running ... Liking {}'.format(
                     formattedTimeStamp, post["pk"]))
                 result = api.like(post['pk'])
@@ -101,9 +101,6 @@ def like_recent_media(target_user, max_likes):
 
     for recent_post in info['items']:
         if not recent_post["has_liked"]:
-            unformattedTimeStamp = time.time()
-            formattedTimeStamp = time.strftime(
-                "%H:%M:%S", time.gmtime(unformattedTimeStamp + 3600 + 3600))
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
             result = api.like(recent_post['pk'])

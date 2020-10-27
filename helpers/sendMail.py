@@ -4,12 +4,12 @@ import json
 import datetime
 from decouple import config
 from email.mime.text import MIMEText
+from helpers.getDateTime import getDateTime
 
 
 def sendMail(mailType, detail):
 
-    unformattedDateStamp = datetime.datetime.now()
-    formattedDateStamp = unformattedDateStamp.strftime("%d/%m %H:%M")
+    formattedDateStamp = getDateTime()
 
     if mailType == 0:
         messageSubject = f"{formattedDateStamp}, Instabot ran successfully."
