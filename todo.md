@@ -4,18 +4,17 @@ Bots written in python, generating traffic on social plattform such as Instragra
 
 ## To-dos:
 
-- [ ] Improve the handling of logs
-  - [x] Use python logging feature
-  - [x] jsoninfy the logs : https://www.datadoghq.com/blog/python-logging-best-practices/
-  - [x] Create node.js server to access logs
-  - [ ] Logs management (analysis tool). Prometheus + grafana ?
-    - https://www.loggly.com/ultimate-guide/centralizing-python-logs/
-    - https://www.youtube.com/results?search_query=prometheus+python
 - [ ] Details of iterations in the summary mail.
   - [ ] Incl. how many iterations ran pro account
   - [ ] Incl. how many user left in the table pro account
 - [ ] Send email when userlist (DB) is empty
 - [ ] Front end to manage active status of accounts
+  - [ ] Create GET rest endpoint to Account status
+  - [ ] Create UPDATE endpoint to change Account active status (and tags)
+  - [ ] Create React App in the repo
+  - [ ] Fetch the data from the endpoints
+  - [ ] Create a nice front end to show account data and update
+  - [ ] Push updated data to update endpoint
 
 ## Completed ✓
 
@@ -30,5 +29,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Rewrite code to use .env var and account info from db
   - [x] Deploy masterbranch on heroku
   - [x] Cron job on heroku (Scheduler)
-- [x] Deactivate account when more than 10 tries without a like
-- [x] Deactivate account when more than 15 errors
+- [x] Improve the handling of logs
+  - [x] Use python logging feature
+  - [x] jsoninfy the logs : https://www.datadoghq.com/blog/python-logging-best-practices/
+  - [x] Create node.js server to access logs
+  - [x] Log management with the Heroku 'logentries' addon
+- [x] Deactivate account when more than 5 html 400s errors
