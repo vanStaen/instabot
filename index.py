@@ -145,7 +145,10 @@ for account in accounts:
 
             api = InstagramAPI(account[3],
                                password[account[3]])
-            api.login()
+            resultLogin = api.login()
+            if not resultLogin:
+                print('###  Connection Error')
+                continue
             logging.info('### Connection to account {}'.format(
                 account[3]))
             sleep(5)
