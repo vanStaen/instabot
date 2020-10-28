@@ -16,7 +16,6 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [ ] Fetch the data from the endpoints
   - [ ] Create a nice front end to show account data and update
   - [ ] Push updated data to update endpoint
-- [ ] Reactivate account once per week
 
 ## Completed ✓
 
@@ -37,3 +36,4 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Create node.js server to access logs
   - [x] Log management with the Heroku 'logentries' addon
 - [x] Deactivate account when more than 5 html 400s errors
+- [x] Reactivate account once per week, and update iterations
