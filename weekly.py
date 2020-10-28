@@ -4,6 +4,7 @@ import psycopg2
 from postgreSQL.fetch import fetchAllAccount
 from helpers.getDateTime import getDateTime
 from postgreSQL.configDB import configDB
+from helpers.sendMail import sendMail
 
 # Setup
 minIterations = 10
@@ -63,6 +64,9 @@ if datetime.date.today().isoweekday() == 1:
         elif not account[0] and account[1] <= (minIterations + decreaseIterationsBy):
             # Update accountiterations to maxIterations
             print(update(account[3], minIterations, True))
+
+    # Info mail on script successful
+    print(sendMail(3, ''))
 
 else:
 

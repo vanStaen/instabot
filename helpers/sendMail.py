@@ -20,6 +20,9 @@ def sendMail(mailType, detail):
     elif mailType == 2:
         messageSubject = f"{formattedDateStamp}, Instabot script started."
         messageBody = "Instabot started running"
+    elif mailType == 3:
+        messageSubject = f"[Weekly Account update]"
+        messageBody = f"The Weekly account update was successfull."
     else:
         messageSubject = "Subject: All hands on deck!"
         messageBody = f"Something weird is going on in your python script ({formattedDateStamp})."
