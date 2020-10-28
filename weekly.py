@@ -3,8 +3,8 @@ import datetime as datetime
 import psycopg2
 from postgreSQL.fetch import fetchAllAccount
 from helpers.getDateTime import getDateTime
-from postgreSQL.configDB import configDB
 from helpers.sendMail import sendMail
+from postgreSQL.configDB import configDB
 
 # Setup
 minIterations = 10
