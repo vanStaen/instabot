@@ -124,11 +124,20 @@ def like_recent_media(target_user, max_likes):
 # Info mail on script start
 print(sendMail(2, ''))
 
+# Create array for email
+resultDataMail = {}
+userID = 0
+
 # Go though all the accounts
 for account in accounts:
 
+    # Info array for email, case account is inactive
+    if not account[0]:
+        userID += 1
+        resultMail[userID] = {'active': False}
+
     # Check account Active-status
-    if account[0]:
+    elif account[0]:
 
         print('--------------------------------------')
         print('Connection to account {}'.format(account[3]))
@@ -140,6 +149,15 @@ for account in accounts:
 
         # For error handling
         userAccount = account[3]
+
+        # Info array for email
+        userID += 1
+        resultDataMail[userID] = {
+            'active': True,
+            'name': userAccount,
+            'errors': 0,
+            'iterations': 0
+        }
 
         try:
 
