@@ -122,7 +122,7 @@ def like_recent_media(target_user, max_likes):
 
 
 # Info mail on script start
-print(sendMail(2, ''))
+print(sendMail(2, '', ''))
 
 # Create array for email
 resultDataMail = {}
@@ -143,11 +143,10 @@ for account in accounts:
         print('Connection to account {}'.format(account[3]))
         print('--------------------------------------')
 
-        # Reset user Error
+        # Reset user variables
         errors = 0
         fourHundredCounter = 0
-
-        # For error handling
+        likeCounter = 0
         userAccount = account[3]
 
         # Info array for email
@@ -155,8 +154,8 @@ for account in accounts:
         resultDataMail[userID] = {
             'active': True,
             'name': userAccount,
-            'errors': 0,
-            'iterations': 0
+            'errors': errors,
+            'iterations': likeCounter
         }
 
         try:
@@ -170,9 +169,6 @@ for account in accounts:
             logging.info('### Connection to account {}'.format(
                 account[3]))
             sleep(5)
-
-            # Reset the like counter
-            likeCounter = 0
 
             while likeCounter < account[1] + 1:
 
@@ -193,10 +189,13 @@ for account in accounts:
 
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate:
                         deactivate(account[3])
-                        print(sendMail(1, userAccount))
+                        print(sendMail(1, userAccount, ''))
                         logging.critical(
                             'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
+
+                    # update info in array for mail
+                    resultDataMail[userID]['iterations'] = likeCounter
 
                     # check if we already maxed up the iteration threshold
                     if likeCounter > account[1] + 1:
@@ -219,10 +218,13 @@ for account in accounts:
 
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate:
                         deactivate(account[3])
-                        print(sendMail(1, userAccount))
+                        print(sendMail(1, userAccount, ''))
                         logging.critical(
                             'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
+
+                    # update info in array for mail
+                    resultDataMail[userID]['iterations'] = likeCounter
 
                     # Wait for few secondes
                     sleep(30)
@@ -239,6 +241,9 @@ for account in accounts:
                     deleteUser(account[3].replace(
                         ".", ""), targetUserFollower)
 
+                    # update info in array for mail
+                    resultDataMail[userID]['errors'] = errors
+
         except:
 
             print(
@@ -253,7 +258,7 @@ for account in accounts:
 
 
 # Inform that the script ended.
-print(sendMail(0, counterIterationsTotal))
+print(sendMail(0, resultDataMail, counterIterationsTotal))
 logging.info(
     'SCRIPT RAN SUCCESSFULLY ({} iterations)'.format(counterIterationsTotal))
 
