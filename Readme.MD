@@ -48,8 +48,8 @@ When deploying on Heroku, be sure that both python and node.js buildpack are ini
 
 ```
 heroku buildpacks:clear
-heroku buildpacks:add --index 1 heroku/nodejs
-heroku buildpacks:add --index 2 heroku/python
+heroku buildpacks:add --index 1 heroku/python
+heroku buildpacks:add --index 2 heroku/nodejs
 ```
 
 A procfile is needed (from the python framework) to start a web process running: in our case a node pointing to index.js
