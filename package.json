@@ -1,0 +1,27 @@
+{	
+    "name": "pythonbot",	
+    "version": "1.0.0",	
+    "description": "Instagram robot - Crawling and liking users",	
+    "main": "index.py",	
+    "scripts": {	
+      "version": "heroku --version; git --version",	
+      "deploy": "heroku login; heroku git:remote -a instabot-cvs; git push heroku master; heroku open"	
+    },	
+    "repository": {	
+      "type": "git",	
+      "url": "git+https://github.com/vanStaen/pythonBot.git"	
+    },	
+    "keywords": [	
+      "instagram",	
+      "soundcloud",	
+      "instabot",	
+      "bot"	
+    ],	
+    "author": "Clément van Staen",	
+    "license": "ISC",	
+    "bugs": {	
+      "url": "https://github.com/vanStaen/pythonBot/issues"	
+    },	
+    "homepage": "https://github.com/vanStaen/pythonBot#readme",	
+    
+  }
