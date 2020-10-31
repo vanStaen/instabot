@@ -20,7 +20,7 @@ counterIterationsTotal = 0
 appCounter = 0
 fourHundredCounter = 0
 maxOfFourHundredsBeforeDeactivate = 3
-maxOfErrorsBeforeDeactivate = 35
+maxOfErrorsBeforeDeactivate = 50
 
 # Setting up logging
 logger = logging.getLogger()
