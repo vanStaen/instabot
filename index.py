@@ -20,6 +20,7 @@ counterIterationsTotal = 0
 appCounter = 0
 fourHundredCounter = 0
 maxOfFourHundredsBeforeDeactivate = 3
+maxOfErrorsBeforeDeactivate = 35
 
 # Setting up logging
 logger = logging.getLogger()
@@ -190,12 +191,15 @@ for account in accounts:
                     if result == False:
                         fourHundredCounter += 1
 
-                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate:
+                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
                         deactivate(account[3])
                         print(sendMail(1, userAccount, ''))
                         logging.critical(
-                            'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
+                            'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
+
+                    Print("---------------------------------------")
+                    Print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
                     # update info in array for mail
                     resultDataMail[userID]['iterations'] = likeCounter
@@ -219,12 +223,15 @@ for account in accounts:
                     if result == False:
                         fourHundredCounter += 1
 
-                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate:
+                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
                         deactivate(account[3])
                         print(sendMail(1, userAccount, ''))
                         logging.critical(
-                            'Too many 400 Error on account {}. Account will be dropped for now.'.format(account[3]))
+                            'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
+
+                    Print("---------------------------------------")
+                    Print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
                     # update info in array for mail
                     resultDataMail[userID]['iterations'] = likeCounter
