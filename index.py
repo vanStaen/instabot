@@ -155,7 +155,8 @@ for account in accounts:
             'active': True,
             'name': userAccount,
             'errors': errors,
-            'iterations': likeCounter
+            'iterations': likeCounter,
+            'connectionError': False
         }
 
         try:
@@ -163,8 +164,10 @@ for account in accounts:
             api = InstagramAPI(account[3],
                                password[account[3]])
             resultLogin = api.login()
+            # Error when connecting
             if not resultLogin:
                 print('###  Connection Error')
+                resultDataMail[userID]['connectionError'] = True
                 continue
             logging.info('### Connection to account {}'.format(
                 account[3]))

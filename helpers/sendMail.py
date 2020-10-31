@@ -13,15 +13,19 @@ def sendMail(mailType, detail, counterIterationsTotal):
 
     if mailType == 0:
         messageSubject = f"{formattedDateStamp}, Instabot ran successfully."
-        messageBody = f"Instabot ran successfully with {counterIterationsTotal}: <br/><br/>"
+        messageBody = f"Instabot ran successfully with {counterIterationsTotal} iterations.<br/>"
         messageBody = messageBody + "<ul>"
         for data in detail:
-            if detail[data]['active']:
+            if detail[data]['connectionError']:
                 messageBody = messageBody + \
-                    f"<li>Account '{detail[data]['name']}' ran {detail[data]['iterations']} iterations, and generated {detail[data]['errors']} errors.</li>"
+                    f"<li>Error on connection with account '{detail[data]['name'].capitalize()}'.</li>"
+            elif detail[data]['active']:
+                messageBody = messageBody + \
+                    f"<li><b>{detail[data]['name'].capitalize()}</b> ran {detail[data]['iterations']} iterations, and generated {detail[data]['errors']} errors.</li>"
             else:
                 messageBody = messageBody + \
-                    f"<li>Account '{detail[data]['name']}' is deactivated.v"
+                    f"<li>Account '{detail[data]['name'].capitalize()}' is deactivated.</li>"
+        messageBody = messageBody + "</ul>"
     elif mailType == 1:
         messageSubject = "Python Error report."
         messageBody = f"There were too many erros when running the instabot script for the account {detail} ({formattedDateStamp}). The account will be deactivated."
