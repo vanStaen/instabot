@@ -187,6 +187,7 @@ for account in accounts:
                     result = like_recent_media(targetUserFollower,
                                                iterationProUser)
                     print('likeCounter: {}'.format(likeCounter))
+                    resultDataMail[userID]['iterations'] = likeCounter
 
                     if result == False:
                         fourHundredCounter += 1
@@ -200,9 +201,6 @@ for account in accounts:
 
                     Print("---------------------------------------")
                     Print(f"400 ERRORS COUNT = {fourHundredCounter}")
-
-                    # update info in array for mail
-                    resultDataMail[userID]['iterations'] = likeCounter
 
                     # check if we already maxed up the iteration threshold
                     if likeCounter > account[1] + 1:
@@ -219,6 +217,7 @@ for account in accounts:
                             len(account[2]) - 1)],
                         iterationProHashtag)
                     print('likeCounter: {}'.format(likeCounter))
+                    resultDataMail[userID]['iterations'] = likeCounter
 
                     if result == False:
                         fourHundredCounter += 1
@@ -232,9 +231,6 @@ for account in accounts:
 
                     Print("---------------------------------------")
                     Print(f"400 ERRORS COUNT = {fourHundredCounter}")
-
-                    # update info in array for mail
-                    resultDataMail[userID]['iterations'] = likeCounter
 
                     # Wait for few secondes
                     sleep(30)
