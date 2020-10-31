@@ -135,7 +135,7 @@ for account in accounts:
     # Info array for email, case account is inactive
     if not account[0]:
         userID += 1
-        resultMail[userID] = {'active': False}
+        resultDataMail[userID] = {'active': False}
 
     # Check account Active-status
     elif account[0]:
