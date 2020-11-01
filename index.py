@@ -6,6 +6,7 @@ from postgreSQL.fetch import fetchFirst
 from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
 from postgreSQL.deactivate import deactivate
+from postgreSQL.select import selectCount
 from helpers.sendMail import sendMail
 from helpers.getDateTime import getDateTime
 import time
@@ -109,7 +110,7 @@ def like_recent_media(target_user, max_likes):
             if result == False:
                 logging.critical(
                     f"Api return error 400 for user {target_user}")
-                print(f"Api return error 400 for tag {tag}")
+                print(f"Api return error 400 for user {target_user}")
                 return False
             if result == True:
                 fourHundredCounter = 0
@@ -138,7 +139,8 @@ for account in accounts:
         resultDataMail[userID] = {
             'active': False,
             'connectionError': False,
-            'name': account[3]
+            'name': account[3],
+            'databaseUser': selectCount('clementvanstaen')
         }
 
     # Check account Active-status
@@ -161,7 +163,8 @@ for account in accounts:
             'connectionError': False,
             'name': userAccount,
             'errors': errors,
-            'iterations': likeCounter
+            'iterations': likeCounter,
+            'databaseUser': selectCount('clementvanstaen')
         }
 
         try:
@@ -203,8 +206,8 @@ for account in accounts:
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
-                    Print("---------------------------------------")
-                    Print(f"400 ERRORS COUNT = {fourHundredCounter}")
+                    print("---------------------------------------")
+                    print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
                     # check if we already maxed up the iteration threshold
                     if likeCounter > account[1] + 1:
@@ -233,8 +236,8 @@ for account in accounts:
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
-                    Print("---------------------------------------")
-                    Print(f"400 ERRORS COUNT = {fourHundredCounter}")
+                    print("---------------------------------------")
+                    print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
                     # Wait for few secondes
                     sleep(30)

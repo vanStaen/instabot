@@ -21,7 +21,7 @@ def sendMail(mailType, detail, counterIterationsTotal):
                     f"<li>Error on connection with account <b>'{detail[data]['name']}'</b>.</li>"
             elif detail[data]['active']:
                 messageBody = messageBody + \
-                    f"<li><b>{detail[data]['name']}</b> ran {detail[data]['iterations']} iterations, and generated {detail[data]['errors']} errors.</li>"
+                    f"<li><b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></li>"
             else:
                 messageBody = messageBody + \
                     f"<li>Account <b>'{detail[data]['name']}'</b> is deactivated.</li>"
