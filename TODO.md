@@ -4,10 +4,6 @@ Bots written in python, generating traffic on social plattform such as Instragra
 
 ## To-dos:
 
-- [ ] Details of iterations in the summary mail.
-  - [x] Incl. how many iterations ran pro account
-  - [x] Incl. how many errors pro account
-  - [ ] Incl. how many user left in the table pro account
 - [ ] Send email when userlist (DB) is empty
 - [ ] Front end to manage active status of accounts
   - [ ] Why not fully in python? (https://wiki.python.org/moin/WebFrameworks)
@@ -35,8 +31,12 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Cron job on heroku (Scheduler)
 - [x] Improve the handling of logs
   - [x] Use python logging feature
-  - [x] jsoninfy the logs : https://www.datadoghq.com/blog/python-logging-best-practices/
+  - [x] jsoninfy the logs
   - [x] Create node.js server to access logs
-  - [x] Log management with the Heroku 'logentries' addon
 - [x] Deactivate account when more than 5 html 400s errors
+- [x] Deactivate account when more than 50 api errors
 - [x] Reactivate account once per week, and update iterations
+- [x] Details of iterations in the summary mail.
+  - [x] Incl. how many iterations ran pro account
+  - [x] Incl. how many errors pro account
+  - [x] Incl. how many user left in the table pro account
