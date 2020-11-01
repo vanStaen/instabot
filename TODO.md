@@ -5,18 +5,20 @@ Bots written in python, generating traffic on social plattform such as Instragra
 ## To-dos:
 
 - [ ] Details of iterations in the summary mail.
-  - [ ] Incl. how many iterations ran pro account
+  - [x] Incl. how many iterations ran pro account
+  - [x] Incl. how many errors pro account
   - [ ] Incl. how many user left in the table pro account
 - [ ] Send email when userlist (DB) is empty
 - [ ] Front end to manage active status of accounts
   - [ ] Why not fully in python? (https://wiki.python.org/moin/WebFrameworks)
+  - [ ] Update procfile to start python web server
+  - [ ] Create static webpage, and point to it
   - [ ] Create GET rest endpoint to Account status
   - [ ] Create UPDATE endpoint to change Account active status (and tags)
-  - [ ] Create React App in the repo
   - [ ] Fetch the data from the endpoints
   - [ ] Create a nice front end to show account data and update
   - [ ] Push updated data to update endpoint
-- [ ] Custom script with pipfile insfead of npm (https://dev.to/elanorigby/i-love-pipenvs-custom-script-shortcuts-156k)
+- [ ] Custom script with pipfile instead of npm (https://dev.to/elanorigby/i-love-pipenvs-custom-script-shortcuts-156k)
 
 ## Completed ✓
 
