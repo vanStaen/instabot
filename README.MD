@@ -1,14 +1,14 @@
 # PythonBot
 
-This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. You will find this project online under: https://instabot-cvs.herokuapp.com/
+You will find this project online under: https://instabot-cvs.herokuapp.com/ <br/>
+<b>instabot</b> - This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts.
 
 ## How to Install it
 
 ### Package Manager
 
-I would always recommand using `npm` (node package manager) which come with the install of `node.js`.</br>
-Nevertheless the python specific package manager `pip` is here mandatory for some package (see below).</br>
-And now that you are at it, install `brew` if you don't have it yet, as we will need it to get `python3`. </br>
+The python specific package manager `pip` is mandatory for the python package .</br>
+Install `brew` as you may need it to get `python3`. </br>
 </br>
 To updagrade pip3, run the following:
 
@@ -26,25 +26,24 @@ pip3 show <packageneame>
 
 The whole thing can't run without Python: `brew install python3`, to get the lattest python version (incl. `pip3`).</br>
 
-The two most important package are `instabot` and `instagramapi`. Use pip3 to install those. </br>
-In case of admin rights problem, you may want to _sudo_ it.</br>
+The two most important package for the instagram bot are `instabot` and `instagramapi`. Use pip3 to install those. In case of admin rights problem, you may want to _sudo_ it.</br>
 
 ```
 sudo pip3 install instabot
 sudo pip3 install instagramapi
 ```
 
-All the needed packages shold be listed in the file "requirement.txt" as heroku will need this file to install the dependancies on the server side.
+All the needed packages should be listed in the file "requirement.txt" as heroku will need this file to install the dependancies on the server side during the deployment.
 
-##### The package dependacies for a Soundcloudbot is a bit different:
+##### The package dependencies for a Soundcloudbot is a bit different:
 
 For running crawler and code directly with a browser, install `selenium`.</br>
 Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
 
 ## Deployment
 
-Runninng the following command 'npm run deploy' will trigger the deployment of the master branch.
-When deploying on Heroku, be sure that both python and node.js buildpack are initialized. In the Heroki CLI, just run:
+Running the following command 'npm run deploy' will trigger the deployment of the master branch.
+When deploying on Heroku, you may want to have both python and node.js buildpack initialized. To do so with the Heroki CLI, just run:
 
 ```
 heroku buildpacks:clear
@@ -57,7 +56,7 @@ A procfile is needed (from the python framework) to start a web process running:
 ## Debugging and logs
 
 Use `heroku logs --tail` when logged on the Heroku CLI , to access all the logs from the server.
-If the schedluer is running and the script is throwing error, but won't kill itself:
+If the scheduler is running and the script is throwing error, but won't kill itself:
 
 ```
 heroku ps
@@ -66,7 +65,7 @@ heroku ps:stop <name of the scheduler>
 
 ## Under the hood
 
-### How to start the script
+### How to run the script locally
 
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
 
@@ -85,7 +84,7 @@ caffeinate -i python3 soundcloudbot.py
 ### Sending mail with Python
 
 Some mail are getting sent from the code, mainly to alert the admin of failure when running the code. </br>
-I used this ressoruce to set it up: https://realpython.com/python-send-email/
+I used this ressource to set it up: https://realpython.com/python-send-email/
 
 #### Allow gmail to be access by less secured apps:
 
@@ -111,16 +110,17 @@ To install to postgreSQL driver "psycopg2" run: `pip3 install psycopg2-binary`.
 
 #### Login
 
-The file configDB.py containt a fonction reading the config data from file database.ini
+The file configDB.py containt a fonction reading the config data from file `.env`. The information fmor this environment file must be added in the heroku `config vars` to be accessible by the script when running on the server.
 
 #### SQL
 
-To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES ('anyInstaProfil');`.
-The column ùsername`has a type Char Variable (30), as we assume that a instagram login can't be longer than 30 characters.
+To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES (data = 'data');`. See more exemple of script under `postgreSQL/script.sql`. <br/>
+The column `username` has a type Char Variable (30), as we assume that a instagram login can't be longer than 30 characters. <br/>
+You can use pgAdmin as a UI to display the databases.
 
 #### Authorisation
 
-For both database hosts, AWS (security groups) and mongodb.com (whitelisting), some authorisation must be set up in order to have access to the databse from an external actor: pgAdmin is used to deisplay the databases.
+For both database hosts, AWS (security groups) and mongodb.com (whitelisting), some authorisation must be set up in order to have give access to the database from external actors: IP whitelisting.
 
 ## Errors
 
@@ -149,15 +149,11 @@ Request return 400 error!
 
 ## Links
 
-- Repository on git hub: https://github.com/vanStaen/clembot
+- Repository on git hub: https://github.com/vanStaen/pythonBot
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
-- how to write a docker file: https://www.educative.io/edpresso/how-do-you-write-a-dockerfile
+- This repo deployed on heroku: https://instabot-cvs.herokuapp.com/
 
 ## Ressources for later dark days
 
 - Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
-
-```
-
-```
