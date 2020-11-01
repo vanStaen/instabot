@@ -135,7 +135,11 @@ for account in accounts:
     # Info array for email, case account is inactive
     if not account[0]:
         userID += 1
-        resultDataMail[userID] = {'active': False}
+        resultDataMail[userID] = {
+            'active': False,
+            'connectionError': False,
+            'name': account[3]
+        }
 
     # Check account Active-status
     elif account[0]:
@@ -154,10 +158,10 @@ for account in accounts:
         userID += 1
         resultDataMail[userID] = {
             'active': True,
+            'connectionError': False,
             'name': userAccount,
             'errors': errors,
-            'iterations': likeCounter,
-            'connectionError': False
+            'iterations': likeCounter
         }
 
         try:
