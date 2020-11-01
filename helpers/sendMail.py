@@ -18,13 +18,13 @@ def sendMail(mailType, detail, counterIterationsTotal):
         for data in detail:
             if detail[data]['connectionError']:
                 messageBody = messageBody + \
-                    f"<li>Error on connection with account '{detail[data]['name']}'.</li>"
+                    f"<li>Error on connection with account <b>'{detail[data]['name']}'</b>.</li>"
             elif detail[data]['active']:
                 messageBody = messageBody + \
                     f"<li><b>{detail[data]['name']}</b> ran {detail[data]['iterations']} iterations, and generated {detail[data]['errors']} errors.</li>"
             else:
                 messageBody = messageBody + \
-                    f"<li>Account '{detail[data]['name']}' is deactivated.</li>"
+                    f"<li>Account <b>'{detail[data]['name']}'</b> is deactivated.</li>"
         messageBody = messageBody + "</ul>"
     elif mailType == 1:
         messageSubject = "Python Error report."
