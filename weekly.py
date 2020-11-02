@@ -3,6 +3,8 @@ import datetime as datetime
 import psycopg2
 from postgreSQL.fetch import fetchAllAccount
 from helpers.getDateTime import getDateTime
+from helpers.getDateTime import getHourTime
+from helpers.getDateTime import diffTime
 from helpers.sendMail import sendMail
 from postgreSQL.configDB import configDB
 
@@ -45,6 +47,9 @@ def update(account, iterations, active):
 
 if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday() == 4:
 
+    # When the script started
+    startTime = getHourTime()
+
     # Go though all the accounts
     for account in accounts:
 
@@ -65,8 +70,12 @@ if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday()
             # Update accountiterations to maxIterations
             print(update(account[3], minIterations, True))
 
+    # When the script ended
+    endTime = getHourTime()
+    runTime = diffTime(startTime, endTime, "%H:%M:%S")
+
     # Info mail on script successful
-    print(sendMail(3, '', ''))
+    print(sendMail(3, '', '', runTime))
 
 else:
 
