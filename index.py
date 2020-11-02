@@ -129,7 +129,7 @@ def like_recent_media(target_user, max_likes):
 
 
 # Info mail on script start
-print(sendMail(2, '', '', ''))
+# print(sendMail(2, '', '', ''))
 
 # Create array for email
 resultDataMail = {}
