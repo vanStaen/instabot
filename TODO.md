@@ -40,3 +40,4 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Incl. how many iterations ran pro account
   - [x] Incl. how many errors pro account
   - [x] Incl. how many user left in the table pro account
+- [x] Rename Repo to InstaBot
