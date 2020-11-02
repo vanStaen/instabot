@@ -66,7 +66,7 @@ if datetime.date.today().isoweekday() == 1:
             print(update(account[3], minIterations, True))
 
     # Info mail on script successful
-    print(sendMail(3, ''))
+    print(sendMail(3, '', ''))
 
 else:
 
