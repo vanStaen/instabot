@@ -4,7 +4,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
 
 ## To-dos:
 
-- [ ] Send email when userlist (DB) is empty
+- [ ] Calculate how long script ran, and send it when script successful
 - [ ] Front end to manage active status of accounts
   - [ ] Why not fully in python? (https://wiki.python.org/moin/WebFrameworks)
   - [ ] Update procfile to start python web server
@@ -41,3 +41,4 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Incl. how many errors pro account
   - [x] Incl. how many user left in the table pro account
 - [x] Rename Repo to InstaBot
+- [ ] ~~Send email when userlist (DB) is empty~~
