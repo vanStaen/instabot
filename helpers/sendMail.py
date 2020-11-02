@@ -14,7 +14,7 @@ def sendMail(mailType, detail, counterIterationsTotal):
     if mailType == 0:
         messageSubject = f"{formattedDateStamp}, Instabot ran successfully."
         messageBody = f"Instabot ran successfully with {counterIterationsTotal} iterations.<br/>"
-        messageBody = messageBody + "<ul>"
+        messageBody = messageBody + "<ol>"
         for data in detail:
             if detail[data]['connectionError']:
                 messageBody = messageBody + \
@@ -25,7 +25,7 @@ def sendMail(mailType, detail, counterIterationsTotal):
             else:
                 messageBody = messageBody + \
                     f"<li>Account <b>'{detail[data]['name']}'</b> is deactivated.</li>"
-        messageBody = messageBody + "</ul>"
+        messageBody = messageBody + "</ol>"
     elif mailType == 1:
         messageSubject = "Python Error report."
         messageBody = f"There were too many errors when running the instabot script for the account <b>{detail}</b>. The account will be deactivated."
