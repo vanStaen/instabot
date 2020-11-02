@@ -140,7 +140,7 @@ for account in accounts:
             'active': False,
             'connectionError': False,
             'name': account[3],
-            'databaseUser': selectCount('clementvanstaen')
+            'databaseUser': selectCount(account[3].replace(".", ""))
         }
 
     # Check account Active-status
@@ -164,7 +164,7 @@ for account in accounts:
             'name': userAccount,
             'errors': errors,
             'iterations': likeCounter,
-            'databaseUser': selectCount('clementvanstaen')
+            'databaseUser': selectCount(account[3].replace(".", ""))
         }
 
         try:
