@@ -43,7 +43,7 @@ def update(account, iterations, active):
             # print("PostgreSQL connection is closed")
 
 
-if datetime.date.today().isoweekday() == 1:
+if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday() == 4:
 
     # Go though all the accounts
     for account in accounts:
@@ -70,4 +70,4 @@ if datetime.date.today().isoweekday() == 1:
 
 else:
 
-    print('Today is not monday!')
+    print('Today is neither monday nor thursday!')

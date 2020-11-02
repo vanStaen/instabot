@@ -35,7 +35,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] Create node.js server to access logs
 - [x] Deactivate account when more than 5 html 400s errors
 - [x] Deactivate account when more than 50 api errors
-- [x] Reactivate account once per week, and update iterations
+- [x] Reactivate account twice per week, and update iterations
 - [x] Details of iterations in the summary mail.
   - [x] Incl. how many iterations ran pro account
   - [x] Incl. how many errors pro account
