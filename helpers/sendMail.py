@@ -13,7 +13,7 @@ def sendMail(mailType, detail, counterIterationsTotal, runTime):
 
     if mailType == 0:
         messageSubject = f"{formattedDateStamp}, Instabot ran successfully."
-        messageBody = f"Instabot ran successfully with {counterIterationsTotal} iterations.<br/> Run time of the script : {runTime}.<br/>"
+        messageBody = f"Instabot ran successfully with {counterIterationsTotal} iterations.<br/> Runtime of the script : {runTime}<br/>"
         messageBody = messageBody + "<ol>"
         for data in detail:
             if detail[data]['connectionError']:
