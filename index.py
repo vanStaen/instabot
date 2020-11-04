@@ -211,8 +211,7 @@ for account in accounts:
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
-                    print("---------------------------------------")
-                    print(f"400 ERRORS COUNT = {fourHundredCounter}")
+                    # Debug : print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
                     # check if we already maxed up the iteration threshold
                     if likeCounter > account[1] + 1:
@@ -241,8 +240,7 @@ for account in accounts:
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
 
-                    print("---------------------------------------")
-                    print(f"400 ERRORS COUNT = {fourHundredCounter}")
+                    # Debug: print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
                     # Wait for few secondes
                     sleep(30)

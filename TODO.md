@@ -5,7 +5,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
 ## To-dos:
 
 - [ ] Front end to manage active status of accounts
-  - [ ] Why not fully in python? (https://wiki.python.org/moin/WebFrameworks)
+  - [ ] Backend in python? (https://wiki.python.org/moin/WebFrameworks)
   - [ ] Update procfile to start python web server
   - [ ] Create static webpage, and point to it
   - [ ] Create GET rest endpoint to Account status
