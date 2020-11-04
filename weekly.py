@@ -14,7 +14,7 @@ minIterations = 10
 decreaseIterationsBy = 20
 maxIterations = 100
 increaseIterationsBy = 10
-minUsernameLeftInDb = 1000
+minUsernameLeftInDb = 100
 
 # Loading Accounts infos
 accounts = fetchAllAccount()
