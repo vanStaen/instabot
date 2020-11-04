@@ -11,6 +11,7 @@ minIterations = 10
 decreaseIterationsBy = 20
 maxIterations = 100
 increaseIterationsBy = 10
+minUsernameLeftInDb = 1000
 
 # Loading Accounts infos
 accounts = fetchAllAccount()
@@ -71,3 +72,14 @@ if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday()
 else:
 
     print('Today is neither monday nor thursday!')
+
+    # Go though all the accounts
+    for account in accounts:
+
+        if account[0] and account[1] < (maxIterations - increaseIterationsBy):
+            # Update accountiterations + 10
+            print(update(account[3], account[1] +
+                         increaseIterationsBy, account[0]))
+
+        # Info mail on script successful
+        print(sendMail(3, account[3], minUsernameLeftInDb))
