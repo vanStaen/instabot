@@ -36,8 +36,8 @@ def sendMail(mailType, detail, iteration, runTime):
         messageSubject = f"[Weekly Account update]"
         messageBody = f"The Weekly account update was <b>successfull</b>.<br/> Run time of the script : {runTime}.<br/>"
     elif mailType == 4:
-        messageSubject = f"Add some more user to account {detail}"
-        messageBody = f"Accout {detail} has less than {iteration} usernames left in the date base. You may want to "
+        messageSubject = f"[Warning] Add some more user to account {detail}"
+        messageBody = f"Accout {detail} has less than {iteration} usernames left in the date base. You may want to add some more."
     else:
         messageSubject = "Subject: All hands on deck!"
         messageBody = f"Something weird is going on in your python script ({formattedDateStamp})."
