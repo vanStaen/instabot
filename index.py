@@ -9,6 +9,8 @@ from postgreSQL.deactivate import deactivate
 from postgreSQL.select import selectCount
 from helpers.sendMail import sendMail
 from helpers.getDateTime import getDateTime
+from helpers.getDateTime import getHourTime
+from helpers.getDateTime import diffTime
 import time
 import json
 import smtplib
@@ -22,6 +24,9 @@ appCounter = 0
 fourHundredCounter = 0
 maxOfFourHundredsBeforeDeactivate = 3
 maxOfErrorsBeforeDeactivate = 50
+
+# When the script started
+startTime = getHourTime()
 
 # Setting up logging
 logger = logging.getLogger()
@@ -124,7 +129,7 @@ def like_recent_media(target_user, max_likes):
 
 
 # Info mail on script start
-print(sendMail(2, '', ''))
+# print(sendMail(2, '', '', ''))
 
 # Create array for email
 resultDataMail = {}
@@ -201,7 +206,7 @@ for account in accounts:
 
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
                         deactivate(account[3])
-                        print(sendMail(1, userAccount, ''))
+                        print(sendMail(1, userAccount, '', ''))
                         logging.critical(
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
@@ -231,7 +236,7 @@ for account in accounts:
 
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
                         deactivate(account[3])
-                        print(sendMail(1, userAccount, ''))
+                        print(sendMail(1, userAccount, '', ''))
                         logging.critical(
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         break
@@ -270,8 +275,12 @@ for account in accounts:
                 errors, account[3]))
 
 
+# When the script ended
+endTime = getHourTime()
+runTime = diffTime(startTime, endTime, "%H:%M:%S")
+
 # Inform that the script ended.
-print(sendMail(0, resultDataMail, counterIterationsTotal))
+print(sendMail(0, resultDataMail, counterIterationsTotal, runTime))
 logging.info(
     'SCRIPT RAN SUCCESSFULLY ({} iterations)'.format(counterIterationsTotal))
 

@@ -7,13 +7,25 @@ from email.mime.text import MIMEText
 from helpers.getDateTime import getDateTime
 
 
+<< << << < HEAD
 def sendMail(mailType, detail, iteration):
+
+
+== == == =
+def sendMail(mailType, detail, counterIterationsTotal, runTime):
+
+
+>>>>>> > 734dfeed33d8a34459822367bf85955706f94567
 
     formattedDateStamp = getDateTime()
 
     if mailType == 0:
         messageSubject = f"{formattedDateStamp}, Instabot ran successfully."
+<< << << < HEAD
         messageBody = f"Instabot ran successfully with {iteration} iterations.<br/>"
+== == == =
+        messageBody = f"Instabot ran successfully with {counterIterationsTotal} iterations.<br/> Runtime of the script : {runTime}<br/>"
+>>>>>> > 734dfeed33d8a34459822367bf85955706f94567
         messageBody = messageBody + "<ol>"
         for data in detail:
             if detail[data]['connectionError']:
@@ -34,7 +46,7 @@ def sendMail(mailType, detail, iteration):
         messageBody = "Instabot started running"
     elif mailType == 3:
         messageSubject = f"[Weekly Account update]"
-        messageBody = f"The Weekly account update was successfull."
+        messageBody = f"The Weekly account update was <b>successfull</b>.<br/> Run time of the script : {runTime}.<br/>"
     elif mailType == 4:
         messageSubject = f"Add some more user to account {detail}"
         messageBody = f"Accout {detail} has less than {iteration} usernames left in the date base. You may want to "

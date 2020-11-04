@@ -3,7 +3,6 @@ import datetime as datetime
 import psycopg2
 from postgreSQL.fetch import fetchAllAccount
 from helpers.getDateTime import getDateTime
-from helpers.sendMail import sendMail
 from postgreSQL.configDB import configDB
 
 # Loading Accounts infos
