@@ -19,9 +19,6 @@ minUsernameLeftInDb = 100
 # Loading Accounts infos
 accounts = fetchAllAccount()
 
-# Get a TimeStamp
-formattedTimeStamp = getDateTime()
-
 
 def update(account, iterations, active):
 
