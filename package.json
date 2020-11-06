@@ -5,6 +5,7 @@
   "main": "index.py",
   "scripts": {
     "version": "heroku --version; git --version",
+    "log": "heroku logs --tail",
     "deploy": "heroku login; heroku git:remote -a instabot-cvs; git push heroku master; heroku open"
   },
   "repository": {
