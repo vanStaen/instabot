@@ -13,7 +13,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [ ] Fetch the data from the endpoints
   - [ ] Create a nice front end to show account data and update
   - [ ] Push updated data to update endpoint
-- [ ] Custom script with pipfile instead of npm (https://dev.to/elanorigby/i-love-pipenvs-custom-script-shortcuts-156k)
+- [ ] Custom script with pipfile instead of npm.
 
 ## Completed ✓
 
