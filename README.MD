@@ -13,7 +13,7 @@ The two most important package for the instagram bot are `instabot` and `instagr
 
 All the packages should be listed in the file "requirement.txt".
 
-For reason, I use the `npm run <scripts>` to run custom script, and still have a package.json. Because it worked so far for me. It confuse Heroku on deploy though, but is not breaking anything.
+For reason, I use the `npm run <scripts>` to run custom script, and still have a package.json. Because it worked so far for me. It confuse Heroku on deploy though (because of the Procfile), but is not breaking anything.
 
 ## Deployment
 
