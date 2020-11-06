@@ -2,42 +2,20 @@
 
 This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. You will find this project online under: https://instabot-cvs.herokuapp.com/
 
-## How to Install it
+## Packages & dependancies
 
-### Package Manager
+The python specific package manager `pip` is mandatory for the python package . You may need to install `brew` to get `python3`. With brew, go `brew install python3`.</br>
 
-The python specific package manager `pip` is mandatory for the python package .</br>
-Install `brew` as you may need it to get `python3`. </br>
-</br>
-To updagrade pip3, run the following:
+To upgrade pip3 : `pip3 install --upgrade pip`</br>
+See the details of a package: `pip3 show <packageneame>`
 
-```
-pip3 install --upgrade pip
-```
+The two most important package for the instagram bot are `instabot` and `instagramapi`. Use pip3 to install those. In case of admin rights problem, you may want to _sudo_ it. To install those: `sudo pip3 install instabot`and `sudo pip3 install instagramapi`.</br>
 
-With the following command you can see the details of a package:
+All the packages should be listed in the file "requirement.txt".
 
-```
-pip3 show <packageneame>
-```
+### Poetry
 
-### What to install and how to do it
-
-The whole thing can't run without Python: `brew install python3`, to get the lattest python version (incl. `pip3`).</br>
-
-The two most important package for the instagram bot are `instabot` and `instagramapi`. Use pip3 to install those. In case of admin rights problem, you may want to _sudo_ it.</br>
-
-```
-sudo pip3 install instabot
-sudo pip3 install instagramapi
-```
-
-All the needed packages should be listed in the file "requirement.txt" as heroku will need this file to install the dependancies on the server side during the deployment.
-
-##### The package dependencies for a Soundcloudbot is a bit different:
-
-For running crawler and code directly with a browser, install `selenium`.</br>
-Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
+We manage our python package with poetry. To install it `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python`
 
 ## Deployment
 
@@ -50,7 +28,8 @@ heroku buildpacks:add --index 1 heroku/python
 heroku buildpacks:add --index 2 heroku/nodejs
 ```
 
-A procfile is needed (from the python framework) to start a web process running: in our case a node pointing to index.js
+- A procfile is needed (from the python framework) to start a web process running: in our case a node pointing to index.js
+- A requirement.txt file containing all needed package. Heroku will need this file to install the dependancies on the server side during the deployment.
 
 ## Debugging and logs
 
@@ -128,31 +107,46 @@ For both database hosts, AWS (security groups) and mongodb.com (whitelisting), s
 #### Blocked account for spam:
 
 ```
+
 Request return 400 error!
 {'message': 'feedback_required', 'spam': True, 'feedback_title': 'Try Again Later', 'feedback_message': 'We restrict certain activity to protect our community. Tell us if you think we made a mistake.', 'feedback_url': 'repute/report_problem/instagram_like_add/?violation_type&responsible_policy=Ig.Policy.Engagement.SessionClassifier.SessionClassifierRunPrediction', 'feedback_appeal_label': 'Tell us', 'feedback_ignore_label': 'OK', 'feedback_action': 'report_problem', 'category': 'instagram_like_add', 'status': 'fail'}
+
 ```
 
 #### Private user:
 
 ```
+
 Request return 400 error!
 {'message': 'Not authorized to view user', 'status': 'fail'}
+
 ```
 
 #### Media has been deleted:
 
 ```
+
 Request return 400 error!
 {'message': 'Sorry, this media has been deleted', 'like_error_key': 'like_media_does_not_exist', 'status': 'fail'}
+
 ```
 
 ## Links
 
 - Repository on git hub: https://github.com/vanStaen/pythonBot
-- Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
 - This repo deployed on heroku: https://instabot-cvs.herokuapp.com/
+- Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
 
 ## Ressources for later dark days
 
 - Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
 - Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
+
+For a future soundcloud bot
+
+```
+##### The package dependencies for a Soundcloudbot is a bit different:
+
+For running crawler and code directly with a browser, install `selenium`.</br>
+Save the chromedriver in the right folder. Per default, this executable is saved under "/ressources". This is a lightweight version of Chrome and will be controlled by the script.
+```
