@@ -13,7 +13,6 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [ ] Fetch the data from the endpoints
   - [ ] Create a nice front end to show account data and update
   - [ ] Push updated data to update endpoint
-- [ ] Custom script with pipfile instead of npm.
 
 ## Completed ✓
 
@@ -42,3 +41,4 @@ Bots written in python, generating traffic on social plattform such as Instragra
 - [x] Rename Repo to InstaBot
 - [x] Send email when userlist (DB) is almost empty
 - [x] Calculate how long script ran, and send it when script successful
+- [ ] ~~ Custom script with poetry instead of npm ~~.

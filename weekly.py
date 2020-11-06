@@ -44,7 +44,7 @@ def update(account, iterations, active):
             # print("PostgreSQL connection is closed")
 
 
-if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday() == 4:
+if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday() == 3 or datetime.date.today().isoweekday() == 5:
 
     # When the script started
     startTime = getHourTime()
@@ -78,7 +78,7 @@ if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday()
 
 else:
 
-    print('Today is neither monday nor thursday!')
+    print('Today is not an update day! Try again Monday, Wednesday or Friday.')
 
     # Go though all the accounts
     for account in accounts:
