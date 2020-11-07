@@ -205,7 +205,7 @@ for account in accounts:
                         fourHundredCounter += 1
 
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
-                        deactivate(account[3])
+                        deactivate(userAccount)
                         print(sendMail(1, userAccount, '', ''))
                         endTime = getHourTime()
                         runTime = diffTime(startTime, endTime, "%H:%M:%S")
@@ -213,7 +213,8 @@ for account in accounts:
                                        counterIterationsTotal, runTime))
                         logging.critical(
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
-                        raise SystemExit(0)
+                        sys.exit(
+                            "Script early exit due to too many 400 hetml errors.")
 
                     # Debug : print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
@@ -238,7 +239,7 @@ for account in accounts:
                         fourHundredCounter += 1
 
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
-                        deactivate(account[3])
+                        deactivate(userAccount)
                         print(sendMail(1, userAccount, '', ''))
                         endTime = getHourTime()
                         runTime = diffTime(startTime, endTime, "%H:%M:%S")
@@ -246,7 +247,8 @@ for account in accounts:
                                        counterIterationsTotal, runTime))
                         logging.critical(
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
-                        raise SystemExit(0)
+                        sys.exit(
+                            "Script early exit due to too many 400 hetml errors.")
 
                     # Debug: print(f"400 ERRORS COUNT = {fourHundredCounter}")
 
