@@ -275,7 +275,7 @@ for account in accounts:
             print(
                 f'Some unhandled error happened for account {userAccount} !'
             )
-            continue
+            break
 
         # return numbers of errors
         if errors >= 1:
