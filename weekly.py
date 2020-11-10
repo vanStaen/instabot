@@ -13,7 +13,7 @@ from postgreSQL.select import selectCount
 minIterations = 10
 decreaseIterationsBy = 20
 maxIterations = 100
-increaseIterationsBy = 10
+increaseIterationsBy = 5
 minUsernameLeftInDb = 100
 
 # Loading Accounts infos
