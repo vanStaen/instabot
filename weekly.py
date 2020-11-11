@@ -55,22 +55,25 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Go though all the accounts
     for account in accounts:
 
-        if account[0] and account[1] < (maxIterations - increaseIterationsBy):
-            # Update accountiterations + 10
-            print(update(account[3], account[1] +
-                         increaseIterationsBy, account[0]))
+        if account[4]:
 
-        elif account[0] and account[1] >= (maxIterations - increaseIterationsBy):
-            # Update accountiterations to maxIterations
-            print(update(account[3], maxIterations, account[0]))
+            if account[0] and account[1] < (maxIterations - increaseIterationsBy):
+                # Update accountiterations + 10
+                print(update(account[3], account[1] +
+                             increaseIterationsBy, account[0]))
 
-        elif not account[0] and account[1] > (minIterations + decreaseIterationsBy):
-            # Update accountiterations to maxIterations
-            print(update(account[3], account[1]-decreaseIterationsBy, True))
+            elif account[0] and account[1] >= (maxIterations - increaseIterationsBy):
+                # Update accountiterations to maxIterations
+                print(update(account[3], maxIterations, account[0]))
 
-        elif not account[0] and account[1] <= (minIterations + decreaseIterationsBy):
-            # Update accountiterations to maxIterations
-            print(update(account[3], minIterations, True))
+            elif not account[0] and account[1] > (minIterations + decreaseIterationsBy):
+                # Update accountiterations to maxIterations
+                print(update(account[3], account[1] -
+                             decreaseIterationsBy, True))
+
+            elif not account[0] and account[1] <= (minIterations + decreaseIterationsBy):
+                # Update accountiterations to maxIterations
+                print(update(account[3], minIterations, True))
 
     # When the script ended
     endTime = getHourTime()
