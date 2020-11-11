@@ -207,10 +207,6 @@ for account in accounts:
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
                         deactivate(userAccount)
                         print(sendMail(1, userAccount, '', ''))
-                        endTime = getHourTime()
-                        runTime = diffTime(startTime, endTime, "%H:%M:%S")
-                        print(sendMail(0, resultDataMail,
-                                       counterIterationsTotal, runTime))
                         logging.critical(
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         sys.exit(
@@ -241,10 +237,6 @@ for account in accounts:
                     if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
                         deactivate(userAccount)
                         print(sendMail(1, userAccount, '', ''))
-                        endTime = getHourTime()
-                        runTime = diffTime(startTime, endTime, "%H:%M:%S")
-                        print(sendMail(0, resultDataMail,
-                                       counterIterationsTotal, runTime))
                         logging.critical(
                             'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
                         sys.exit(
