@@ -16,6 +16,9 @@ maxIterations = 100
 increaseIterationsBy = 5
 minUsernameLeftInDb = 100
 
+weekDaysWhenThisShouldRun = [1, 4]  # 1: monday, 2: tuesday, etc ...
+
+
 # Loading Accounts infos
 accounts = fetchAllAccount()
 
@@ -44,7 +47,7 @@ def update(account, iterations, active):
             # print("PostgreSQL connection is closed")
 
 
-if datetime.date.today().isoweekday() == 1 or datetime.date.today().isoweekday() == 3 or datetime.date.today().isoweekday() == 5:
+if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
     # When the script started
     startTime = getHourTime()
