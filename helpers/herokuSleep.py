@@ -1,6 +1,12 @@
 import math
 from time import sleep
 
+# 10 min = 600 sec
+# 15 min = 900 sec
+# 30 min = 1800 sec
+# 45 min = 2700 sec
+# 1 hour = 3600 sec
+
 
 def herokuLongSleeper(sleepTime):
 

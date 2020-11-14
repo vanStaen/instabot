@@ -11,6 +11,7 @@ from helpers.sendMail import sendMail
 from helpers.getDateTime import getDateTime
 from helpers.getDateTime import getHourTime
 from helpers.getDateTime import diffTime
+from helpers.herokuSleep import herokuLongSleeper
 import time
 import json
 import smtplib
@@ -160,6 +161,9 @@ for account in accounts:
         fourHundredCounter = 0
         likeCounter = 0
         userAccount = account[3]
+
+        # Random wait to confuse the insta control algorithm
+        herokuLongSleeper(randint(60, 1000))
 
         # Info array for email
         userID += 1
