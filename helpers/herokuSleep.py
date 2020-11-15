@@ -10,7 +10,7 @@ from time import sleep
 
 def herokuLongSleeper(sleepTime):
 
-    maxTimeSleep = 15
+    maxTimeSleep = 10
     sleeperIterations = math.floor(sleepTime / maxTimeSleep)
     sleeperRest = sleepTime - (sleeperIterations * maxTimeSleep)
     totalSleeptimeCalc = (sleeperIterations * maxTimeSleep) + sleeperRest
@@ -23,6 +23,3 @@ def herokuLongSleeper(sleepTime):
         i += 1
 
     return f"({sleeperIterations} * {maxTimeSleep}) + {sleeperRest} = {totalSleeptimeCalc} "
-
-
-print(herokuLongSleeper(35))

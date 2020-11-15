@@ -143,6 +143,12 @@ def like_recent_media(target_user, max_likes):
 # Reset UserID
 userID = 0
 
+# Random wait to confuse the insta control algorithm
+# Sleep between 1 and 1 hour
+sleepFor = randint(60, 3600)
+Print(f"Let's first take a {sleepFor} seconds sleep!")
+herokuLongSleeper(sleepFor)
+
 # Go though all the accounts
 for account in accounts:
 
@@ -169,9 +175,6 @@ for account in accounts:
         fourHundredCounter = 0
         likeCounter = 0
         userAccount = account[3]
-
-        # Random wait to confuse the insta control algorithm
-        herokuLongSleeper(randint(60, 1000))
 
         # Info array for email
         userID += 1
