@@ -146,7 +146,7 @@ userID = 0
 # Random wait to confuse the insta control algorithm
 # Sleep between 1 and 1 hour
 sleepFor = randint(60, 3600)
-Print(f"Let's first take a {sleepFor} seconds sleep!")
+print(f"Let's first take a {sleepFor} seconds sleep!")
 herokuLongSleeper(sleepFor)
 
 # Go though all the accounts
