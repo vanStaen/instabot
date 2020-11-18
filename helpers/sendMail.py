@@ -19,12 +19,15 @@ def sendMail(mailType, detail, iteration, runTime):
             if detail[data]['connectionError']:
                 messageBody = messageBody + \
                     f"<li>Error on connection with account <b>'{detail[data]['name']}'</b>.</li>"
-            elif detail[data]['active']:
-                messageBody = messageBody + \
-                    f"<li><b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></li>"
-            else:
+            elif not detail[data]['active']:
                 messageBody = messageBody + \
                     f"<li>Account <b>'{detail[data]['name']}'</b> is deactivated.</li>"
+            elif not detail[data]['run']:
+                messageBody = messageBody + \
+                    f"<li>Account <b>'{detail[data]['name']}'</b> did not run.</li>"
+            else:
+                messageBody = messageBody + \
+                    f"<li><b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></li>"
         messageBody = messageBody + "</ol>"
     elif mailType == 1:
         messageSubject = "Python Error report."

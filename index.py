@@ -11,6 +11,7 @@ from helpers.sendMail import sendMail
 from helpers.getDateTime import getDateTime
 from helpers.getDateTime import getHourTime
 from helpers.getDateTime import diffTime
+from helpers.herokuSleep import herokuLongSleeper
 import time
 import json
 import smtplib
@@ -38,11 +39,22 @@ file_formatter = logging.Formatter(
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
+
+# Create array for email
+resultDataMail = {}
+userID = 0
+
 # Loading Accounts infos
 accounts = fetchAllAccount()
 password = {}
 for account in accounts:
+    userID += 1
     password[account[3]] = config(account[3].upper()+'_PWD')
+    resultDataMail[userID] = {'run': False,
+                              'active': account[0],
+                              'connectionError': False,
+                              'name': account[3],
+                              'databaseUser': selectCount(account[3].replace(".", ""))}
 
 # Get a TimeStamp
 formattedTimeStamp = getDateTime()
@@ -128,12 +140,14 @@ def like_recent_media(target_user, max_likes):
             sleep(randint(3, 17))
 
 
-# Info mail on script start
-# print(sendMail(2, '', '', ''))
-
-# Create array for email
-resultDataMail = {}
+# Reset UserID
 userID = 0
+
+# Random wait to confuse the insta control algorithm
+# Sleep between 1 and 1 hour
+sleepFor = randint(60, 3600)
+print(f"Let's first take a {sleepFor} seconds sleep!")
+herokuLongSleeper(sleepFor)
 
 # Go though all the accounts
 for account in accounts:
@@ -142,6 +156,7 @@ for account in accounts:
     if not account[0]:
         userID += 1
         resultDataMail[userID] = {
+            'run': True,
             'active': False,
             'connectionError': False,
             'name': account[3],
@@ -164,6 +179,7 @@ for account in accounts:
         # Info array for email
         userID += 1
         resultDataMail[userID] = {
+            'run': True,
             'active': True,
             'connectionError': False,
             'name': userAccount,
