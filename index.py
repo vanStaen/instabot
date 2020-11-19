@@ -186,6 +186,7 @@ for account in accounts:
             'name': userAccount,
             'errors': errors,
             'iterations': likeCounter,
+            'iterationMax': account[1],
             'databaseUser': selectCount(account[3].replace(".", ""))
         }
 
