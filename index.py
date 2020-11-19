@@ -54,6 +54,7 @@ for account in accounts:
                               'active': account[0],
                               'connectionError': False,
                               'name': account[3],
+                              'iterationMax': account[1],
                               'databaseUser': selectCount(account[3].replace(".", ""))}
 
 # Get a TimeStamp

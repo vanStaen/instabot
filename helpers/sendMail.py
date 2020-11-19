@@ -27,7 +27,7 @@ def sendMail(mailType, detail, iteration, runTime):
                     f"<li>Account <b>'{detail[data]['name']}'</b> did not run.</li>"
             else:
                 messageBody = messageBody + \
-                    f"<li><b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></li>"
+                    f"<li><b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations of {detail[data]['iterationMax']} max.</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></li>"
         messageBody = messageBody + "</ol>"
     elif mailType == 1:
         messageSubject = "Python Error report."
