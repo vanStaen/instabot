@@ -230,10 +230,8 @@ for account in accounts:
                         sys.exit(
                             "Script early exit due to too many 400 hetml errors.")
 
-                    # Debug : print(f"400 ERRORS COUNT = {fourHundredCounter}")
-
                     # check if we already maxed up the iteration threshold
-                    if likeCounter > account[1] + 1:
+                    if likeCounter > account[1] - 1:
                         break
 
                     # Delete user from list
@@ -260,7 +258,9 @@ for account in accounts:
                         sys.exit(
                             "Script early exit due to too many 400 hetml errors.")
 
-                    # Debug: print(f"400 ERRORS COUNT = {fourHundredCounter}")
+                    # check if we already maxed up the iteration threshold
+                    if likeCounter > account[1] - 1:
+                        break
 
                     # Wait for few secondes
                     sleep(30)
