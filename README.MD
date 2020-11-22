@@ -62,9 +62,10 @@ caffeinate -i python3 soundcloudbot.py
 Some mail are getting sent from the code, mainly to alert the admin of failure when running the code. </br>
 I used this ressource to set it up: https://realpython.com/python-send-email/
 
-#### Allow gmail to be access by less secured apps:
+I use a free stmp host from sendinblue.com to send the mails.
 
-By toggling this : https://myaccount.google.com/lesssecureapps
+_(Depreciated as I now use sendinblue.com)
+Allow gmail to be access by less secured apps by toggling this : https://myaccount.google.com/lesssecureapps_
 
 ### Logging
 
