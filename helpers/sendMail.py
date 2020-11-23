@@ -47,8 +47,8 @@ def sendMail(mailType, detail, iteration, runTime):
 
     smtp_server = config('SENDINBLUE_SMTP')
     port = config('SENDINBLUE_PORT')
-    sender_email = config('EMAIL_GMAIL')
-    receiver_email = 'info@clementvanstaen.com'
+    sender_email = 'info@clementvanstaen.com' 
+    receiver_email = config('EMAIL_GMAIL')
     password = config('SENDINBLUE_PWD')
 
     # Create a secure SSL context
@@ -59,7 +59,7 @@ def sendMail(mailType, detail, iteration, runTime):
 
         msg = MIMEText(messageBody, 'html')
         msg['Subject'] = messageSubject
-        msg['From'] = "Instabot <clement.vanstaen@gmail.com>"
+        msg['From'] = "Instabot <info@clementvanstaen.com>"
         msg['To'] = receiver_email
         server = smtplib.SMTP(smtp_server, port)
         server.starttls(context=context)  # Secure the connection
