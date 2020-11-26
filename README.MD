@@ -95,6 +95,14 @@ To insert data : `INSERT INTO public.userlist_myUserName(username) VALUES (data 
 The column `username` has a type Char Variable (30), as we assume that a instagram login can't be longer than 30 characters. <br/>
 You can use pgAdmin as a UI to display the databases.
 
+#### db Format
+
+- account[0] : Active? as a Boolean
+- account[1] : Iteration Max
+- account[2] : Array of Hashags
+- account[3] : Account name
+- account[4] : Alive? as a Boolean
+
 #### Authorisation
 
 For both database hosts, AWS (security groups) and mongodb.com (whitelisting), some authorisation must be set up in order to have give access to the database from external actors: IP whitelisting.
