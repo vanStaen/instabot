@@ -36,8 +36,17 @@ def sendMail(mailType, detail, iteration, runTime):
         messageSubject = f"{formattedDateStamp}, Instabot script started."
         messageBody = "Instabot started running"
     elif mailType == 3:
-        messageSubject = f"[Account update]"
+        messageSubject = f"All accounts have been updated!"
         messageBody = f"The Weekly account update was <b>successfull</b>.<br/> Run time of the script : {runTime}.<br/>"
+        messageBody = messageBody + "<ol>"
+        for data in detail:
+            if detail[data]['alive']:
+                messageBody = messageBody + \
+                    f"<li><b>{detail[data]['name']}</b> active with :<ul><li>Iterations max pro run: {detail[data]['iterationMax']}</li><li>Hashtags: {str(detail[data]['tags'])[1:-1]}.</li><li>{detail[data]['usernameLeft']} users remaining.</li></li>"
+            else:
+                messageBody = messageBody + \
+                    f"<li><b>Deactivated!</b> {detail[data]['name']}<ul><li>Iterations max pro run: {detail[data]['iterationMax']}</li><li>Hashtags: {str(detail[data]['tags'])[1:-1]}.</li><li>{detail[data]['usernameLeft']} users remaining.</li></li>"
+        messageBody = messageBody + "</ol>"
     elif mailType == 4:
         messageSubject = f"[Warning] Add some more user to account {detail}"
         messageBody = f"Accout {detail} has less than {iteration} usernames left in the date base. You may want to add some more."

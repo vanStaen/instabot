@@ -88,18 +88,18 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
             'usernameLeft': selectCount(account[3].replace(".", ""))
         }
 
-    print(resultDataMail)
+    # print(resultDataMail)
 
     # When the script ended
     endTime = getHourTime()
     runTime = diffTime(startTime, endTime, "%H:%M:%S")
 
     # Info mail on script successful
-    print(sendMail(3, '', '', runTime))
+    print(sendMail(3, resultDataMail, '', runTime))
 
 else:
 
-    print('Today is not an update day! Try again Monday, Wednesday or Friday.')
+    print('Today is not an update day! Try again Monday or Tuesday.')
 
     # Go though all the accounts
     for account in accounts:
