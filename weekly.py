@@ -18,6 +18,9 @@ minUsernameLeftInDb = 100
 
 weekDaysWhenThisShouldRun = [1, 4]  # 1: monday, 2: tuesday, etc ...
 
+# Create array for email
+resultDataMail = {}
+userID = 0
 
 # Loading Accounts infos
 accounts = fetchAllAccount()
@@ -74,6 +77,18 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
             elif not account[0] and account[1] <= (minIterations + decreaseIterationsBy):
                 # Update accountiterations to maxIterations
                 print(update(account[3], minIterations, True))
+
+        # Info array for email
+        userID += 1
+        resultDataMail[userID] = {
+            'name': account[3],
+            'iterationMax': account[1],
+            'tags': account[2],
+            'alive': account[4],
+            'usernameLeft': selectCount(account[3].replace(".", ""))
+        }
+
+    print(resultDataMail)
 
     # When the script ended
     endTime = getHourTime()
