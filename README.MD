@@ -135,12 +135,7 @@ Request return 400 error!
 - This repo deployed on heroku: https://instabot-cvs.herokuapp.com/
 - Ressource about the library: https://recycledrobot.co.uk/words/?instaspam
 
-## Ressources for later dark days
-
-- Build & Deploy A Python Web App | Flask, Postgres & Heroku: https://www.youtube.com/watch?v=w25ea_I89iM
-- Automate Spotify with Python: https://www.youtube.com/watch?v=7J_qcttfnJA
-
-For a future soundcloud bot
+## For a future soundcloud bot
 
 ```
 ##### The package dependencies for a Soundcloudbot is a bit different:
