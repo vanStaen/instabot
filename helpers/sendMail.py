@@ -45,11 +45,11 @@ def sendMail(mailType, detail, iteration, runTime):
         messageSubject = "Subject: All hands on deck!"
         messageBody = f"Something weird is going on in your python script ({formattedDateStamp})."
 
-    smtp_server = config('SMTP_SERVER_GMAIL')
-    port = config('PORT_GMAIL')
+    smtp_server = config('SENDINBLUE_SMTP')
+    port = config('SENDINBLUE_PORT')
     sender_email = config('EMAIL_GMAIL')
-    receiver_email = config('EMAIL_GMAIL')
-    password = config('PWD_GMAIL')
+    receiver_email = 'info@clementvanstaen.com'
+    password = config('SENDINBLUE_PWD')
 
     # Create a secure SSL context
     context = ssl.create_default_context()
@@ -59,13 +59,13 @@ def sendMail(mailType, detail, iteration, runTime):
 
         msg = MIMEText(messageBody, 'html')
         msg['Subject'] = messageSubject
-        msg['From'] = "Instabot <clement.vanstaen@gmail.com>"
+        msg['From'] = "Instabot <info@clementvanstaen.com>"
         msg['To'] = receiver_email
         server = smtplib.SMTP(smtp_server, port)
         server.starttls(context=context)  # Secure the connection
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, msg.as_string())
-        return f"Message sent!"
+        return f"Message sent to {receiver_email}!"
 
     except Exception as e:
 
