@@ -62,27 +62,29 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
             if account[0] and account[1] < (maxIterations - increaseIterationsBy):
                 # Update accountiterations + 10
-                print(update(account[3], account[1] +
-                             increaseIterationsBy, account[0]))
+                iterationMax = account[1] + increaseIterationsBy
+                print(update(account[3], iterationMax, account[0]))
 
             elif account[0] and account[1] >= (maxIterations - increaseIterationsBy):
                 # Update accountiterations to maxIterations
-                print(update(account[3], maxIterations, account[0]))
+                iterationMax = maxIterations
+                print(update(account[3], iterationMax, account[0]))
 
             elif not account[0] and account[1] > (minIterations + decreaseIterationsBy):
                 # Update accountiterations to maxIterations
-                print(update(account[3], account[1] -
-                             decreaseIterationsBy, True))
+                iterationMax = account[1] - decreaseIterationsBy
+                print(update(account[3], iterationMax, True))
 
             elif not account[0] and account[1] <= (minIterations + decreaseIterationsBy):
                 # Update accountiterations to maxIterations
-                print(update(account[3], minIterations, True))
+                iterationMax = minIterations
+                print(update(account[3], iterationMax, True))
 
         # Info array for email
         userID += 1
         resultDataMail[userID] = {
             'name': account[3],
-            'iterationMax': account[1],
+            'iterationMax': iterationMax,
             'tags': account[2],
             'alive': account[4],
             'usernameLeft': selectCount(account[3].replace(".", ""))

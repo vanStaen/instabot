@@ -37,7 +37,7 @@ def sendMail(mailType, detail, iteration, runTime):
         messageBody = "Instabot started running"
     elif mailType == 3:
         messageSubject = f"All accounts have been updated!"
-        messageBody = f"The Weekly account update was <b>successfull</b>.<br/> Run time of the script : {runTime}.<br/>"
+        messageBody = f"The Weekly account update was <b>successful</b>.<br/> Run time of the script : {runTime}.<br/>"
         messageBody = messageBody + "<ol>"
         for data in detail:
             if detail[data]['alive']:
