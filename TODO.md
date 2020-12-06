@@ -4,6 +4,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
 
 ## To-dos:
 
+- [ ] Get number of follower, and add it to info array.
 - [ ] Front end to manage active status of accounts
   - [ ] Backend in python? (https://wiki.python.org/moin/WebFrameworks)
   - [ ] Update procfile to start python web server
