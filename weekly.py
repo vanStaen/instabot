@@ -16,7 +16,7 @@ maxIterations = 100
 increaseIterationsBy = 5
 minUsernameLeftInDb = 100
 
-weekDaysWhenThisShouldRun = [1, 4]  # 1: monday, 2: tuesday, etc ...
+weekDaysWhenThisShouldRun = [1]  # 1: monday, 2: tuesday, etc ...
 
 # Create array for email
 resultDataMail = {}
@@ -101,7 +101,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
 else:
 
-    print('Today is not an update day! Try again Monday or Tuesday.')
+    print('Today is not an update day!')
 
     # Go though all the accounts
     for account in accounts:
