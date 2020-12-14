@@ -45,7 +45,7 @@ def sendMail(mailType, detail, iteration, runTime):
                     f"<li><b>{detail[data]['name']}</b> active with :<ul><li>Iterations max pro run: {detail[data]['iterationMax']}</li><li>Hashtags: {str(detail[data]['tags'])[1:-1]}.</li><li>{detail[data]['usernameLeft']} users remaining.</li></li>"
             else:
                 messageBody = messageBody + \
-                    f"<li><b>Deactivated!</b> {detail[data]['name']}<ul><li>Iterations max pro run: {detail[data]['iterationMax']}</li><li>Hashtags: {str(detail[data]['tags'])[1:-1]}.</li><li>{detail[data]['usernameLeft']} users remaining.</li></li>"
+                    f"<li>Deactivated! <b>{detail[data]['name']}</b><ul><li>Iterations max pro run: {detail[data]['iterationMax']}</li><li>Hashtags: {str(detail[data]['tags'])[1:-1]}.</li><li>{detail[data]['usernameLeft']} users remaining.</li></li>"
         messageBody = messageBody + "</ol>"
     elif mailType == 4:
         messageSubject = f"[Warning] Add some more user to account {detail}"
