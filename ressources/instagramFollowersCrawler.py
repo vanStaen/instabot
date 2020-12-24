@@ -1,9 +1,10 @@
 # Get instance
 # if needed : sudo pip3 install instaloader
+# run it with : python3 instagramFollowersCrawler.py
 import instaloader
 L = instaloader.Instaloader()
 
-user = "koma_elektronik"
+user = "pugpuppymini"
 
 # Login or load session
 L.login("clementvanstaen", "kftv2h4insta")
