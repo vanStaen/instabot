@@ -11,12 +11,12 @@ from postgreSQL.select import selectCount
 
 # Setup
 minIterations = 10
-decreaseIterationsBy = 20
+decreaseIterationsBy = 10
 maxIterations = 100
 increaseIterationsBy = 10
 minUsernameLeftInDb = 100
 
-weekDaysWhenThisShouldRun = [6]  # 1: monday, 2: tuesday, etc ...
+weekDaysWhenThisShouldRun = [1, 3, 5]  # 1: monday, 2: tuesday, etc ...
 
 # Create array for email
 resultDataMail = {}
