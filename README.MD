@@ -41,6 +41,11 @@ heroku ps:stop <name of the scheduler>
 
 ## Under the hood
 
+### Cron Job
+The command `$ python3 index.py` runs 3 times a day, and `python3 weekly.py` running every morning, both using the scheduler addon,from heroku. 
+
+All extra logic (about what dasy of the week the script should run) is included directly in the python sripts. 
+
 ### How to run the script locally
 
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
@@ -103,7 +108,7 @@ You can use pgAdmin as a UI to display the databases.
 - account[3] : Account name
 - account[4] : Alive? as a Boolean
 
-#### Authorisation
+#### Authorization
 
 For both database hosts, AWS (security groups) and mongodb.com (whitelisting), some authorisation must be set up in order to have give access to the database from external actors: IP whitelisting.
 
