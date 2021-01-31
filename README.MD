@@ -42,7 +42,7 @@ heroku ps:stop <name of the scheduler>
 ## Under the hood
 
 ### Cron Job
-The command `$ python3 index.py` runs 3 times a day, and `python3 weekly.py` running every morning, both using the scheduler addon,from heroku. 
+The command `$ python3 index.py` runs 3 times a day, and `python3 weekly.py` running every morning, both using the scheduler addon, from heroku. 
 
 All extra logic (about what dasy of the week the script should run) is included directly in the python sripts. 
 
