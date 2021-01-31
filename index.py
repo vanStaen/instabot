@@ -12,7 +12,6 @@ from helpers.getDateTime import getDateTime
 from helpers.getDateTime import getHourTime
 from helpers.getDateTime import diffTime
 from helpers.herokuSleep import herokuLongSleeper
-import datetime as datetime
 import time
 import json
 import smtplib
@@ -145,174 +144,163 @@ def like_recent_media(target_user, max_likes):
 # Reset UserID
 userID = 0
 
-# When shoud the script run?
-# 1: monday, 2: tuesday, etc ...
-weekDaysWhenThisShouldRun = [1, 2, 3, 4, 5, 6]
+# Random wait to confuse the insta control algorithm
+# Sleep between 1 and 1 hour
+sleepFor = randint(60, 3600)
+print(f"Let's first take a {sleepFor} seconds sleep!")
+herokuLongSleeper(sleepFor)
 
-if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
+# Go though all the accounts
+for account in accounts:
 
-    # Random wait to confuse the insta control algorithm
-    # Sleep between 1 and 1 hour
-    sleepFor = randint(60, 3600)
-    print(f"Let's first take a {sleepFor} seconds sleep!")
-    herokuLongSleeper(sleepFor)
+    # Info array for email, case account is inactive
+    if not account[0]:
+        userID += 1
+        resultDataMail[userID] = {
+            'run': True,
+            'active': False,
+            'connectionError': False,
+            'name': account[3],
+            'databaseUser': selectCount(account[3].replace(".", ""))
+        }
 
-    # Go though all the accounts
-    for account in accounts:
+    # Check account Active-status
+    elif account[0]:
 
-        # Info array for email, case account is inactive
-        if not account[0]:
-            userID += 1
-            resultDataMail[userID] = {
-                'run': True,
-                'active': False,
-                'connectionError': False,
-                'name': account[3],
-                'databaseUser': selectCount(account[3].replace(".", ""))
-            }
+        print('--------------------------------------')
+        print('Connection to account {}'.format(account[3]))
+        print('--------------------------------------')
 
-        # Check account Active-status
-        elif account[0]:
+        # Reset user variables
+        errors = 0
+        fourHundredCounter = 0
+        likeCounter = 0
+        userAccount = account[3]
 
-            print('--------------------------------------')
-            print('Connection to account {}'.format(account[3]))
-            print('--------------------------------------')
+        # Info array for email
+        userID += 1
+        resultDataMail[userID] = {
+            'run': True,
+            'active': True,
+            'connectionError': False,
+            'name': userAccount,
+            'errors': errors,
+            'iterations': likeCounter,
+            'iterationMax': account[1],
+            'databaseUser': selectCount(account[3].replace(".", ""))
+        }
 
-            # Reset user variables
-            errors = 0
-            fourHundredCounter = 0
-            likeCounter = 0
-            userAccount = account[3]
+        try:
 
-            # Info array for email
-            userID += 1
-            resultDataMail[userID] = {
-                'run': True,
-                'active': True,
-                'connectionError': False,
-                'name': userAccount,
-                'errors': errors,
-                'iterations': likeCounter,
-                'iterationMax': account[1],
-                'databaseUser': selectCount(account[3].replace(".", ""))
-            }
+            api = InstagramAPI(account[3],
+                               password[account[3]])
+            resultLogin = api.login()
+            # Error when connecting
+            if not resultLogin:
+                print('###  Connection Error')
+                resultDataMail[userID]['connectionError'] = True
+                continue
+            logging.info('### Connection to account {}'.format(
+                account[3]))
+            sleep(5)
 
-            try:
+            while likeCounter < account[1] + 1:
 
-                api = InstagramAPI(account[3],
-                                   password[account[3]])
-                resultLogin = api.login()
-                # Error when connecting
-                if not resultLogin:
-                    print('###  Connection Error')
-                    resultDataMail[userID]['connectionError'] = True
-                    continue
-                logging.info('### Connection to account {}'.format(
-                    account[3]))
-                sleep(5)
+                iterationProUser = randint(3, 7)
+                iterationProHashtag = randint(7, 12)
 
-                while likeCounter < account[1] + 1:
+                targetUserFollower = fetchFirst(
+                    account[3].replace(".", ""))
 
-                    iterationProUser = randint(3, 7)
-                    iterationProHashtag = randint(7, 12)
+                try:
+                    # Like media from user
+                    result = like_recent_media(targetUserFollower,
+                                               iterationProUser)
+                    print('likeCounter: {}'.format(likeCounter))
+                    resultDataMail[userID]['iterations'] = likeCounter
 
-                    targetUserFollower = fetchFirst(
-                        account[3].replace(".", ""))
+                    if result == False:
+                        fourHundredCounter += 1
 
-                    try:
-                        # Like media from user
-                        result = like_recent_media(targetUserFollower,
-                                                   iterationProUser)
-                        print('likeCounter: {}'.format(likeCounter))
-                        resultDataMail[userID]['iterations'] = likeCounter
+                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
+                        deactivate(userAccount)
+                        print(sendMail(1, userAccount, '', ''))
+                        logging.critical(
+                            'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
+                        sys.exit(
+                            "Script early exit due to too many 400 hetml errors.")
 
-                        if result == False:
-                            fourHundredCounter += 1
+                    # check if we already maxed up the iteration threshold
+                    if likeCounter > account[1] - 1:
+                        break
 
-                        if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
-                            deactivate(userAccount)
-                            print(sendMail(1, userAccount, '', ''))
-                            logging.critical(
-                                'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
-                            sys.exit(
-                                "Script early exit due to too many 400 hetml errors.")
+                    # Delete user from list
+                    deleteUser(account[3].replace(
+                        ".", ""), targetUserFollower)
 
-                        # check if we already maxed up the iteration threshold
-                        if likeCounter > account[1] - 1:
-                            break
+                    # Like media from hastags array
+                    result = like_tag_feed(
+                        account[2][randint(
+                            0,
+                            len(account[2]) - 1)],
+                        iterationProHashtag)
+                    print('likeCounter: {}'.format(likeCounter))
+                    resultDataMail[userID]['iterations'] = likeCounter
 
-                        # Delete user from list
-                        deleteUser(account[3].replace(
-                            ".", ""), targetUserFollower)
+                    if result == False:
+                        fourHundredCounter += 1
 
-                        # Like media from hastags array
-                        result = like_tag_feed(
-                            account[2][randint(
-                                0,
-                                len(account[2]) - 1)],
-                            iterationProHashtag)
-                        print('likeCounter: {}'.format(likeCounter))
-                        resultDataMail[userID]['iterations'] = likeCounter
+                    if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
+                        deactivate(userAccount)
+                        print(sendMail(1, userAccount, '', ''))
+                        logging.critical(
+                            'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
+                        sys.exit(
+                            "Script early exit due to too many 400 hetml errors.")
 
-                        if result == False:
-                            fourHundredCounter += 1
+                    # check if we already maxed up the iteration threshold
+                    if likeCounter > account[1] - 1:
+                        break
 
-                        if fourHundredCounter >= maxOfFourHundredsBeforeDeactivate or errors > maxOfErrorsBeforeDeactivate:
-                            deactivate(userAccount)
-                            print(sendMail(1, userAccount, '', ''))
-                            logging.critical(
-                                'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
-                            sys.exit(
-                                "Script early exit due to too many 400 hetml errors.")
+                    # Wait for few secondes
+                    sleep(30)
 
-                        # check if we already maxed up the iteration threshold
-                        if likeCounter > account[1] - 1:
-                            break
+                except Exception as e:
 
-                        # Wait for few secondes
-                        sleep(30)
+                    errors += 1
+                    print('Error #{} on account {}'.format(
+                        errors, account[3]))
+                    logging.warning('Error #{} on account {}'.format(
+                        errors, account[3]))
 
-                    except Exception as e:
+                    # Delete user from list
+                    deleteUser(account[3].replace(
+                        ".", ""), targetUserFollower)
 
-                        errors += 1
-                        print('Error #{} on account {}'.format(
-                            errors, account[3]))
-                        logging.warning('Error #{} on account {}'.format(
-                            errors, account[3]))
+                    # update info in array for mail
+                    resultDataMail[userID]['errors'] = errors
 
-                        # Delete user from list
-                        deleteUser(account[3].replace(
-                            ".", ""), targetUserFollower)
+        except:
 
-                        # update info in array for mail
-                        resultDataMail[userID]['errors'] = errors
+            print(
+                f'Some unhandled error happened for account {userAccount} !'
+            )
+            break
 
-            except:
+        # return numbers of errors
+        if errors >= 1:
+            logging.critical('{} ERROR on account {}. Account will NOT be dropped.'.format(
+                errors, account[3]))
 
-                print(
-                    f'Some unhandled error happened for account {userAccount} !'
-                )
-                break
 
-            # return numbers of errors
-            if errors >= 1:
-                logging.critical('{} ERROR on account {}. Account will NOT be dropped.'.format(
-                    errors, account[3]))
+# When the script ended
+endTime = getHourTime()
+runTime = diffTime(startTime, endTime, "%H:%M:%S")
 
-    # When the script ended
-    endTime = getHourTime()
-    runTime = diffTime(startTime, endTime, "%H:%M:%S")
-
-    # Inform that the script ended.
-    print(sendMail(0, resultDataMail, counterIterationsTotal, runTime))
-    logging.info(
-        'SCRIPT RAN SUCCESSFULLY ({} iterations)'.format(counterIterationsTotal))
-
-else:
-
-    print('Your bot is taking a day!')
-    print(sendMail(5, '', '', ''))
-
+# Inform that the script ended.
+print(sendMail(0, resultDataMail, counterIterationsTotal, runTime))
+logging.info(
+    'SCRIPT RAN SUCCESSFULLY ({} iterations)'.format(counterIterationsTotal))
 
 print('------------------------')
 print('SCRIPT RAN SUCCESSFULLY')

@@ -50,9 +50,6 @@ def sendMail(mailType, detail, iteration, runTime):
     elif mailType == 4:
         messageSubject = f"[Warning] Add some more user to account {detail}"
         messageBody = f"Accout {detail} has less than {iteration} usernames left in the date base. You may want to add some more."
-    elif mailType == 5:
-        messageSubject = f"Not running today!"
-        messageBody = f"The bot is not running today!"
     else:
         messageSubject = "Subject: All hands on deck!"
         messageBody = f"Something weird is going on in your python script ({formattedDateStamp})."
