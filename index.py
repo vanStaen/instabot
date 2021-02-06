@@ -147,7 +147,7 @@ userID = 0
 
 # When should the script run?
 # 1: monday, 2: tuesday, etc ...
-weekDaysWhenThisShouldRun = []
+weekDaysWhenThisShouldRun = [1,2,3,4,5,6]
 
 if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
