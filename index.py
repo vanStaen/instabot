@@ -147,18 +147,24 @@ userID = 0
 
 # When should the script run?
 # 1: monday, 2: tuesday, etc ...
-weekDaysWhenThisShouldRun = [1,2,3,4,5,6]
+weekDaysWhenThisShouldRun = [1, 2, 3, 4, 5, 6]
 
 if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
     # Random wait to confuse the insta control algorithm
-    # Sleep between 1 and 1 hour
+    # Sleep between 1 min and 1 hour
     sleepFor = randint(60, 3600)
     print(f"Let's first take a {sleepFor} seconds sleep!")
     herokuLongSleeper(sleepFor)
 
     # Go though all the accounts
     for account in accounts:
+
+        # Random wait to confuse the insta control algorithm
+        # Sleep between 1 min and 15 min
+        sleepFor = randint(60, 900)
+        print(f"Let's first take a {sleepFor} seconds sleep!")
+        herokuLongSleeper(sleepFor)
 
         # Info array for email, case account is inactive
         if not account[0]:
