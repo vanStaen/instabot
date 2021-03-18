@@ -11,9 +11,9 @@ from postgreSQL.select import selectCount
 
 # Setup
 minIterations = 10
-decreaseIterationsBy = 5
+decreaseIterationsBy = 10
 maxIterations = 150
-increaseIterationsBy = 10
+increaseIterationsBy = 5
 minUsernameLeftInDb = 100
 
 weekDaysWhenThisShouldRun = [1, 3, 5]  # 1: monday, 2: tuesday, etc ...
