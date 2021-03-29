@@ -58,9 +58,6 @@ for account in accounts:
                               'iterationMax': account[1],
                               'databaseUser': selectCount(account[3].replace(".", ""))}
 
-# Get a TimeStamp
-formattedTimeStamp = getDateTime()
-
 
 def like_tag_feed(tag, max_likes):
     global likeCounter
@@ -78,6 +75,8 @@ def like_tag_feed(tag, max_likes):
         temp = api.LastJson
         for post in temp["items"]:
             if not post["has_liked"]:
+                # Get a TimeStamp
+                formattedTimeStamp = getDateTime()
                 print('[{}] Running ... Liking {}'.format(
                     formattedTimeStamp, post["pk"]))
                 result = api.like(post['pk'])
@@ -122,6 +121,8 @@ def like_recent_media(target_user, max_likes):
 
     for recent_post in info['items']:
         if not recent_post["has_liked"]:
+            # Get a TimeStamp
+            formattedTimeStamp = getDateTime()
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
             result = api.like(recent_post['pk'])
