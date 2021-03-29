@@ -160,12 +160,6 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Go though all the accounts
     for account in accounts:
 
-        # Random wait to confuse the insta control algorithm
-        # Sleep between 1 min and 15 min
-        sleepFor = randint(60, 900)
-        print(f"Let's first take a {sleepFor} seconds sleep!")
-        herokuLongSleeper(sleepFor)
-
         # Info array for email, case account is inactive
         if not account[0]:
             userID += 1
@@ -179,6 +173,12 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
         # Check account Active-status
         elif account[0]:
+
+            # Random wait to confuse the insta control algorithm
+            # Sleep between 1 min and 10 min
+            sleepFor = randint(60, 600)
+            print(f"Let's first take a {sleepFor} seconds sleep!")
+            herokuLongSleeper(sleepFor)
 
             print('--------------------------------------')
             print('Connection to account {}'.format(account[3]))
