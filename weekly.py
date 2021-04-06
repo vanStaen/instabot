@@ -58,6 +58,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Go though all the accounts
     for account in accounts:
 
+        iterationMax = account[1]
+
         if account[4]:
 
             if account[0] and account[1] < (maxIterations - increaseIterationsBy):
@@ -84,7 +86,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
         userID += 1
         resultDataMail[userID] = {
             'name': account[3],
-            'iterationMax': maxIterations,
+            'iterationMax': iterationMax,
             'tags': account[2],
             'alive': account[4],
             'usernameLeft': selectCount(account[3].replace(".", ""))
