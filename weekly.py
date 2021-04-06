@@ -84,7 +84,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
         userID += 1
         resultDataMail[userID] = {
             'name': account[3],
-            'iterationMax': iterationMax,
+            'iterationMax': maxIterations,
             'tags': account[2],
             'alive': account[4],
             'usernameLeft': selectCount(account[3].replace(".", ""))
