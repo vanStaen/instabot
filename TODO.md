@@ -5,15 +5,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
 ## To-dos:
 
 - [ ] Get number of follower, and add it to info array.
-- [ ] Front end to manage active status of accounts
-  - [ ] Backend in python? (https://wiki.python.org/moin/WebFrameworks)
-  - [ ] Update procfile to start python web server
-  - [ ] Create static webpage, and point to it
-  - [ ] Create GET rest endpoint to Account status
-  - [ ] Create UPDATE endpoint to change Account active status (and tags)
-  - [ ] Fetch the data from the endpoints
-  - [ ] Create a nice front end to show account data and update
-  - [ ] Push updated data to update endpoint
+- [ ] Create GET rest endpoint to Account status
+- [ ] Create UPDATE endpoint to change Account active status (and tags)
+- [ ] Create front end to show account data and update
 
 ## Completed ✓
 
@@ -42,4 +36,3 @@ Bots written in python, generating traffic on social plattform such as Instragra
 - [x] Rename Repo to InstaBot
 - [x] Send email when userlist (DB) is almost empty
 - [x] Calculate how long script ran, and send it when script successful
-- [ ] ~~ Custom script with poetry instead of npm ~~.
