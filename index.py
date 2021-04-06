@@ -58,9 +58,6 @@ for account in accounts:
                               'iterationMax': account[1],
                               'databaseUser': selectCount(account[3].replace(".", ""))}
 
-# Get a TimeStamp
-formattedTimeStamp = getDateTime()
-
 
 def like_tag_feed(tag, max_likes):
     global likeCounter
@@ -78,6 +75,8 @@ def like_tag_feed(tag, max_likes):
         temp = api.LastJson
         for post in temp["items"]:
             if not post["has_liked"]:
+                # Get a TimeStamp
+                formattedTimeStamp = getDateTime()
                 print('[{}] Running ... Liking {}'.format(
                     formattedTimeStamp, post["pk"]))
                 result = api.like(post['pk'])
@@ -122,6 +121,8 @@ def like_recent_media(target_user, max_likes):
 
     for recent_post in info['items']:
         if not recent_post["has_liked"]:
+            # Get a TimeStamp
+            formattedTimeStamp = getDateTime()
             print('[{}] Running ... Liking {} from {}'.format(
                 formattedTimeStamp, recent_post["pk"], target_user))
             result = api.like(recent_post['pk'])
@@ -160,12 +161,6 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Go though all the accounts
     for account in accounts:
 
-        # Random wait to confuse the insta control algorithm
-        # Sleep between 1 min and 15 min
-        sleepFor = randint(60, 900)
-        print(f"Let's first take a {sleepFor} seconds sleep!")
-        herokuLongSleeper(sleepFor)
-
         # Info array for email, case account is inactive
         if not account[0]:
             userID += 1
@@ -179,6 +174,12 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
         # Check account Active-status
         elif account[0]:
+
+            # Random wait to confuse the insta control algorithm
+            # Sleep between 1 min and 10 min
+            sleepFor = randint(60, 600)
+            print(f"Let's first take a {sleepFor} seconds sleep!")
+            herokuLongSleeper(sleepFor)
 
             print('--------------------------------------')
             print('Connection to account {}'.format(account[3]))
