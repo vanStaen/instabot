@@ -4,10 +4,10 @@
 import instaloader
 L = instaloader.Instaloader()
 
-user = "pugpuppymini"
+user = "Kevin.Zaremba"
 
 # Login or load session
-L.login("clementvanstaen", "kftv2h4insta")
+L.login("clementvanstaen", "kftv2h4INSTA")
 
 # Obtain profile metadata
 profile = instaloader.Profile.from_username(L.context, user)
