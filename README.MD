@@ -2,6 +2,22 @@
 
 This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. You will find this project online under: https://instabot-cvs.herokuapp.com/
 
+## Add an account
+1. Crawl some user for the new account
+2. Create a table `userlist_#newaccount` with column `username` in the database
+3. Fill the date base with the usernames obtained in 1. To insert value, use the following:
+```
+INSERT INTO public.userlist_#newaccount(username) VALUES ('?');
+```
+4. Add the account password in the .env variables
+. Insert a new row as config for the new account:
+```
+INSERT INTO public.config_accounts_insta(
+	active, iterations, tags, username, alive, id)
+	VALUES (?, ?, ?, ?, ?, ?);
+```
+5. Add the account password in the .env variables (local and on the server side)
+   
 ## Packages & dependancies
 
 The python specific package manager `pip` is mandatory for the python package . You may need to install `brew` to get `python3`. With brew, go `brew install python3`.</br>
