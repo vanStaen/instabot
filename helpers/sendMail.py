@@ -60,7 +60,7 @@ def sendMail(mailType, detail, iteration, runTime):
     smtp_server = config('SENDINBLUE_SMTP')
     port = config('SENDINBLUE_PORT')
     sender_email = config('EMAIL_GMAIL')
-    receiver_email = 'info@clementvanstaen.com'
+    receiver_email = config('EMAIL_GMAIL')
     password = config('SENDINBLUE_PWD')
 
     # Create a secure SSL context
