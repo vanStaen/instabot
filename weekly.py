@@ -12,7 +12,7 @@ from postgreSQL.select import selectCount
 # Setup
 minIterations = 10
 decreaseIterationsBy = 10
-maxIterations = 150
+maxIterations = 250
 increaseIterationsBy = 5
 minUsernameLeftInDb = 100
 
