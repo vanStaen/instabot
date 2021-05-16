@@ -1,12 +1,14 @@
 from decouple import config
 import requests
+import json
 
 url = 'https://mailman-cvs.herokuapp.com/api/instabot'
-data = {'from': 'rewaer <info@rewaer.com>',
+data = {'from': 'instabot <info@clementvanstaen.com>',
         'to': 'clement.vanstaen@gmail.com',
-        'subject': 'mirror call ma couille',
-        'body': 'This is working my dude.',
+        'subject': 'test emailer Python/PHP',
+        'body': 'test emailer Python/PHP',
         'key': config('MAILMAN_KEY')}
 
-request = requests.post(url, data=data)
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+request = requests.post(url, data=json.dumps(data), headers=headers)
 print(request.text)
