@@ -1,9 +1,7 @@
-import smtplib
-import ssl
+import requests
 import json
-import datetime
-from decouple import config
 from email.mime.text import MIMEText
+from decouple import config
 from helpers.getDateTime import getDateTime
 
 
@@ -57,36 +55,23 @@ def sendMail(mailType, detail, iteration, runTime):
         messageSubject = "Subject: All hands on deck!"
         messageBody = f"Something weird is going on in your python script ({formattedDateStamp})."
 
-    smtp_server = config('SENDINBLUE_SMTP')
-    port = config('SENDINBLUE_PORT')
-    sender_email = config('EMAIL_GMAIL')
-    receiver_email = config('EMAIL_GMAIL')
-    password = config('SENDINBLUE_PWD')
-
-    # Create a secure SSL context
-    context = ssl.create_default_context()
-
-    # Try to log in to server and send email
+    # Make http resquest to Mailman service
     try:
+        receiver_email = config('EMAIL_GMAIL')
+        url = 'https://mailman-cvs.herokuapp.com/api/instabot'
+        data = {'from': 'instabot <info@clementvanstaen.com>',
+                'to': receiver_email,
+                'subject': messageSubject,
+                'body': messageBody,
+                'key': config('MAILMAN_KEY')}
 
-        msg = MIMEText(messageBody, 'html')
-        msg['Subject'] = messageSubject
-        msg['From'] = "Instabot <info@clementvanstaen.com>"
-        msg['To'] = receiver_email
-        server = smtplib.SMTP(smtp_server, port)
-        server.starttls(context=context)  # Secure the connection
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, msg.as_string())
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        request = requests.post(url, data=json.dumps(data), headers=headers)
+        # print(request.text)
+
         return f"Message sent to {receiver_email}!"
 
     except Exception as e:
 
         # Print any error messages to stdout
         return e
-
-    finally:
-
-        server.quit()
-
-    # Create a secure SSL context
-    context = ssl.create_default_context()

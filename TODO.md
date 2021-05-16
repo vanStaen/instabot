@@ -36,3 +36,4 @@ Bots written in python, generating traffic on social plattform such as Instragra
 - [x] Rename Repo to InstaBot
 - [x] Send email when userlist (DB) is almost empty
 - [x] Calculate how long script ran, and send it when script successful
+- [x] sendmail with the mailman service
