@@ -20,6 +20,9 @@ INSERT INTO public.config_accounts_insta(
    
 ## Packages & dependancies
 
+to install at one all packege listed in the requirements.txt file, run the following: 
+```pip3 install -r requirements.txt```
+
 The python specific package manager `pip` is mandatory for the python package . You may need to install `brew` to get `python3`. With brew, go `brew install python3`.</br>
 
 To upgrade pip3 : `pip3 install --upgrade pip`</br>
