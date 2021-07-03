@@ -2,12 +2,13 @@
 # if needed : sudo pip3 install instaloader
 # run it with : python3 instagramFollowersCrawler.py
 import instaloader
+from decouple import config
 L = instaloader.Instaloader()
 
 user = "katerblaugram"
 
 # Login or load session
-L.login("clementvanstaen", "kftv2h4INSTA")
+L.login("clementvanstaen", config("CLEMENTVANSTAEN_PWD"))
 
 # Obtain profile metadata
 profile = instaloader.Profile.from_username(L.context, user)
