@@ -4,7 +4,7 @@
 import instaloader
 L = instaloader.Instaloader()
 
-user = "Kevin.Zaremba"
+user = "katerblaugram"
 
 # Login or load session
 L.login("clementvanstaen", "kftv2h4INSTA")
