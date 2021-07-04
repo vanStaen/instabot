@@ -17,10 +17,9 @@ import time
 import json
 import smtplib
 import ssl
-import sys
 import logging
+import sys
 
-errors = 0
 counterIterationsTotal = 0
 appCounter = 0
 fourHundredCounter = 0
@@ -161,6 +160,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Go though all the accounts
     for account in accounts:
 
+        errors = 0
+
         # Info array for email, case account is inactive
         if not account[0]:
             userID += 1
@@ -241,8 +242,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                             print(sendMail(1, userAccount, '', ''))
                             logging.critical(
                                 'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
-                            sys.exit(
-                                "Script early exit due to too many 400 hetml errors.")
+                            # sys.exit("Script early exit due to too many 400 hetml errors.")
+                            break
 
                         # check if we already maxed up the iteration threshold
                         if likeCounter > account[1] - 1:
@@ -269,8 +270,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                             print(sendMail(1, userAccount, '', ''))
                             logging.critical(
                                 'Too many Error on account {}. Account will be dropped for now.'.format(account[3]))
-                            sys.exit(
-                                "Script early exit due to too many 400 hetml errors.")
+                            # sys.exit("Script early exit due to too many 400 hetml errors.")
+                            break
 
                         # check if we already maxed up the iteration threshold
                         if likeCounter > account[1] - 1:
