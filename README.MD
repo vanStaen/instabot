@@ -19,8 +19,7 @@ INSERT INTO public.config_accounts_insta(
 5. Add the account password in the .env variables (local and on the server side)
    
 ## Packages & dependancies
-
-to install at one all packege listed in the requirements.txt file, run the following: 
+To install at one all packege listed in the requirements.txt file, run the following: 
 ```pip3 install -r requirements.txt```
 
 The python specific package manager `pip` is mandatory for the python package . You may need to install `brew` to get `python3`. With brew, go `brew install python3`.</br>

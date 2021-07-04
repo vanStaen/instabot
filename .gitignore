@@ -6,3 +6,4 @@ config.db.json
 database.ini
 postgreSQL/__pycache__
 .env
+helpers/__pycache__
