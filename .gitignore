@@ -7,3 +7,4 @@ database.ini
 postgreSQL/__pycache__
 .env
 helpers/__pycache__
+log/insta_bot.log
