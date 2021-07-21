@@ -16,7 +16,7 @@ maxIterations = 500
 increaseIterationsBy = 5
 minUsernameLeftInDb = 100
 
-weekDaysWhenThisShouldRun = [1, 3, 5]  # 1: monday, 2: tuesday, etc ...
+weekDaysWhenThisShouldRun = [1, 4]  # 1: monday, 2: tuesday, etc ...
 
 # Create array for email
 resultDataMail = {}
