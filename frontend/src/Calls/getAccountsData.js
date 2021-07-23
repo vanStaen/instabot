@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getUserData = async () => {
+export const getAccountData = async () => {
 
     const response = await axios({
-        url: process.env.REACT_APP_API_URL + `/users`,
+        url: process.env.REACT_APP_API_URL + `/accounts`,
         method: "GET",
     });
 

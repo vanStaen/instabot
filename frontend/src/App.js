@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Tabs } from "antd";
 
-import { UserData } from "./components/UserData/UserData";
-import { MeetingAttendee } from "./components/MeetingAttendee/MeetingAttendee";
-import { Gallery } from "./components/Gallery/Gallery";
+import { AccountData } from "./components/AccountData/AccountData";
 import { isMobileCheck } from "./helpers/checkMobileTablet";
 import { Login } from "./components/Login/Login";
 
@@ -22,19 +20,13 @@ const App = () => {
           <div className="App-Container">
             <Tabs defaultActiveKey="1" centered={isMobile}>
               <TabPane tab={isMobile ? "User in Database" : "User in Database"} key="1">
-                <UserData />
-              </TabPane>
-              <TabPane tab={isMobile ? "Meetup" : "Meetup attendees"} key="2">
-                <MeetingAttendee />
-              </TabPane>
-              <TabPane tab={isMobile ? "Images" : "User Images"} key="3">
-                <Gallery />
+                <AccountData />
               </TabPane>
             </Tabs>
           </div>
         ) : (
-          <Login setHasAccess={setHasAccess} />
-        )}
+            <Login setHasAccess={setHasAccess} />
+          )}
       </header>
     </div>
   );

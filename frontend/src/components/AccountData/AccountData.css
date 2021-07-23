@@ -1,7 +1,7 @@
-.MeetingAttendee .ant-table{
+.ListData .ant-table{
     background-color: rgba(255,255,255,.25);
 }
 
-.MeetingAttendee .ant-table-column-sort {
+.ListData .ant-table-column-sort {
     background-color: rgba(255,255,255,.25);
 }
