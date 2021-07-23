@@ -2,7 +2,7 @@
   "name": "instaBot",
   "version": "1.0.0",
   "description": "Instagram robot - Crawling and liking users",
-  "main": "index.py",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "start-client": "react-scripts start",
@@ -24,7 +24,7 @@
     "instabot",
     "bot"
   ],
-  "author": "Clément van Staen",
+  "author": "vanStaen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vanStaen/instaBot/issues"
