@@ -10,7 +10,9 @@
     "dev": "nodemon index",
     "version": "heroku --version; git --version",
     "log": "heroku logs --tail",
-    "deploy": "heroku login; heroku git:remote -a instabot-cvs; git push heroku master; heroku open"
+    "deploy": "npm i; npm run backup; npm run buildfe; heroku git:remote -a instabot-cvs; git push heroku master; heroku open",
+    "killAll": "killall -9 node",
+    "backup": "cd helpers/; node createDatabaseBackUpFile.js; cd ../; git add -A; git commit -a -m \"database backup\"; git push;"
   },
   "repository": {
     "type": "git",

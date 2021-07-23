@@ -1,0 +1,34 @@
+.LoginFont {
+  color: black;
+}
+
+.passwordInput .ant-input {
+  color: #000 !important;
+  display: inline-block;
+}
+
+.containerLogin {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerInput {
+  display: inline-block;
+}
+
+.passwordButton {
+  display: inline-block;
+  margin: 0.5em;
+}
+
+.Title {
+  letter-spacing: 5px;
+  margin: 0.5em;
+  font-size: 1em;
+  font-weight: 250;
+  color: #9C640C;
+  text-shadow: 2px 2px #FFECB3;
+}

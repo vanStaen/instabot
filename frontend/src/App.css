@@ -1,0 +1,43 @@
+@import "~antd/dist/antd.css";
+
+.App {
+  text-align: center;
+}
+
+.html {
+  --antd-wave-shadow-color: red !important;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background: rgb(246,244,163);
+  background: linear-gradient(36deg, rgba(246,244,163,1) 0%, rgba(239,154,154,1) 79%);
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.App-Container{
+  padding: 5%;
+}
+
+.App-Container .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #363636 !important; 
+  font-weight: 400;
+}
+
+.App-Container .ant-tabs-ink-bar {
+  position: absolute;
+  background: #363636;
+  pointer-events: none;
+}
+
+.App-Container .ant-tabs-tab {
+  color: white;
+}
