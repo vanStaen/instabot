@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "9f62ff1a-c996-419c-9e2e-413c6d959789",
+		"name": "InstaBot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "instaBot: localhost:5008/accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
