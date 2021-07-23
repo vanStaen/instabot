@@ -10,7 +10,7 @@ import "./App.css";
 const { TabPane } = Tabs;
 
 const App = () => {
-  const [hasAccess, setHasAccess] = useState(true);
+  const [hasAccess, setHasAccess] = useState(false);
   const isMobile = isMobileCheck();
 
   return (
@@ -19,7 +19,7 @@ const App = () => {
         {hasAccess ? (
           <div className="App-Container">
             <Tabs defaultActiveKey="1" centered={isMobile}>
-              <TabPane tab={isMobile ? "User in Database" : "User in Database"} key="1">
+              <TabPane tab={isMobile ? "Accounts" : "Account's settings"} key="1">
                 <AccountData />
               </TabPane>
             </Tabs>

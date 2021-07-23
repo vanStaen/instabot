@@ -40,7 +40,6 @@ export const Login = (props) => {
 
   return (
     <div className="containerLogin">
-      <span className="Title">Golden Circle</span>
       <div>
         <div className="containerInput">
           <Input.Password

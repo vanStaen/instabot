@@ -14,8 +14,7 @@
 }
 
 .App-header {
-  background: rgb(246,244,163);
-  background: linear-gradient(36deg, rgba(246,244,163,1) 0%, rgba(239,154,154,1) 79%);
+  background: #A9DFBF;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;

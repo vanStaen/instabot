@@ -14,7 +14,15 @@ export const AccountData = () => {
   const fetchAccountData = async () => {
     try {
       const fetchedData = await getAccountData();
-      setAccountData(fetchedData);
+      const fetchedDataCleaned = fetchedData.map((accountData, index) => {
+        const accountDataCleaned = {
+          ...accountData,
+          alive: accountData.alive ? 1 : 0,
+          active: accountData.active ? 1 : 0,
+        };
+        return accountDataCleaned;
+      });
+      setAccountData(fetchedDataCleaned);
     } catch (err) {
       console.log(err);
     }
@@ -59,13 +67,13 @@ export const AccountData = () => {
       title: "Active",
       dataIndex: "active",
       key: "active",
-      //sorter: (a, b) => a.id - b.id,
+      sorter: (a, b) => a.id - b.id,
     },
     {
       title: "Alive",
       dataIndex: "alive",
       key: "alive",
-      //sorter: (a, b) => a.id - b.id,
+      sorter: (a, b) => a.id - b.id,
     },
   ];
 
