@@ -1,6 +1,7 @@
 # instaBot
+This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. 
 
-This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. You will find this project online under: https://instabot-cvs.herokuapp.com/
+You will find this project online under: https://instabot-cvs.herokuapp.com/
 
 ## Add an account
 1. Crawl some user for the new account
