@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
+const fs = require('fs');
 const isAuth = require("./middleware/is-auth");
+
 
 const PORT = process.env.PORT || 5008;
 require("dotenv/config");
@@ -25,6 +27,14 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// Show logs
+app.get("/log", function (req, res) {
+  fs.readFile("./log/insta_bot.log", "utf8", function (err, html) {
+    res.send(html);
+  });
+});
+
 
 // Set up for React
 app.use(express.static(path.join(__dirname, "build")));
