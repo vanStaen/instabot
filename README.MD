@@ -101,6 +101,11 @@ The levels of logs:
 - ERROR: Due to a more serious problem, the software has not been able to perform some function.
 - CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
+#### Git, gitignore, and log
+to tell git that he should stop trakcing a file: s
+`git update-index --assume-unchanged log/insta_bot.log`
+
+
 Quite complete tutorial about the logging feature of python: https://www.datadoghq.com/blog/python-logging-best-practices/
 
 ### Python and postgreSQL
