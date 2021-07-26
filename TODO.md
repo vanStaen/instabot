@@ -19,6 +19,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [ ] See Logs (= show bot running)
   - [ ] Errors tabs
   - [ ] Implement crawler  
+- [ ] Delete log file when script was successfull!
 
 
 ## Completed ✓
