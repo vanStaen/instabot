@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getAccountData } from "../../calls/getAccountData";
+import { postAccountAlive } from "../../calls/postAccountAlive";
+import { postAccountActive } from "../../calls/postAccountActive";
 import { isMobileCheck } from "../../helpers/checkMobileTablet";
-import { Table } from "antd";
+import { Table, Switch } from "antd";
 
 import "./AccountData.css";
 
@@ -16,9 +18,7 @@ export const AccountData = () => {
       const fetchedData = await getAccountData();
       const fetchedDataCleaned = fetchedData.map((accountData, index) => {
         const accountDataCleaned = {
-          ...accountData,
-          alive: accountData.alive ? 1 : 0,
-          active: accountData.active ? 1 : 0,
+          ...accountData
         };
         return accountDataCleaned;
       });
@@ -28,6 +28,23 @@ export const AccountData = () => {
     }
     setIsLoading(false);
   };
+
+  const switchHandlerAlive = async (id, value) => {
+    const index = accountData.findIndex(accountData => accountData.id == id)
+    const accountDataTemp = accountData;
+    accountDataTemp[index]['alive']=!value;
+    await postAccountAlive(accountDataTemp[index]['username'], !value);
+    setAccountData(accountDataTemp);
+  }
+
+  const switchHandlerActive = async (id, value) => {
+    const index = accountData.findIndex(accountData => accountData.id == id)
+    const accountDataTemp = accountData;
+    accountDataTemp[index]['active']=!value;
+    await postAccountActive(accountDataTemp[index]['username'], !value);
+    setAccountData(accountDataTemp);
+  }
+
 
   const columns = [
     {
@@ -68,12 +85,18 @@ export const AccountData = () => {
       dataIndex: "active",
       key: "active",
       sorter: (a, b) => a.id - b.id,
+      render: (text, record) => (
+        <Switch defaultChecked={record.active} onClick={() => switchHandlerActive(record.id, record.active)}/>
+      ),
     },
     {
       title: "Alive",
       dataIndex: "alive",
       key: "alive",
       sorter: (a, b) => a.id - b.id,
+      render: (text, record) => (
+        <Switch defaultChecked={record.alive} onClick={() => switchHandlerAlive(record.id, record.alive)}/>
+      ),
     },
   ];
 

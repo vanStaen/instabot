@@ -11,8 +11,9 @@ Bots written in python, generating traffic on social plattform such as Instragra
 - [ ] Get number of follower, and add it to info array.
 - [ ] Create frontend 
   - [x] show account config data 
+  - [ ] show rest username for account
   - [ ] feature : update tags
-  - [ ] feature : set Alive and Active
+  - [x] feature : set Alive and Active
   - [ ] feature : Manually update iterations
   - [ ] Add a new account
   - [ ] See folllower developement

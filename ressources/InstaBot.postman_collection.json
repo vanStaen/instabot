@@ -23,6 +23,105 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "instaBot: localhost:5008/accounts/active",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\" : false,\n    \"username\" : \"theresapogge\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5008/accounts/active",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"accounts",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "instaBot: localhost:5008/accounts/alive",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"alive\" : false,\n    \"username\" : \"theresapogge\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5008/accounts/alive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"accounts",
+						"alive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "instaBot: localhost:5008/log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"log"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "instabot-cvs.herokuapp.com/log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://instabot-cvs.herokuapp.com/log",
+					"protocol": "https",
+					"host": [
+						"instabot-cvs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"log"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
