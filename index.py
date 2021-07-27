@@ -19,6 +19,7 @@ import smtplib
 import ssl
 import logging
 import sys
+import os
 
 counterIterationsTotal = 0
 appCounter = 0
@@ -323,6 +324,10 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # When the script ended
     endTime = getHourTime()
     runTime = diffTime(startTime, endTime, "%H:%M:%S")
+
+    # Delete log file on success
+    if os.path.exists("log/insta_bot.log"):
+        os.remove("log/insta_bot.log")
 
     # Inform that the script ended.
     print(sendMail(0, resultDataMail, counterIterationsTotal, runTime))
