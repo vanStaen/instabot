@@ -66,7 +66,8 @@ def like_tag_feed(tag, max_likes):
     global counterIterationsTotal
     global fourHundredCounter
 
-    print("# Liking media with hashtag #{}".format(tag))
+    print("> Liking media with hashtag #{}".format(tag))
+    logging.info("> Liking media with hashtag #{}".format(tag))
 
     next_max = 1
     next_max_id = ""
@@ -109,7 +110,8 @@ def like_recent_media(target_user, max_likes):
     global counterIterationsTotal
     global fourHundredCounter
 
-    print("# Liking media from User {}".format(target_user))
+    print("> Liking media from User {}".format(target_user))
+    logging.info("> Liking media from User {}".format(target_user))
 
     def get_user_profile(target_user):
         api.searchUsername(target_user)
@@ -163,6 +165,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Sleep between 1 min and 15 min
     sleepFor = randint(60, 900)
     print(f"Let's first take a {sleepFor} seconds sleep!")
+    logging.info(f"Let's first take a {sleepFor} seconds sleep!")
     herokuLongSleeper(sleepFor)
 
     # Go though all the accounts
@@ -188,6 +191,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
             # Sleep between 1 min and 5 min
             sleepFor = randint(60, 300)
             print(f"Let's first take a {sleepFor} seconds sleep!")
+            logging.info(f"Let's first take a {sleepFor} seconds sleep!")
             herokuLongSleeper(sleepFor)
 
             print("--------------------------------------")
@@ -338,6 +342,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 else:
 
     print("Your bot is taking a day off!")
+    logging.info("Your bot is taking a day off!")
     print(sendMail(5, "", "", ""))
 
 
