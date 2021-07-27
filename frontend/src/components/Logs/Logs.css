@@ -1,0 +1,7 @@
+.ListData .ant-table{
+    background-color: rgba(255,255,255,.25);
+}
+
+.ListData .ant-table-column-sort {
+    background-color: rgba(255,255,255,.25);
+}
