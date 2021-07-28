@@ -111,6 +111,7 @@ export const AccountData = () => {
         <Table
           dataSource={accountData}
           columns={columns}
+          rowKey="id"
           pagination={{
             position: ["bottomCenter"],
             defaultPageSize: "20",

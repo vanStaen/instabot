@@ -13,12 +13,7 @@ from helpers.getDateTime import getHourTime
 from helpers.getDateTime import diffTime
 from helpers.herokuSleep import herokuLongSleeper
 import datetime as datetime
-import time
-import json
-import smtplib
-import ssl
 import logging
-import sys
 import os
 
 counterIterationsTotal = 0
