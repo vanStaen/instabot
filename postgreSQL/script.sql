@@ -38,5 +38,5 @@ UPDATE public.config_accounts_insta
 
 /* Update Tags */
 UPDATE public.config_accounts_insta
-	SET tags= ARRAY [ 'bdsmcommunity','losangeles']
-	WHERE username='dukevonstein';
+	SET tags= ARRAY [ 'test','test' ]
+	WHERE username='purzelbaumrecords';

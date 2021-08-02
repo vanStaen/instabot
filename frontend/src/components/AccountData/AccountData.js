@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getAccountData } from "../../calls/getAccountData";
+import {
+  getAccountData,
+  getAccountDataUserCount,
+} from "../../calls/getAccountData";
 import { postAccountAlive } from "../../calls/postAccountAlive";
 import { postAccountActive } from "../../calls/postAccountActive";
 import { isMobileCheck } from "../../helpers/checkMobileTablet";
@@ -16,13 +19,15 @@ export const AccountData = () => {
   const fetchAccountData = async () => {
     try {
       const fetchedData = await getAccountData();
-      const fetchedDataCleaned = fetchedData.map((accountData, index) => {
-        const accountDataCleaned = {
-          ...accountData
+      const fetchedDataWithCount = await fetchedData.map( async (accountData, index) => {
+        const dataWithCount = {
+          ...accountData,         
+          count: await getAccountDataUserCount(accountData.username),
         };
-        return accountDataCleaned;
+        return dataWithCount;
       });
-      setAccountData(fetchedDataCleaned);
+      console.log(fetchedDataWithCount);
+      setAccountData(fetchedData);
     } catch (err) {
       console.log(err);
     }
@@ -30,21 +35,20 @@ export const AccountData = () => {
   };
 
   const switchHandlerAlive = async (id, value) => {
-    const index = accountData.findIndex(accountData => accountData.id == id)
+    const index = accountData.findIndex((accountData) => accountData.id == id);
     const accountDataTemp = accountData;
-    accountDataTemp[index]['alive']=!value;
-    await postAccountAlive(accountDataTemp[index]['username'], !value);
+    accountDataTemp[index]["alive"] = !value;
+    await postAccountAlive(accountDataTemp[index]["username"], !value);
     setAccountData(accountDataTemp);
-  }
+  };
 
   const switchHandlerActive = async (id, value) => {
-    const index = accountData.findIndex(accountData => accountData.id == id)
+    const index = accountData.findIndex((accountData) => accountData.id == id);
     const accountDataTemp = accountData;
-    accountDataTemp[index]['active']=!value;
-    await postAccountActive(accountDataTemp[index]['username'], !value);
+    accountDataTemp[index]["active"] = !value;
+    await postAccountActive(accountDataTemp[index]["username"], !value);
     setAccountData(accountDataTemp);
-  }
-
+  };
 
   const columns = [
     {
@@ -76,6 +80,11 @@ export const AccountData = () => {
       sorter: (a, b) => a.id - b.id,
     },
     {
+      title: "Count",
+      dataIndex: "count",
+      key: "count",
+    },
+    {
       title: "Tags",
       dataIndex: "tags",
       key: "tags",
@@ -86,7 +95,10 @@ export const AccountData = () => {
       key: "active",
       sorter: (a, b) => a.id - b.id,
       render: (text, record) => (
-        <Switch defaultChecked={record.active} onClick={() => switchHandlerActive(record.id, record.active)}/>
+        <Switch
+          defaultChecked={record.active}
+          onClick={() => switchHandlerActive(record.id, record.active)}
+        />
       ),
     },
     {
@@ -95,7 +107,10 @@ export const AccountData = () => {
       key: "alive",
       sorter: (a, b) => a.id - b.id,
       render: (text, record) => (
-        <Switch defaultChecked={record.alive} onClick={() => switchHandlerAlive(record.id, record.alive)}/>
+        <Switch
+          defaultChecked={record.alive}
+          onClick={() => switchHandlerAlive(record.id, record.alive)}
+        />
       ),
     },
   ];
@@ -107,18 +122,18 @@ export const AccountData = () => {
   return isLoading ? (
     <div>Loading</div>
   ) : (
-      <div className="ListData">
-        <Table
-          dataSource={accountData}
-          columns={columns}
-          rowKey="id"
-          pagination={{
-            position: ["bottomCenter"],
-            defaultPageSize: "20",
-            hideOnSinglePage: true,
-          }}
-          size={isMobile ? "small" : "large"}
-        />
-      </div>
-    );
+    <div className="ListData">
+      <Table
+        dataSource={accountData}
+        columns={columns}
+        rowKey="id"
+        pagination={{
+          position: ["bottomCenter"],
+          defaultPageSize: "20",
+          hideOnSinglePage: true,
+        }}
+        size={isMobile ? "small" : "large"}
+      />
+    </div>
+  );
 };

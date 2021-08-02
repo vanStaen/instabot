@@ -5,10 +5,11 @@ Bots written in python, generating traffic on social plattform such as Instragra
 ## To-dos:
 
 - [ ] Create UPDATE endpoint 
-  - [ ] to change Account active status
-  - [ ] to change Account alive status
+  - [x] to change Account active status
+  - [x] to change Account alive status
   - [ ] to update Account tags
-- [ ] Get number of follower, and add it to info array.
+- [ ] Get number of follower, and add it to config table
+- [ ] Get rest count username, add it to config table
 - [ ] Create frontend 
   - [x] show account config data 
   - [ ] show rest username for account
@@ -16,7 +17,7 @@ Bots written in python, generating traffic on social plattform such as Instragra
   - [x] feature : set Alive and Active
   - [ ] feature : Manually update iterations
   - [ ] Add a new account
-  - [ ] See folllower developement
+  - [ ] track follower developement (?)
   - [ ] See Logs (= show bot running)
   - [ ] Errors tabs
   - [ ] Implement crawler  

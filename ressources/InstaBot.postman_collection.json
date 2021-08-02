@@ -25,6 +25,27 @@
 			"response": []
 		},
 		{
+			"name": "http://localhost:5008/accounts/detail/{account}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5008/accounts/count/clementvanstaen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5008",
+					"path": [
+						"accounts",
+						"count",
+						"clementvanstaen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "instaBot: localhost:5008/accounts/active",
 			"request": {
 				"method": "POST",
