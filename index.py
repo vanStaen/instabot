@@ -232,6 +232,10 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                     targetUserFollower = fetchFirst(account[3].replace(".", ""))
 
                     try:
+                        # check if we already maxed up the iteration threshold
+                        if targetUserFollower is None:
+                            break
+
                         # Like media from user
                         result = like_recent_media(targetUserFollower, iterationProUser)
                         print("likeCounter: {}".format(likeCounter))
