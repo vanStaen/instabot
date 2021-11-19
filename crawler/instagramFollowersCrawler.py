@@ -3,9 +3,10 @@
 # run it with : python3 instagramFollowersCrawler.py
 import instaloader
 from decouple import config
+
 L = instaloader.Instaloader()
 
-user = "katerblaugram"
+user = "clubhellaheels"
 
 # Login or load session
 L.login("clementvanstaen", config("CLEMENTVANSTAEN_PWD"))
