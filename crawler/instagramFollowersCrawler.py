@@ -6,7 +6,7 @@ from decouple import config
 
 L = instaloader.Instaloader()
 
-user = "clubhellaheels"
+user = "paulsmith"
 
 # Login or load session
 L.login("clementvanstaen", config("CLEMENTVANSTAEN_PWD"))
