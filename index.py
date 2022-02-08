@@ -7,6 +7,7 @@ from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
 from postgreSQL.deactivate import deactivate
 from postgreSQL.select import selectCount
+from postgreSQL.blacklisted import blacklist
 from helpers.sendMail import sendMail
 from helpers.getDateTime import getDateTime
 from helpers.getDateTime import getHourTime
@@ -150,6 +151,13 @@ def like_recent_media(target_user, max_likes):
 # Reset UserID
 userID = 0
 
+# Backlisting
+blacklisted = blacklist()
+blacklistedCleaned = []
+for blacklistUser in blacklisted:
+    blacklistUserCleaned = blacklistUser[0]
+    blacklistedCleaned.append(blacklistUserCleaned)
+
 # When should the script run?
 # 1: monday, 2: tuesday, etc ...
 weekDaysWhenThisShouldRun = [2, 3, 4, 5, 6, 7]
@@ -237,30 +245,35 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                             break
 
                         # Like media from user
-                        result = like_recent_media(targetUserFollower, iterationProUser)
-                        print("likeCounter: {}".format(likeCounter))
-                        resultDataMail[userID]["iterations"] = likeCounter
-
-                        if result == False:
-                            fourHundredCounter += 1
-
-                        if (
-                            fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
-                            or errors > maxOfErrorsBeforeDeactivate
-                        ):
-                            deactivate(userAccount)
-                            print(sendMail(1, userAccount, "", ""))
-                            logging.critical(
-                                "Too many Error on account {}. Account will be dropped for now.".format(
-                                    account[3]
-                                )
+                        if targetUserFollower in blacklistedCleaned:
+                            print(f"{targetUserFollower} is blacklisted!")
+                        else:
+                            result = like_recent_media(
+                                targetUserFollower, iterationProUser
                             )
-                            # sys.exit("Script early exit due to too many 400 hetml errors.")
-                            break
+                            print("likeCounter: {}".format(likeCounter))
+                            resultDataMail[userID]["iterations"] = likeCounter
 
-                        # check if we already maxed up the iteration threshold
-                        if likeCounter > account[1] - 1:
-                            break
+                            if result == False:
+                                fourHundredCounter += 1
+
+                            if (
+                                fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
+                                or errors > maxOfErrorsBeforeDeactivate
+                            ):
+                                deactivate(userAccount)
+                                print(sendMail(1, userAccount, "", ""))
+                                logging.critical(
+                                    "Too many Error on account {}. Account will be dropped for now.".format(
+                                        account[3]
+                                    )
+                                )
+                                # sys.exit("Script early exit due to too many 400 hetml errors.")
+                                break
+
+                            # check if we already maxed up the iteration threshold
+                            if likeCounter > account[1] - 1:
+                                break
 
                         # Delete user from list
                         deleteUser(account[3].replace(".", ""), targetUserFollower)
