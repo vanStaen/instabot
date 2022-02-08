@@ -226,7 +226,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
                 while likeCounter < account[1] + 1:
 
-                    iterationProUser = randint(3, 7)
+                    iterationProUser = randint(2, 4)
                     iterationProHashtag = randint(7, 12)
 
                     targetUserFollower = fetchFirst(account[3].replace(".", ""))
