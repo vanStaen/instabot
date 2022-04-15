@@ -36,7 +36,7 @@ def sendMail(mailType, detail, iteration, runTime):
                 )
         messageBody = messageBody + "</ol>"
     elif mailType == 1:
-        messageSubject = "Account '{detail}' is now deactivated"
+        messageSubject = f"Account '{detail}' is now deactivated"
         messageBody = f"There were too many errors when running the instabot script for the account <b>{detail}</b>. The account will be deactivated."
     elif mailType == 2:
         messageSubject = f"{formattedDateStamp}, Instabot script started."
