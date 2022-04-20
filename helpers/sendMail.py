@@ -22,17 +22,17 @@ def sendMail(mailType, detail, iteration, runTime):
             elif not detail[data]["active"]:
                 messageBody = (
                     messageBody
-                    + f"<li>Account <b>{detail[data]['name']}</b><ul><li>is deactivated.</li></ul></li>"
+                    + f"<li><b>{detail[data]['name']}</b>is deactivated.</li>"
                 )
             elif not detail[data]["run"]:
                 messageBody = (
                     messageBody
-                    + f"<li>Account <b>{detail[data]['name']}</b><ul><li>did not run.</li></ul></li>"
+                    + f"<li><b>{detail[data]['name']}</b><ul><li>did not run.</li></ul></li>"
                 )
             else:
                 messageBody = (
                     messageBody
-                    + f"<li>Account <b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations of {detail[data]['iterationMax']} max.</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></ul></li>"
+                    + f"<li><b>{detail[data]['name']}</b><ul><li>ran {detail[data]['iterations']} iterations of {detail[data]['iterationMax']} max.</li><li>generated {detail[data]['errors']} errors.</li><li>{detail[data]['databaseUser']} username remaining.</li></ul></li>"
                 )
         messageBody = messageBody + "</ol>"
     elif mailType == 1:
