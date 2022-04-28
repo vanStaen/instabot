@@ -22,12 +22,11 @@ def sendMail(mailType, detail, iteration, runTime):
             elif not detail[data]["active"]:
                 messageBody = (
                     messageBody
-                    + f"<li><b>{detail[data]['name']}</b>is deactivated.</li>"
+                    + f"<li><b>{detail[data]['name']}</b> is deactivated.</li>"
                 )
             elif not detail[data]["run"]:
                 messageBody = (
-                    messageBody
-                    + f"<li><b>{detail[data]['name']}</b><ul><li>did not run.</li></ul></li>"
+                    messageBody + f"<li><b>{detail[data]['name']}</b> did not run.</li>"
                 )
             else:
                 messageBody = (
