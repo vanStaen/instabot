@@ -40,7 +40,7 @@
     "pg": "^8.5.1"
   },
   "devDependencies": {
-    "lint": "^0.7.0",
+    "lint": "^1.1.2",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.1"
   }
