@@ -13,7 +13,8 @@
     "buildfe": "cd frontend/; npm run build; cd ../; git add -A; git commit -a -m \"deploy frontend Build\"; git push;",
     "deploy": "npm i; npm run backup; npm run buildfe; heroku git:remote -a instabot-cvs; git push heroku master; heroku open",
     "killAll": "killall -9 node",
-    "backup": "cd helpers/; node createDatabaseBackUpFile.js; cd ../; git add -A; git commit -a -m \"database backup\"; git push;"
+    "backup": "cd helpers/; node createDatabaseBackUpFile.js; cd ../; git add -A; git commit -a -m \"database backup\"; git push;",
+    "crawl": "cd crawler/; caffeinate python3 instagramFollowersCrawler.py"
   },
   "repository": {
     "type": "git",

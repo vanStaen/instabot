@@ -7,6 +7,7 @@ from postgreSQL.fetch import fetchAllAccount
 from postgreSQL.delete import deleteUser
 from postgreSQL.deactivate import deactivate
 from postgreSQL.select import selectCount
+from postgreSQL.blacklisted import blacklist
 from helpers.sendMail import sendMail
 from helpers.getDateTime import getDateTime
 from helpers.getDateTime import getHourTime
@@ -153,6 +154,13 @@ def like_recent_media(target_user, max_likes):
 # Reset UserID
 userID = 0
 
+# Backlisting
+blacklisted = blacklist()
+blacklistedCleaned = []
+for blacklistUser in blacklisted:
+    blacklistUserCleaned = blacklistUser[0]
+    blacklistedCleaned.append(blacklistUserCleaned)
+
 # When should the script run?
 # 1: monday, 2: tuesday, etc ...
 # weekDaysWhenThisShouldRun = [2, 3, 4, 5, 6, 7]
@@ -230,7 +238,7 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
                 while likeCounter < account[1] + 1:
 
-                    iterationProUser = randint(3, 7)
+                    iterationProUser = randint(2, 4)
                     iterationProHashtag = randint(7, 12)
 
                     targetUserFollower = fetchFirst(
@@ -241,68 +249,88 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                         if targetUserFollower is None:
                             break
 
-                        # Like media from user
-                        result = like_recent_media(
-                            targetUserFollower, iterationProUser)
-                        print("likeCounter: {}".format(likeCounter))
-                        resultDataMail[userID]["iterations"] = likeCounter
+                        if targetUserFollower in blacklistedCleaned:
+                            print(f"{targetUserFollower} is blacklisted!")
+                        else:
+                            # Like media from user
+                            result = like_recent_media(
+                                targetUserFollower, iterationProUser)
+                            print("likeCounter: {}".format(likeCounter))
+                            resultDataMail[userID]["iterations"] = likeCounter
 
-                        if result == False:
-                            fourHundredCounter += 1
+                            if result == False:
+                                fourHundredCounter += 1
 
-                        if (
-                            fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
-                            or errors > maxOfErrorsBeforeDeactivate
-                        ):
-                            deactivate(userAccount)
-                            print(sendMail(1, userAccount, "", ""))
-                            logging.critical(
-                                "Too many Error on account {}. Account will be dropped for now.".format(
-                                    account[3]
+                            if (
+                                fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
+                                or errors > maxOfErrorsBeforeDeactivate
+                            ):
+                                deactivate(userAccount)
+                                print(sendMail(1, userAccount, "", ""))
+                                logging.critical(
+                                    "Too many Error on account {}. Account will be dropped for now.".format(
+                                        account[3]
+                                    )
                                 )
+                                print("likeCounter: {}".format(likeCounter))
+                                resultDataMail[userID]["iterations"] = likeCounter
+
+                                if result == False:
+                                    fourHundredCounter += 1
+
+                                if (
+                                    fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
+                                    or errors > maxOfErrorsBeforeDeactivate
+                                ):
+                                    deactivate(userAccount)
+                                    print(sendMail(1, userAccount, "", ""))
+                                    logging.critical(
+                                        "Too many Error on account {}. Account will be dropped for now.".format(
+                                            account[3]
+                                        )
+                                    )
+                                    # sys.exit("Script early exit due to too many 400 hetml errors.")
+                                    break
+
+                                # check if we already maxed up the iteration threshold
+                                if likeCounter > account[1] - 1:
+                                    break
+
+                            # Delete user from list
+                            deleteUser(account[3].replace(
+                                ".", ""), targetUserFollower)
+
+                            # Like media from hastags array
+                            result = like_tag_feed(
+                                account[2][randint(0, len(account[2]) - 1)],
+                                iterationProHashtag,
                             )
-                            # sys.exit("Script early exit due to too many 400 hetml errors.")
-                            break
+                            print("likeCounter: {}".format(likeCounter))
+                            resultDataMail[userID]["iterations"] = likeCounter
 
-                        # check if we already maxed up the iteration threshold
-                        if likeCounter > account[1] - 1:
-                            break
+                            if result == False:
+                                fourHundredCounter += 1
 
-                        # Delete user from list
-                        deleteUser(account[3].replace(
-                            ".", ""), targetUserFollower)
-
-                        # Like media from hastags array
-                        result = like_tag_feed(
-                            account[2][randint(0, len(account[2]) - 1)],
-                            iterationProHashtag,
-                        )
-                        print("likeCounter: {}".format(likeCounter))
-                        resultDataMail[userID]["iterations"] = likeCounter
-
-                        if result == False:
-                            fourHundredCounter += 1
-
-                        if (
-                            fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
-                            or errors > maxOfErrorsBeforeDeactivate
-                        ):
-                            deactivate(userAccount)
-                            print(sendMail(1, userAccount, "", ""))
-                            logging.critical(
-                                "Too many Error on account {}. Account will be dropped for now.".format(
-                                    account[3]
+                            if (
+                                fourHundredCounter >= maxOfFourHundredsBeforeDeactivate
+                                or errors > maxOfErrorsBeforeDeactivate
+                            ):
+                                deactivate(userAccount)
+                                print(sendMail(1, userAccount, "", ""))
+                                logging.critical(
+                                    "Too many Error on account {}. Account will be dropped for now.".format(
+                                        account[3]
+                                    )
                                 )
-                            )
-                            # sys.exit("Script early exit due to too many 400 hetml errors.")
-                            break
+                                # sys.exit("Script early exit due to too many 400 hetml errors.")
+                                break
 
-                        # check if we already maxed up the iteration threshold
-                        if likeCounter > account[1] - 1:
-                            break
+                            # check if we already maxed up the iteration threshold
+                            if likeCounter > account[1] - 1:
+                                break
 
-                        # Wait for few secondes
-                        sleep(30)
+                            # Wait for few secondes
+                            sleep(30)
 
                     except Exception as e:
 
