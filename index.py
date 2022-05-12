@@ -76,7 +76,8 @@ def like_tag_feed(tag, max_likes):
                 # Get a TimeStamp
                 formattedTimeStamp = getDateTime()
                 print(
-                    "[{}] Running ... Liking {}".format(formattedTimeStamp, post["pk"])
+                    "[{}] Running ... Liking {}".format(
+                        formattedTimeStamp, post["pk"])
                 )
                 result = api.like(post["pk"])
                 counterIterationsTotal += 1
@@ -88,7 +89,8 @@ def like_tag_feed(tag, max_likes):
                     fourHundredCounter = 0
                 likes += 1
                 likeCounter += 1
-                logging.info("#{} - Photo liked! ... ({})".format(tag, likeCounter))
+                logging.info(
+                    "#{} - Photo liked! ... ({})".format(tag, likeCounter))
                 if likes >= max_likes:
                     return True
                 sleep(randint(3, 17))
@@ -130,7 +132,8 @@ def like_recent_media(target_user, max_likes):
             result = api.like(recent_post["pk"])
             counterIterationsTotal += 1
             if result == False:
-                logging.critical(f"Api return error 400 for user {target_user}")
+                logging.critical(
+                    f"Api return error 400 for user {target_user}")
                 print(f"Api return error 400 for user {target_user}")
                 return False
             if result == True:
@@ -152,7 +155,8 @@ userID = 0
 
 # When should the script run?
 # 1: monday, 2: tuesday, etc ...
-weekDaysWhenThisShouldRun = [2, 3, 4, 5, 6, 7]
+# weekDaysWhenThisShouldRun = [2, 3, 4, 5, 6, 7]
+weekDaysWhenThisShouldRun = []
 
 if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
@@ -229,7 +233,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                     iterationProUser = randint(3, 7)
                     iterationProHashtag = randint(7, 12)
 
-                    targetUserFollower = fetchFirst(account[3].replace(".", ""))
+                    targetUserFollower = fetchFirst(
+                        account[3].replace(".", ""))
 
                     try:
                         # check if we already maxed up the iteration threshold
@@ -237,7 +242,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                             break
 
                         # Like media from user
-                        result = like_recent_media(targetUserFollower, iterationProUser)
+                        result = like_recent_media(
+                            targetUserFollower, iterationProUser)
                         print("likeCounter: {}".format(likeCounter))
                         resultDataMail[userID]["iterations"] = likeCounter
 
@@ -263,7 +269,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                             break
 
                         # Delete user from list
-                        deleteUser(account[3].replace(".", ""), targetUserFollower)
+                        deleteUser(account[3].replace(
+                            ".", ""), targetUserFollower)
 
                         # Like media from hastags array
                         result = like_tag_feed(
@@ -300,20 +307,24 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
                     except Exception as e:
 
                         errors += 1
-                        print("Error #{} on account {}".format(errors, account[3]))
+                        print("Error #{} on account {}".format(
+                            errors, account[3]))
                         logging.warning(
-                            "Error #{} on account {}".format(errors, account[3])
+                            "Error #{} on account {}".format(
+                                errors, account[3])
                         )
 
                         # Delete user from list
-                        deleteUser(account[3].replace(".", ""), targetUserFollower)
+                        deleteUser(account[3].replace(
+                            ".", ""), targetUserFollower)
 
                         # update info in array for mail
                         resultDataMail[userID]["errors"] = errors
 
             except:
 
-                print(f"Some unhandled error happened for account {userAccount} !")
+                print(
+                    f"Some unhandled error happened for account {userAccount} !")
                 break
 
             # return numbers of errors
@@ -335,7 +346,8 @@ if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
     # Inform that the script ended.
     print(sendMail(0, resultDataMail, counterIterationsTotal, runTime))
     logging.info(
-        "SCRIPT RAN SUCCESSFULLY ({} iterations)".format(counterIterationsTotal)
+        "SCRIPT RAN SUCCESSFULLY ({} iterations)".format(
+            counterIterationsTotal)
     )
 
 else:
