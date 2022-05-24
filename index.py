@@ -163,8 +163,7 @@ for blacklistUser in blacklisted:
 
 # When should the script run?
 # 1: monday, 2: tuesday, etc ...
-# weekDaysWhenThisShouldRun = [2, 3, 4, 5, 6, 7]
-weekDaysWhenThisShouldRun = []
+weekDaysWhenThisShouldRun = [2, 3, 4, 5, 6, 7]
 
 if datetime.date.today().isoweekday() in weekDaysWhenThisShouldRun:
 
