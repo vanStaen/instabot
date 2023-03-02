@@ -8,3 +8,4 @@ postgreSQL/__pycache__
 .env
 helpers/__pycache__
 .vscode
+log/insta_bot.log
