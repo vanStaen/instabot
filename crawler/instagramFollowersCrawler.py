@@ -6,10 +6,10 @@ from decouple import config
 
 L = instaloader.Instaloader()
 
-user = "littlelouisdude"
+user = "paskmakes"
 
 # Login or load session
-L.login("tt.lykke", config("TT.LYKKE_PWD"))
+L.login("clementvanstaen", config("CLEMENTVANSTAEN_PWD"))
 
 # Obtain profile metadata
 profile = instaloader.Profile.from_username(L.context, user)
