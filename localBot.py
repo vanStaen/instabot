@@ -166,14 +166,12 @@ try:
         except Exception as e:
 
             print("E: {}".format(e))
-
-            errors += 1
-            print("Error #{} on account {}".format(
-                errors, accountName))
-            logging.warning(
-                "Error #{} on account {}".format(
-                    errors, accountName)
-            )
+            #if e == 'item':
+                #can't see user psot, no biggi    
+            if e == 'user':
+                break
+            if e == 'Not logged in!':
+                break
 
         # Delete user from list
         with open(userList,'r') as readFile:
