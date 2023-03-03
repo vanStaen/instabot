@@ -97,6 +97,7 @@ def like_recent_media(target_user, max_likes):
             )
             result = api.like(recent_post["pk"])
             counterIterationsTotal += 1
+            
             if result == False:
                 logging.critical(
                     f"Api return error 400 for user {target_user}")
@@ -150,22 +151,21 @@ try:
         file.close()
 
         try:
-            if targetUserFollower is None:
+            # Like media from user
+            result = like_recent_media(
+                targetUserFollower, iterationProUser)
+            print("likeCounter: {}".format(likeCounter))
+
+            if result == False:
+                errors += 1           
+
+            # check if we already maxed up the iteration threshold
+            if likeCounter > maxIterations - 1:
                 break
-            else:
-                # Like media from user
-                result = like_recent_media(
-                    targetUserFollower, iterationProUser)
-                print("likeCounter: {}".format(likeCounter))
-
-                if result == False:
-                    errors += 1           
-
-                # check if we already maxed up the iteration threshold
-                if likeCounter > maxIterations - 1:
-                    break
 
         except Exception as e:
+
+            print("E: {}".format(e))
 
             errors += 1
             print("Error #{} on account {}".format(
@@ -194,24 +194,16 @@ except:
     print(
         f"Some unhandled error happened for account {accountName} !")
 
-    # return numbers of errors
-    if errors >= 1:
-        logging.critical(
-            "{} ERROR on account {}. Account will NOT be dropped.".format(
-                errors, accountName
-            )
-        )
-
     # When the script ended
     endTime = getHourTime()
     runTime = diffTime(startTime, endTime, "%H:%M:%S")
 
-    # Inform that the script ended.
-    logging.info(
-        "SCRIPT RAN SUCCESSFULLY ({} iterations)".format(
-            counterIterationsTotal)
+# Inform that the script ended.
+logging.info(
+    "Script ran with ({} iterations)".format(
+        counterIterationsTotal)
     )
 
 print("------------------------")
-print("SCRIPT RAN SUCCESSFULLY")
+print("SCRIPT ENDED")
 print("------------------------")
