@@ -1,27 +1,34 @@
 # instaBot
-This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts. 
+
+This is a instagram bot written in python. This will go though a list of user or hashtags, and like the posts in order to generate visits on your instagram accounts.
 
 You will find this project online under: https://instabot-cvs.herokuapp.com/
 
 ## Add an account
+
 1. Crawl some user for the new account
 2. Create a table `userlist_#newaccount` with column `username` in the database
 3. Fill the date base with the usernames obtained in 1. To insert value, use the following:
+
 ```
 INSERT INTO public.userlist_#newaccount(username) VALUES ('?');
 ```
+
 4. Add the account password in the .env variables
-. Insert a new row as config for the new account:
+   . Insert a new row as config for the new account:
+
 ```
 INSERT INTO public.config_accounts_insta(
 	active, iterations, tags, username, alive, id)
 	VALUES (?, ?, ?, ?, ?, ?);
 ```
+
 5. Add the account password in the .env variables (local and on the server side)
-   
+
 ## Packages & dependancies
-To install at one all packege listed in the requirements.txt file, run the following: 
-```pip3 install -r requirements.txt```
+
+To install at one all packege listed in the requirements.txt file, run the following:
+`pip3 install -r requirements.txt`
 
 The python specific package manager `pip` is mandatory for the python package . You may need to install `brew` to get `python3`. With brew, go `brew install python3`.</br>
 
@@ -61,16 +68,17 @@ heroku ps:stop <name of the scheduler>
 ## Under the hood
 
 ### Cron Job
-The command `$ python3 index.py` runs 3 times a day, and `python3 weekly.py` running every morning, both using the scheduler addon, from heroku. 
 
-All extra logic (about what dasy of the week the script should run) is included directly in the python sripts. 
+The command `$ python3 index.py` runs 3 times a day, and `python3 weekly.py` running every morning, both using the scheduler addon, from heroku.
+
+All extra logic (about what dasy of the week the script should run) is included directly in the python sripts.
 
 ### How to run the script locally
 
 Open a terminal, place yourself in the folder where to code is and run the script with python using the following command : </br>
 
 ```
-caffeinate python3 index.py
+caffeinate python3 localBot.py
 ```
 
 _Caffeinate_ is used to stop the computer from going to sleep modus. </br>
@@ -102,9 +110,9 @@ The levels of logs:
 - CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
 #### Git, gitignore, and log
+
 to tell git that he should stop trakcing a file: s
 `git update-index --assume-unchanged log/insta_bot.log`
-
 
 Quite complete tutorial about the logging feature of python: https://www.datadoghq.com/blog/python-logging-best-practices/
 

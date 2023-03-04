@@ -166,8 +166,8 @@ try:
         except Exception as e:
 
             print("E: {}".format(e))
-            #if e == 'item':
-                #can't see user psot, no biggi    
+            if e == 'item':
+                break   
             if e == 'user':
                 break
             if e == 'Not logged in!':
