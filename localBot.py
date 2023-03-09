@@ -23,6 +23,7 @@ file_formatter = logging.Formatter(
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
+
 def like_tag_feed(tag, max_likes):
     global likeCounter
     global counterIterationsTotal
@@ -43,8 +44,7 @@ def like_tag_feed(tag, max_likes):
                 # Get a TimeStamp
                 formattedTimeStamp = getDateTime()
                 print(
-                    "[{}] Running ... Liking {}".format(
-                        formattedTimeStamp, post["pk"])
+                    "[{}] Running ... Liking {}".format(formattedTimeStamp, post["pk"])
                 )
                 result = api.like(post["pk"])
                 counterIterationsTotal += 1
@@ -56,8 +56,7 @@ def like_tag_feed(tag, max_likes):
                     fourHundredCounter = 0
                 likes += 1
                 likeCounter += 1
-                logging.info(
-                    "#{} - Photo liked! ... ({})".format(tag, likeCounter))
+                logging.info("#{} - Photo liked! ... ({})".format(tag, likeCounter))
                 if likes >= max_likes:
                     return True
                 sleep(randint(3, 17))
@@ -67,6 +66,7 @@ def like_tag_feed(tag, max_likes):
             pass
         if likes >= max_likes:
             break
+
 
 def like_recent_media(target_user, max_likes):
     global likeCounter
@@ -97,10 +97,9 @@ def like_recent_media(target_user, max_likes):
             )
             result = api.like(recent_post["pk"])
             counterIterationsTotal += 1
-            
+
             if result == False:
-                logging.critical(
-                    f"Api return error 400 for user {target_user}")
+                logging.critical(f"Api return error 400 for user {target_user}")
                 print(f"Api return error 400 for user {target_user}")
                 return False
             if result == True:
@@ -115,6 +114,7 @@ def like_recent_media(target_user, max_likes):
             if likes >= max_likes:
                 return True
             sleep(randint(3, 17))
+
 
 # Data User
 userList = "localBot_users.txt"
@@ -152,12 +152,11 @@ try:
 
         try:
             # Like media from user
-            result = like_recent_media(
-                targetUserFollower, iterationProUser)
+            result = like_recent_media(targetUserFollower, iterationProUser)
             print("likeCounter: {}".format(likeCounter))
 
             if result == False:
-                errors += 1           
+                errors += 1
 
             # check if we already maxed up the iteration threshold
             if likeCounter > maxIterations - 1:
@@ -177,22 +176,27 @@ try:
         except Exception as e:
 
             print("E: {}".format(e))
-            #if e == 'items': 
-                #You can not access this one user, prob set private. So delete him. 
-            if e == 'item': 
-                sys.exit("You probably have been detected, you dumb bot")      
-            if e == 'user':
-                sys.exit("You probably have been detected, you dumb bot")   
-            if e == 'Not logged in!':
-                sys.exit("You could not log in")   
+
+            # if e == 'items':
+            # Not authorized to view user
+            # if e == 'item':
+            #
+            if e == "user":
+                # You've Been Logged Out
+                # TODO: Should exit the script
+                sys.exit()
+                break
+            if e == "Not logged in!":
+                #
+                break
 
         
         # Delete user from list
-        with open(userList,'r') as readFile:
+        with open(userList, "r") as readFile:
             lines = readFile.readlines()
 
         # delete matching content
-        with open(userList, 'w') as writefile:
+        with open(userList, "w") as writefile:
             for line in lines:
                 # readlines() includes a newline character
                 if line.strip("\n") != targetUserFollower:
@@ -206,10 +210,7 @@ except:
     print(f"Some error happened for account {accountName} !")
 
 # Inform that the script ended.
-logging.info(
-    "Script ran with ({} iterations)".format(
-        counterIterationsTotal)
-    )
+logging.info("Script ran with ({} iterations)".format(counterIterationsTotal))
 
 print("------------------------")
 print("SCRIPT ENDED")
