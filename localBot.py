@@ -7,7 +7,7 @@ from helpers.getDateTime import getHourTime
 from helpers.getDateTime import diffTime
 import datetime as datetime
 import logging
-import os
+import sys
 
 
 # When the script started
@@ -163,16 +163,30 @@ try:
             if likeCounter > maxIterations - 1:
                 break
 
+            # Delete user from list
+            with open(userList,'r') as readFile:
+                lines = readFile.readlines()
+
+            # delete matching content
+            with open(userList, 'w') as writefile:
+                for line in lines:
+                    # readlines() includes a newline character
+                    if line.strip("\n") != targetUserFollower:
+                        writefile.write(line)
+
         except Exception as e:
 
             print("E: {}".format(e))
-            if e == 'item':
-                break   
+            #if e == 'items': 
+                #You can not access this one user, prob set private. So delete him. 
+            if e == 'item': 
+                sys.exit("You probably have been detected, you dumb bot")      
             if e == 'user':
-                break
+                sys.exit("You probably have been detected, you dumb bot")   
             if e == 'Not logged in!':
-                break
+                sys.exit("You could not log in")   
 
+        
         # Delete user from list
         with open(userList,'r') as readFile:
             lines = readFile.readlines()
@@ -185,16 +199,11 @@ try:
                     writefile.write(line)
 
         # Wait for few secondes
-        sleep(30)
+        sleep(randint(5, 45))
 
 except:
 
-    print(
-        f"Some unhandled error happened for account {accountName} !")
-
-    # When the script ended
-    endTime = getHourTime()
-    runTime = diffTime(startTime, endTime, "%H:%M:%S")
+    print(f"Some error happened for account {accountName} !")
 
 # Inform that the script ended.
 logging.info(
