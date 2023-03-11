@@ -67,7 +67,6 @@ def like_tag_feed(tag, max_likes):
         if likes >= max_likes:
             break
 
-
 def like_recent_media(target_user, max_likes):
     global likeCounter
     global counterIterationsTotal
@@ -121,7 +120,7 @@ userList = "localBot_users.txt"
 accountName = "vinticiousberlin"
 accountPassword = config("VINTICIOUSBERLIN_PWD")
 counterIterationsTotal = 0
-maxIterations = 300
+maxIterations = 30
 likeCounter = 0
 errors = 0
 
@@ -175,23 +174,26 @@ try:
 
         except Exception as e:
 
-            print("E: {}".format(e))
+            #print("E: {}".format(e))
+            e2 = str(e).replace("'", "" )
 
-            if e is "'items'":
+            if str(e2) == 'items':
                 # Not authorized to view user
                 print("Not authorized to view user")
-            else :
-                print("something else")
-                print(e)
-                #sys.exit()
-
-            # if e == 'item':
+            if e == 'item':
                 # 
-            # if e == "user":
+                sys.exit()
+            if e == 'user':
                 # You've Been Logged Out
-            # if e == "Not logged in!":
+                print("You've Been Logged Out")
+                sys.exit()
+            if e == 'Not logged in!':
                 # You are obvioulsy not log in
-
+                print("You are Not logged in!")
+                sys.exit()
+            else :
+                print('Something else weird happened!')
+                sys.exit()
         
         # Delete user from list
         with open(userList, "r") as readFile:
