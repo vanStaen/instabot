@@ -176,18 +176,16 @@ try:
         except Exception as e:
 
             print("E: {}".format(e))
+            sys.exit()
 
             # if e == 'items':
-            # Not authorized to view user
+                # Not authorized to view user
             # if e == 'item':
-            #
-            if e == "user":
+                # 
+            # if e == "user":
                 # You've Been Logged Out
-                # TODO: Should exit the script
-                sys.exit()
-            if e == "Not logged in!":
-                #
-                break
+            # if e == "Not logged in!":
+                # You are obvioulsy not log in
 
         
         # Delete user from list
@@ -202,7 +200,6 @@ try:
                     writefile.write(line)
 
         # Wait for few secondes
-        print("(small break)")
         sleep(randint(5, 45))
 
 except:
