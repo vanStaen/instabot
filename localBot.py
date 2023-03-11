@@ -176,10 +176,15 @@ try:
         except Exception as e:
 
             print("E: {}".format(e))
-            sys.exit()
 
-            # if e == 'items':
+            if e is "'items'":
                 # Not authorized to view user
+                print("Not authorized to view user")
+            else :
+                print("something else")
+                print(e)
+                #sys.exit()
+
             # if e == 'item':
                 # 
             # if e == "user":
