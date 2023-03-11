@@ -185,7 +185,6 @@ try:
                 # You've Been Logged Out
                 # TODO: Should exit the script
                 sys.exit()
-                break
             if e == "Not logged in!":
                 #
                 break
@@ -203,6 +202,7 @@ try:
                     writefile.write(line)
 
         # Wait for few secondes
+        print("(small break)")
         sleep(randint(5, 45))
 
 except:
