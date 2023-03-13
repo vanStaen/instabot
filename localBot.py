@@ -180,11 +180,20 @@ try:
             if str(e2) == 'items':
                 # Not authorized to view user
                 print("Not authorized to view user")
+                # Delete user from list
+                with open(userList, "r") as readFile:
+                    lines = readFile.readlines()
+                with open(userList, "w") as writefile:
+                for line in lines:
+                    # readlines() includes a newline character
+                    if line.strip("\n") != targetUserFollower:
+                        writefile.write(line)
+                break
             if e == 'item':
                 # 
                 sys.exit()
             if e == 'user':
-                # You've Been Logged Out
+                # You've Been Logged Out 
                 print("You've Been Logged Out")
                 sys.exit()
             if e == 'Not logged in!':
@@ -198,8 +207,6 @@ try:
         # Delete user from list
         with open(userList, "r") as readFile:
             lines = readFile.readlines()
-
-        # delete matching content
         with open(userList, "w") as writefile:
             for line in lines:
                 # readlines() includes a newline character
